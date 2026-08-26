@@ -1,0 +1,631 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+enum UserRole {
+  CUSTOMER
+  ADMIN
+  STAFF
+}
+
+enum ReviewStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum OrderStatus {
+  PENDING
+  PAID
+  PROCESSING
+  SHIPPED
+  DELIVERED
+  CANCELLED
+  REFUNDED
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  FAILED
+  REFUNDED
+}
+
+enum PaymentMethod {
+  CARD
+  CASH_ON_DELIVERY
+  BANK_TRANSFER
+  MARKETPLACE
+}
+
+enum StockMovementType {
+  IN
+  OUT
+  ADJUSTMENT
+  RETURN
+}
+
+/// Stok hareketi ve rapor kanalı: web checkout ONLINE, mağaza POS RETAIL, pazaryeri (Trendyol vb.) MARKETPLACE.
+enum SalesChannel {
+  ONLINE
+  RETAIL
+  MARKETPLACE
+}
+
+enum StoreSaleStatus {
+  COMPLETED
+  VOIDED
+}
+
+/// Mağaza kasasında ödeme tipi (Order.PaymentMethod’dan ayrı).
+enum StorePaymentMethod {
+  CASH
+  CARD
+  POS_CARD
+}
+
+enum HomeSectionType {
+  CATEGORY
+  PRODUCT_LIST
+}
+
+model User {
+  id             Int       @id @default(autoincrement())
+  name           String
+  email          String    @unique
+  passwordHash   String
+  phone          String?
+  role           UserRole  @default(CUSTOMER)
+  isActive       Boolean   @default(true)
+  emailVerified  Boolean   @default(false)
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  addresses      Address[]
+  orders         Order[]
+  cart           Cart?
+  favorites           Favorite[]
+  reviews             Review[]
+  passwordResetTokens PasswordResetToken[]
+  adminActivities     AdminActivity[]
+  storeSalesCreated   StoreSale[] @relation("StoreSaleCreatedBy")
+  storeSalesVoided    StoreSale[] @relation("StoreSaleVoidedBy")
+}
+
+/// Yönetim paneli işlem günlüğü (append-only).
+model AdminActivity {
+  id           Int      @id @default(autoincrement())
+  createdAt    DateTime @default(now())
+  actorUserId  Int?
+  actorEmail   String   @db.VarChar(255)
+  action       String   @db.VarChar(80)
+  resourceType String?  @db.VarChar(80)
+  resourceId   String?  @db.VarChar(255)
+  metadata     Json?
+  ip           String?  @db.VarChar(45)
+  actor        User?    @relation(fields: [actorUserId], references: [id], onDelete: SetNull)
+
+  @@index([createdAt])
+  @@index([action])
+  @@index([actorUserId])
+}
+
+/// Şifre sıfırlama: URL’deki ham token DB’de SHA-256 ile saklanır.
+model PasswordResetToken {
+  id        Int       @id @default(autoincrement())
+  userId    Int
+  tokenHash String    @db.VarChar(64)
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([tokenHash])
+}
+
+model Address {
+  id           Int      @id @default(autoincrement())
+  userId       Int
+  title        String
+  fullName     String
+  phone        String
+  line1        String
+  line2        String?
+  district     String
+  city         String
+  postalCode   String
+  country      String    @default("TR")
+  isDefault    Boolean   @default(false)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  billingFor   Order[]   @relation("BillingAddress")
+  shippingFor  Order[]   @relation("ShippingAddress")
+
+  @@index([userId])
+}
+
+model Category {
+  id          Int        @id @default(autoincrement())
+  name        String
+  slug        String     @unique
+  description String?
+  imageUrl    String?    @db.VarChar(500)
+  parentId    Int?
+  showOnHome  Boolean    @default(false)
+  sortOrder   Int        @default(0)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  parent      Category?  @relation("CategoryTree", fields: [parentId], references: [id], onDelete: SetNull)
+  children    Category[] @relation("CategoryTree")
+  products    Product[] @relation("MainCategory")
+  homeSections HomeProductSection[]
+  subProducts Product[] @relation("SubCategory")
+  productLinks ProductCategory[]
+
+  @@index([parentId])
+}
+
+model Product {
+  id                Int              @id @default(autoincrement())
+  /// WooCommerce ürün kimliği; import scripti tekrar çalıştırmada eşleştirme için.
+  wooProductId      Int?             @unique
+  name              String
+  slug              String           @unique
+  description       String?
+  shortDescription  String?
+  categoryId        Int?
+  subCategoryId     Int?
+  basePrice         Decimal          @db.Decimal(10, 2)
+  compareAtPrice    Decimal?         @db.Decimal(10, 2)
+  sku               String?          @unique
+  barcode           String?          @unique
+  /// Trendyol'da bu ürünün GERÇEKTE kayıtlı olduğu productMainId (ör. eski Excel toplu
+  /// yüklemesinden "Lm-2888" gibi) — bizim ürettiğimiz varsayılan değerle (sku ya da "URUN-{id}")
+  /// eşleşmeyebilir; eşleşmezse "zaten mevcut" hatası alınır. Öyle bir hata görüldüğünde
+  /// checkPendingBatches barkoddan gerçek değeri sorgulayıp buraya kalıcı olarak yazar.
+  trendyolProductMainId String?       @unique
+  isActive          Boolean          @default(true)
+  isFeatured        Boolean          @default(false)
+  taxRate           Int              @default(20)
+  isTaxIncluded     Boolean          @default(true)
+  metaTitle         String?
+  metaDescription   String?          @db.VarChar(500)
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+  category          Category?        @relation("MainCategory", fields: [categoryId], references: [id], onDelete: SetNull)
+  subCategory       Category?        @relation("SubCategory", fields: [subCategoryId], references: [id], onDelete: SetNull)
+  images            ProductImage[]
+  variants          ProductVariant[]
+  orderItems        OrderItem[]
+  stockMovements    StockMovement[]
+  cartItems         CartItem[]
+  categories        ProductCategory[]
+
+  @@index([categoryId])
+  @@index([isActive, createdAt])
+  favorites         Favorite[]
+  reviews           Review[]
+}
+
+model ProductCategory {
+  id         Int      @id @default(autoincrement())
+  productId  Int
+  categoryId Int
+  createdAt  DateTime @default(now())
+
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@unique([productId, categoryId])
+  @@index([productId])
+  @@index([categoryId])
+}
+
+model ProductImage {
+  id         Int      @id @default(autoincrement())
+  productId  Int
+  url        String     @db.VarChar(500)
+  alt        String?
+  sortOrder  Int      @default(0)
+  isCover    Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@index([productId, sortOrder])
+}
+
+model ProductVariant {
+  id                Int             @id @default(autoincrement())
+  productId         Int
+  name              String
+  sku               String          @unique
+  /// Trendyol'a bildirilen kalıcı EAN-13 kodu (ilk kullanımda üretilip burada sabitlenir —
+  /// varyant ID değişse bile Trendyol eşleştirmesi bu alan üzerinden yapılır).
+  barcode           String?         @unique
+  /// Trendyol ürün oluşturma/güncelleme API'sine en az bir kez başarıyla gönderildiği an —
+  /// null ise otomatik "yeni ürün" taraması bunu Trendyol'a hiç göndermemiş sayar.
+  trendyolListedAt  DateTime?
+  price             Decimal         @db.Decimal(10, 2)
+  compareAtPrice    Decimal?        @db.Decimal(10, 2)
+  stock             Int             @default(0)
+  attributesJson    String?
+  isActive          Boolean         @default(true)
+  lowStockThreshold Int             @default(5)
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+  product           Product         @relation(fields: [productId], references: [id], onDelete: Cascade)
+  orderItems        OrderItem[]
+  stockMovements    StockMovement[]
+  cartItems         CartItem[]
+
+  @@index([productId, isActive])
+}
+
+/// Üye sepeti: `userId` dolu. Misafir sepeti: `guestToken` dolu (httpOnly çerez).
+model Cart {
+  id         Int        @id @default(autoincrement())
+  userId     Int?       @unique
+  guestToken String?    @unique @db.VarChar(64)
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+  user       User?      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  items      CartItem[]
+}
+
+model CartItem {
+  id         Int             @id @default(autoincrement())
+  cartId     Int
+  productId  Int
+  variantId  Int?
+  quantity   Int             @default(1)
+  createdAt  DateTime        @default(now())
+  updatedAt  DateTime        @updatedAt
+  cart       Cart            @relation(fields: [cartId], references: [id], onDelete: Cascade)
+  product    Product         @relation(fields: [productId], references: [id], onDelete: Restrict)
+  variant    ProductVariant? @relation(fields: [variantId], references: [id], onDelete: SetNull)
+
+  @@unique([cartId, productId, variantId])
+  @@index([cartId])
+}
+
+/// Misafir siparişte `userId` null; teslimat/fatura metni sipariş anında snapshot olarak saklanır.
+model Order {
+  id                    Int            @id @default(autoincrement())
+  userId                Int?
+  orderNo               String         @unique
+  status                OrderStatus    @default(PENDING)
+  paymentStatus         PaymentStatus  @default(PENDING)
+  subtotal              Decimal        @db.Decimal(10, 2)
+  shippingCost          Decimal        @default(0) @db.Decimal(10, 2)
+  discountTotal         Decimal        @default(0) @db.Decimal(10, 2)
+  grandTotal            Decimal        @db.Decimal(10, 2)
+  profit                Decimal?       @db.Decimal(10, 2)
+  note                  String?
+  guestEmail            String?        @db.VarChar(255)
+  guestPhone            String?        @db.VarChar(40)
+  shippingFullName      String         @db.VarChar(200)
+  shippingPhone         String         @db.VarChar(40)
+  shippingLine1         String         @db.VarChar(255)
+  shippingLine2         String?        @db.VarChar(255)
+  shippingDistrict      String         @db.VarChar(120)
+  shippingCity          String         @db.VarChar(120)
+  shippingPostalCode    String         @db.VarChar(20)
+  shippingCountry       String         @default("TR") @db.VarChar(2)
+  billingSameAsShipping Boolean        @default(true)
+  billingFullName       String?        @db.VarChar(200)
+  billingPhone          String?        @db.VarChar(40)
+  billingLine1          String?        @db.VarChar(255)
+  billingLine2          String?        @db.VarChar(255)
+  billingDistrict       String?        @db.VarChar(120)
+  billingCity           String?        @db.VarChar(120)
+  billingPostalCode     String?        @db.VarChar(20)
+  billingCountry        String?        @db.VarChar(2)
+  billingAddressId      Int?
+  shippingAddressId     Int?
+  createdAt             DateTime       @default(now())
+  updatedAt             DateTime       @updatedAt
+  user                  User?          @relation(fields: [userId], references: [id], onDelete: Restrict)
+  billingAddress        Address?       @relation("BillingAddress", fields: [billingAddressId], references: [id], onDelete: SetNull)
+  shippingAddress       Address?       @relation("ShippingAddress", fields: [shippingAddressId], references: [id], onDelete: SetNull)
+  items                 OrderItem[]
+  payments              Payment[]
+  shipment              Shipment?
+
+  @@index([userId, createdAt])
+  @@index([status, paymentStatus])
+}
+
+model OrderItem {
+  id          Int             @id @default(autoincrement())
+  orderId     Int
+  productId   Int
+  variantId   Int?
+  name        String
+  sku         String?
+  unitPrice   Decimal         @db.Decimal(10, 2)
+  quantity    Int
+  lineTotal   Decimal         @db.Decimal(10, 2)
+  createdAt   DateTime        @default(now())
+  order       Order           @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product     Product         @relation(fields: [productId], references: [id], onDelete: Restrict)
+  variant     ProductVariant? @relation(fields: [variantId], references: [id], onDelete: SetNull)
+
+  @@index([orderId])
+  @@index([productId])
+}
+
+model Payment {
+  id                  Int            @id @default(autoincrement())
+  orderId             Int
+  method              PaymentMethod
+  status              PaymentStatus  @default(PENDING)
+  amount              Decimal        @db.Decimal(10, 2)
+  provider            String?
+  providerPaymentId   String?
+  paidAt              DateTime?
+  createdAt           DateTime       @default(now())
+  order               Order          @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  @@index([orderId, status])
+}
+
+model Shipment {
+  id               Int      @id @default(autoincrement())
+  orderId          Int      @unique
+  cargoCompany     String?
+  trackingNo       String?  @unique
+  shippedAt        DateTime?
+  deliveredAt      DateTime?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  order            Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+}
+
+model StockMovement {
+  id            Int               @id @default(autoincrement())
+  productId     Int
+  variantId     Int?
+  type          StockMovementType
+  quantity      Int
+  source        String
+  note          String?
+  salesChannel  SalesChannel?
+  storeSaleId   Int?
+  createdAt     DateTime          @default(now())
+  product       Product           @relation(fields: [productId], references: [id], onDelete: Restrict)
+  variant       ProductVariant?   @relation(fields: [variantId], references: [id], onDelete: SetNull)
+  storeSale     StoreSale?        @relation(fields: [storeSaleId], references: [id], onDelete: SetNull)
+
+  @@index([productId, createdAt])
+  @@index([variantId, createdAt])
+  @@index([storeSaleId])
+  @@index([salesChannel, createdAt])
+}
+
+/// Mağaza POS fişi (web Order’dan ayrı; aynı ProductVariant stokunu kullanır).
+model StoreSale {
+  id               Int                @id @default(autoincrement())
+  saleNo           String             @unique @db.VarChar(32)
+  status           StoreSaleStatus    @default(COMPLETED)
+  subtotal         Decimal            @db.Decimal(10, 2)
+  discountTotal    Decimal            @default(0) @db.Decimal(10, 2)
+  grandTotal       Decimal            @db.Decimal(10, 2)
+  paymentMethod    StorePaymentMethod
+  note             String?            @db.VarChar(500)
+  customerPhone    String?            @db.VarChar(40)
+  createdByUserId  Int
+  voidedAt         DateTime?
+  voidedByUserId   Int?
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+  createdBy        User               @relation("StoreSaleCreatedBy", fields: [createdByUserId], references: [id], onDelete: Restrict)
+  voidedBy         User?              @relation("StoreSaleVoidedBy", fields: [voidedByUserId], references: [id], onDelete: SetNull)
+  lines            StoreSaleLine[]
+  stockMovements   StockMovement[]
+
+  @@index([createdAt])
+  @@index([status, createdAt])
+  @@index([createdByUserId])
+}
+
+model StoreSaleLine {
+  id             Int       @id @default(autoincrement())
+  storeSaleId    Int
+  productId      Int
+  variantId      Int?
+  name           String    @db.VarChar(400)
+  sku            String?   @db.VarChar(120)
+  quantity       Int
+  unitPrice      Decimal   @db.Decimal(10, 2)
+  lineDiscount   Decimal   @default(0) @db.Decimal(10, 2)
+  lineTotal      Decimal   @db.Decimal(10, 2)
+  createdAt      DateTime  @default(now())
+  storeSale      StoreSale @relation(fields: [storeSaleId], references: [id], onDelete: Cascade)
+
+  @@index([storeSaleId])
+  @@index([productId])
+  @@index([variantId])
+}
+
+/// Panelden yönetilen SSS; anasayfada `showOnHome` ile filtrelenir.
+model Faq {
+  id          Int      @id @default(autoincrement())
+  category    String?  @db.VarChar(120)
+  question    String   @db.VarChar(500)
+  answer      String   @db.Text
+  sortOrder   Int      @default(0)
+  isActive    Boolean  @default(true)
+  showOnHome  Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([isActive, showOnHome, sortOrder])
+  @@index([category])
+}
+model Favorite {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  productId Int
+  createdAt DateTime @default(now())
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, productId])
+  @@index([userId])
+  @@index([productId])
+}
+
+model Coupon {
+  id              Int       @id @default(autoincrement())
+  code            String    @unique
+  description     String?
+  type            CouponType
+  value           Decimal   @db.Decimal(10, 2)
+  minPurchase     Decimal?  @db.Decimal(10, 2)
+  maxDiscount     Decimal?  @db.Decimal(10, 2)
+  startDate       DateTime?
+  endDate         DateTime?
+  usageLimit      Int?
+  usageCount      Int       @default(0)
+  isActive        Boolean   @default(true)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  @@index([code, isActive])
+}
+
+enum CouponType {
+  PERCENTAGE
+  FIXED
+}
+
+model Review {
+  id        Int          @id @default(autoincrement())
+  productId Int
+  userId    Int
+  rating    Int          @default(5)
+  comment   String       @db.Text
+  status    ReviewStatus @default(PENDING)
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+
+  product   Product      @relation(fields: [productId], references: [id], onDelete: Cascade)
+  user      User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([productId, status])
+  @@index([userId])
+}
+
+model Slider {
+  id          Int      @id @default(autoincrement())
+  title       String?
+  subtitle    String?
+  buttonText  String?   @default("İncele")
+  imageUrl    String    @db.VarChar(500)
+  linkUrl     String?   @db.VarChar(500)
+  sortOrder   Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([isActive, sortOrder])
+}
+
+model Banner {
+  id          Int      @id @default(autoincrement())
+  title       String?
+  imageUrl    String    @db.VarChar(500)
+  linkUrl     String?   @db.VarChar(500)
+  position    String   // top-row, middle-row, bottom-row vb.
+  sortOrder   Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([isActive, position, sortOrder])
+}
+
+/// Mağaza üst şerit menüsü (HomeHeader); admin /admin/menus üzerinden yönetilir.
+model HeaderNavItem {
+  id               Int      @id @default(autoincrement())
+  label            String
+  href             String
+  labelUppercase   Boolean  @default(true)
+  sortOrder        Int      @default(0)
+  isActive         Boolean  @default(true)
+  openInNewTab     Boolean  @default(false)
+  childrenJson     String?  @db.Text
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@index([isActive, sortOrder])
+}
+
+model Setting {
+  id    Int    @id @default(autoincrement())
+  key   String @unique
+  value String @db.Text
+  type  String @default("string")
+  
+  @@index([key])
+}
+
+model HomeProductSection {
+  id           Int             @id @default(autoincrement())
+  title        String
+  subtitle     String?
+  type         HomeSectionType @default(CATEGORY)
+  categoryId   Int?
+  productsJson String?         @db.Text // specific product IDs if type is PRODUCT_LIST (e.g. "[1, 2, 3]")
+  sortOrder    Int             @default(0)
+  isActive     Boolean         @default(true)
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+  
+  category     Category?       @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+
+  @@index([isActive, sortOrder])
+}
+
+/// Trendyol'dan çekilen siparişlerin stok düşümü için idempotency/audit kaydı —
+/// aynı sipariş iki kez işlenmesin, iptal olursa stok geri yüklenebilsin diye tutulur.
+model TrendyolOrderSync {
+  id                Int      @id @default(autoincrement())
+  orderNumber       String   @unique
+  shipmentPackageId String
+  lastStatus        String
+  stockDecremented  Boolean  @default(false)
+  processedAt       DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@index([lastStatus])
+}
+
+/// Trendyol'a gönderilen stok/fiyat güncellemelerinin (price-and-inventory) sonucunu takip eder.
+/// Trendyol bu isteği asenkron işlediği için push anında başarılı/başarısız bilmiyoruz —
+/// birkaç dakika sonra bu tabloya bakıp gerçekten işlenip işlenmediğini ve hatalarını kontrol ediyoruz.
+model TrendyolBatchCheck {
+  id              Int       @id @default(autoincrement())
+  batchRequestId  String    @unique
+  /// "STOCK" (stok/fiyat güncelleme) | "PRODUCT" (ürün oluşturma/güncelleme)
+  kind            String    @default("STOCK")
+  createdAt       DateTime  @default(now())
+  checkedAt       DateTime?
+  itemCount       Int?
+  failedItemCount Int?
+  /// Sadece başarısız kalemler: [{ barcode, reasons }]. MediumText: 1000 kalemlik büyük
+  /// partilerde TEXT'in 65.535 baytlık sınırını aşabiliyordu (bkz. checkPendingBatches).
+  failures        String?   @db.MediumText
+  /// Bu gönderime dahil olan tüm kalemler: [{ barcode, variantId }] — admin panelinde
+  /// "bu gönderimde hangi ürünler vardı" diye gösterebilmek için.
+  items           String?   @db.MediumText
+
+  @@index([checkedAt])
+}

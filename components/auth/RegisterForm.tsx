@@ -126,7 +126,7 @@ export default function RegisterForm({ postAuthRedirect = "/cart" }: RegisterFor
         {/* PROGRESS */}
         <div className="h-1 w-full bg-zinc-200">
           <div
-            className="h-full bg-[#6f8f73] transition-all"
+            className="h-full bg-[#ad516b] transition-all"
             style={{ width: `${((step + 1) / steps.length) * 100}%` }}
           />
         </div>
@@ -236,7 +236,7 @@ export default function RegisterForm({ postAuthRedirect = "/cart" }: RegisterFor
           type="button"
           onClick={next}
           disabled={!isStepValid() || loading}
-          className="bg-[#6f8f73] text-white px-5 h-10 text-sm disabled:opacity-40"
+          className="bg-[#ad516b] text-white px-5 h-10 text-sm disabled:opacity-40"
         >
           {loading ? "..." : step === steps.length - 1 ? "Tamamla" : "Devam"}
         </button>
@@ -262,7 +262,7 @@ function Input({ label, value, onChange, type = "text" }: InputProps) {
         type={type}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="h-11 w-full border border-zinc-300 px-3 text-sm outline-none focus:border-[#6f8f73] bg-white"
+        className="h-11 w-full border border-zinc-300 px-3 text-sm outline-none focus:border-[#ad516b] bg-white"
       />
     </div>
   )

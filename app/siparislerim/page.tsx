@@ -4,7 +4,7 @@ import { OrdersListClient } from "@/components/siparislerim/OrdersListClient"
 import { HomeFooter } from "@/components/home/HomeFooter"
 import { HomeHeader } from "@/components/home/HomeHeader"
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.littlemomstore.com"
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.seymacollection.com"
 
 export const metadata: Metadata = {
   title: "Siparişlerim",
@@ -20,7 +20,7 @@ export default function SiparislerimPage() {
       <main className="mx-auto w-full max-w-screen-2xl flex-1">
         <HomeHeader />
         <div className="mb-6 flex flex-wrap items-center gap-2 text-sm text-zinc-500">
-          <Link href="/" className="transition hover:text-[#6f8f73]">
+          <Link href="/" className="transition hover:text-[#ad516b]">
             Anasayfa
           </Link>
           <span aria-hidden>›</span>

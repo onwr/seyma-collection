@@ -92,7 +92,7 @@ function CategoryCard({
       <div className="overflow-hidden rounded-2xl border border-zinc-100 bg-white shadow-sm transition-all hover:shadow-md ring-1 ring-zinc-100">
          <div className="flex items-center justify-between p-5">
             <div className="flex items-center gap-4">
-               <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-[#4f6f52]/5 text-[#4f6f52] shadow-sm ring-1 ring-[#4f6f52]/10">
+               <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-[#813d50]/5 text-[#813d50] shadow-sm ring-1 ring-[#813d50]/10">
                   {category.imageUrl ? (
                      <img src={category.imageUrl} alt={category.name} className="h-full w-full object-cover" />
                   ) : (
@@ -120,7 +120,7 @@ function CategoryCard({
                   <button
                      onClick={() => setIsExpanded(!isExpanded)}
                      className={`flex h-9 w-9 items-center justify-center rounded-lg border border-zinc-100 text-zinc-400 transition-all hover:bg-zinc-50
-                      ${isExpanded ? "rotate-180 text-[#4f6f52]" : ""}`}
+                      ${isExpanded ? "rotate-180 text-[#813d50]" : ""}`}
                   >
                      <FaChevronDown className="h-3 w-3" />
                   </button>
@@ -128,7 +128,7 @@ function CategoryCard({
                <button
                   onClick={() => onAddSub(category.id)}
                   title="Alt Kategori Ekle"
-                  className="flex h-9 items-center gap-2 rounded-lg bg-zinc-50 px-3 text-[11px] font-bold text-zinc-500 transition-all hover:bg-[#4f6f52] hover:text-white"
+                  className="flex h-9 items-center gap-2 rounded-lg bg-zinc-50 px-3 text-[11px] font-bold text-zinc-500 transition-all hover:bg-[#813d50] hover:text-white"
                >
                   <FaPlus className="h-2.5 w-2.5" />ALT KATEGORİ EKLE
                </button>
@@ -159,10 +159,10 @@ function CategoryCard({
                      {children.map(sub => (
                         <div
                            key={sub.id}
-                           className="flex items-center justify-between rounded-xl border border-transparent bg-white p-3 shadow-sm ring-1 ring-zinc-200/50 transition-all hover:border-[#4f6f52]/20"
+                           className="flex items-center justify-between rounded-xl border border-transparent bg-white p-3 shadow-sm ring-1 ring-zinc-200/50 transition-all hover:border-[#813d50]/20"
                         >
                            <div className="flex items-center gap-3 pl-2">
-                              <FaChevronRight className="h-2 w-2 text-[#4f6f52]" />
+                              <FaChevronRight className="h-2 w-2 text-[#813d50]" />
                               <span className="text-[13px] font-bold text-zinc-700">{sub.name}</span>
                               <span className="text-[10px] font-mono text-zinc-400">/{sub.slug}</span>
                            </div>
@@ -365,7 +365,7 @@ export default function CategoriesPage() {
          <nav className="mb-8 flex items-center gap-2 text-[11.5px] font-medium text-zinc-400">
             <Link href="/admin" className="hover:text-zinc-600 transition-colors">Dashboard</Link>
             <FaArrowRight className="h-2 w-2 opacity-50" />
-            <span className="text-[#4f6f52] font-bold">Kategori Yönetimi</span>
+            <span className="text-[#813d50] font-bold">Kategori Yönetimi</span>
          </nav>
 
          {/* ── HEADER ─────────────────────────────────────────────────────── */}
@@ -382,12 +382,12 @@ export default function CategoriesPage() {
                      value={search}
                      onChange={e => setSearch(e.target.value)}
                      placeholder="Kategori ara..."
-                     className="h-11 w-64 rounded-xl border border-zinc-200 bg-white pl-9 pr-4 text-[13px] outline-none transition-all focus:border-[#4f6f52] focus:ring-4 focus:ring-[#4f6f52]/5"
+                     className="h-11 w-64 rounded-xl border border-zinc-200 bg-white pl-9 pr-4 text-[13px] outline-none transition-all focus:border-[#813d50] focus:ring-4 focus:ring-[#813d50]/5"
                   />
                </div>
                <button
                   onClick={() => handleOpenModal()}
-                  className="flex items-center gap-3 rounded-xl bg-[#4f6f52] px-6 py-3 text-[14px] font-black text-white shadow-xl shadow-[#4f6f52]/20 transition-all hover:bg-[#3d5a3f] hover:translate-y-[-2px] active:translate-y-0"
+                  className="flex items-center gap-3 rounded-xl bg-[#813d50] px-6 py-3 text-[14px] font-black text-white shadow-xl shadow-[#813d50]/20 transition-all hover:bg-[#673040] hover:translate-y-[-2px] active:translate-y-0"
                >
                   <FaPlus className="h-3 w-3" /> Yeni Kategori
                </button>
@@ -397,7 +397,7 @@ export default function CategoriesPage() {
          {/* ── LİSTE ──────────────────────────────────────────────────────── */}
          {loading ? (
             <div className="flex h-[40vh] flex-col items-center justify-center gap-4">
-               <div className="h-10 w-10 animate-spin rounded-full border-4 border-zinc-100 border-t-[#4f6f52]" />
+               <div className="h-10 w-10 animate-spin rounded-full border-4 border-zinc-100 border-t-[#813d50]" />
                <p className="text-[13px] font-medium text-zinc-400">Kategoriler taranıyor...</p>
             </div>
          ) : rootCategories.length === 0 ? (
@@ -407,7 +407,7 @@ export default function CategoriesPage() {
                </div>
                <h3 className="text-[17px] font-black text-zinc-900">Henüz kategori bulunmuyor</h3>
                <p className="mt-2 max-w-[300px] text-[13px] text-zinc-400">Ürünlerinizi doğru gruplandırmak için ilk ana kategorinizi oluşturun.</p>
-               <button onClick={() => handleOpenModal()} className="mt-8 rounded-xl bg-[#4f6f52] px-8 py-3 text-[13px] font-black text-white transition-all hover:scale-105">
+               <button onClick={() => handleOpenModal()} className="mt-8 rounded-xl bg-[#813d50] px-8 py-3 text-[13px] font-black text-white transition-all hover:scale-105">
                   İLK KATEGORİYİ EKLE
                </button>
             </div>
@@ -448,7 +448,7 @@ export default function CategoriesPage() {
                      value={form.name}
                      onChange={e => handleNameChange(e.target.value)}
                      placeholder="Örn: Yeni Doğan Bebek"
-                     className="h-12 w-full rounded-xl border border-zinc-200 bg-zinc-50/50 px-4 text-[14px] outline-none focus:border-[#4f6f52] focus:bg-white"
+                     className="h-12 w-full rounded-xl border border-zinc-200 bg-zinc-50/50 px-4 text-[14px] outline-none focus:border-[#813d50] focus:bg-white"
                   />
                </div>
 
@@ -464,7 +464,7 @@ export default function CategoriesPage() {
                         type="text"
                         value={form.slug}
                         onChange={e => setForm({ ...form, slug: toSlug(e.target.value) })}
-                        className="h-12 w-full rounded-xl border border-zinc-200 bg-zinc-50/50 pl-11 pr-4 text-[13px] font-mono text-zinc-500 outline-none focus:border-[#4f6f52] focus:bg-white"
+                        className="h-12 w-full rounded-xl border border-zinc-200 bg-zinc-50/50 pl-11 pr-4 text-[13px] font-mono text-zinc-500 outline-none focus:border-[#813d50] focus:bg-white"
                      />
                   </div>
                </div>
@@ -474,7 +474,7 @@ export default function CategoriesPage() {
                   <select
                      value={form.parentId}
                      onChange={e => setForm({ ...form, parentId: e.target.value })}
-                     className="h-12 w-full rounded-xl border border-zinc-200 bg-zinc-50/50 px-4 text-[14px] outline-none focus:border-[#4f6f52] focus:bg-white appearance-none cursor-pointer"
+                     className="h-12 w-full rounded-xl border border-zinc-200 bg-zinc-50/50 px-4 text-[14px] outline-none focus:border-[#813d50] focus:bg-white appearance-none cursor-pointer"
                   >
                      <option value="">Ana Kategori Olarak Kalsın</option>
                      {categories
@@ -491,7 +491,7 @@ export default function CategoriesPage() {
                      <button
                         type="button"
                         onClick={() => fileInputRef.current?.click()}
-                        className="text-[11px] font-black text-[#4f6f52] uppercase hover:underline"
+                        className="text-[11px] font-black text-[#813d50] uppercase hover:underline"
                      >
                         DOSYA YÜKLE
                      </button>
@@ -511,7 +511,7 @@ export default function CategoriesPage() {
                            value={form.imageUrl}
                            onChange={e => setForm({ ...form, imageUrl: e.target.value })}
                            placeholder="Veya görsel URL'si yapıştırın..."
-                           className="h-12 w-full rounded-xl border border-zinc-200 bg-zinc-50/50 pl-11 pr-4 text-[13px] outline-none focus:border-[#4f6f52] focus:bg-white"
+                           className="h-12 w-full rounded-xl border border-zinc-200 bg-zinc-50/50 pl-11 pr-4 text-[13px] outline-none focus:border-[#813d50] focus:bg-white"
                         />
                      </div>
                   </div>
@@ -523,7 +523,7 @@ export default function CategoriesPage() {
                      rows={3}
                      value={form.description}
                      onChange={e => setForm({ ...form, description: e.target.value })}
-                     className="w-full rounded-xl border border-zinc-200 bg-zinc-50/50 p-4 text-[13.5px] outline-none focus:border-[#4f6f52] focus:bg-white resize-none"
+                     className="w-full rounded-xl border border-zinc-200 bg-zinc-50/50 p-4 text-[13.5px] outline-none focus:border-[#813d50] focus:bg-white resize-none"
                      placeholder="Kategori hakkında kısa bir bilgi..."
                   />
                </div>
@@ -531,7 +531,7 @@ export default function CategoriesPage() {
                <div className="pt-4">
                   <button
                      type="submit"
-                     className="flex w-full items-center justify-center gap-3 rounded-2xl bg-[#4f6f52] py-4 text-[15px] font-black text-white shadow-xl shadow-[#4f6f52]/20 transition-all hover:scale-[1.02] active:scale-[0.98]"
+                     className="flex w-full items-center justify-center gap-3 rounded-2xl bg-[#813d50] py-4 text-[15px] font-black text-white shadow-xl shadow-[#813d50]/20 transition-all hover:scale-[1.02] active:scale-[0.98]"
                   >
                      {editingCategory ? "DEĞİŞİKLİKLERİ KAYDET" : "KATEGORİYİ OLUŞTUR"}
                   </button>

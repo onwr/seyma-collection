@@ -1,6 +1,6 @@
 /** Ortak transaksiyonel / kampanya e-posta HTML iskeleti (tablo tabanlı, Outlook uyumu). */
 
-const BRAND = "#4f6f52"
+const BRAND = "#813d50"
 const BG_PAGE = "#f1f5f9"
 const TEXT_MUTED = "#64748b"
 const TEXT_BODY = "#334155"

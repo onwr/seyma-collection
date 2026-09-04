@@ -305,7 +305,7 @@ export default async function AdminTrendyolPage() {
                   <tr key={i} className="border-b border-zinc-50 last:border-0">
                     <td className="px-4 py-2.5 text-zinc-600">
                       {product ? (
-                        <Link href={`/admin/products/${product.id}/edit`} className="text-[#4f6f52] hover:underline">
+                        <Link href={`/admin/products/${product.id}/edit`} className="text-[#813d50] hover:underline">
                           {product.name}
                         </Link>
                       ) : (

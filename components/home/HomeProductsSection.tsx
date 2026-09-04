@@ -114,7 +114,7 @@ function ProductCard({
             </span>
           )}
           {hasDiscount && discountPct > 0 && (
-            <span className="rounded-full bg-[#4f6f52] px-2.5 py-1 text-[10px] font-semibold text-white">
+            <span className="rounded-full bg-[#813d50] px-2.5 py-1 text-[10px] font-semibold text-white">
               %{discountPct} İndirim
             </span>
           )}
@@ -144,7 +144,7 @@ function ProductCard({
             disabled={isAdding}
             onClick={onAddToCart}
             className="flex w-full items-center justify-center gap-2.5 bg-zinc-900 py-3.5
-                       text-[11.5px] font-medium text-white transition-colors hover:bg-[#4f6f52]
+                       text-[11.5px] font-medium text-white transition-colors hover:bg-[#813d50]
                        disabled:opacity-60"
           >
             {isAdding ? (
@@ -171,7 +171,7 @@ function ProductCard({
           draggable={false}
         >
           <h3 className="line-clamp-2 text-[11px] font-medium leading-snug text-zinc-800 transition-colors
-                         group-hover/name:text-[#4f6f52] sm:text-[13.5px]">
+                         group-hover/name:text-[#813d50] sm:text-[13.5px]">
             {product.name}
           </h3>
         </Link>
@@ -190,7 +190,7 @@ function ProductCard({
 
           <Link
             href={`/products/${product.slug}`}
-            className="hidden items-center gap-1 text-[11px] font-medium text-[#4f6f52] opacity-0
+            className="hidden items-center gap-1 text-[11px] font-medium text-[#813d50] opacity-0
                        transition-opacity group-hover/card:opacity-100 sm:flex"
           >
             İncele <FaChevronRight className="h-2.5 w-2.5" />
@@ -380,7 +380,7 @@ export function HomeProductsSection({
         <h2 className="text-[28px] font-semibold leading-tight text-zinc-900 md:text-[36px]">
           {words.map((word, i) => (
             <span key={i}>
-              <span className={i === 1 ? "text-[#4f6f52]" : ""}>{word}</span>
+              <span className={i === 1 ? "text-[#813d50]" : ""}>{word}</span>
               {i < words.length - 1 && " "}
             </span>
           ))}
@@ -391,7 +391,7 @@ export function HomeProductsSection({
         )}
 
         {/* Dekoratif çizgi */}
-        <div className="mt-1 h-0.5 w-12 rounded-full bg-[#4f6f52]/40" />
+        <div className="mt-1 h-0.5 w-12 rounded-full bg-[#813d50]/40" />
       </motion.div>
 
       {/* ── Karusel kapsayıcı ─────────────────────────────────── */}
@@ -408,7 +408,7 @@ export function HomeProductsSection({
               onClick={() => scroll("prev")}
               className="absolute -left-4 top-1/2 z-20 hidden -translate-y-1/2 items-center
                          justify-center rounded-full border border-zinc-200 bg-white shadow-md
-                         transition hover:border-[#4f6f52] hover:text-[#4f6f52] md:flex
+                         transition hover:border-[#813d50] hover:text-[#813d50] md:flex
                          h-10 w-10 text-zinc-400"
             >
               <FaChevronLeft className="h-3.5 w-3.5" />
@@ -427,7 +427,7 @@ export function HomeProductsSection({
               onClick={() => scroll("next")}
               className="absolute -right-4 top-1/2 z-20 hidden -translate-y-1/2 items-center
                          justify-center rounded-full border border-zinc-200 bg-white shadow-md
-                         transition hover:border-[#4f6f52] hover:text-[#4f6f52] md:flex
+                         transition hover:border-[#813d50] hover:text-[#813d50] md:flex
                          h-10 w-10 text-zinc-400"
             >
               <FaChevronRight className="h-3.5 w-3.5" />
@@ -460,7 +460,7 @@ export function HomeProductsSection({
               href={viewAllHref}
               className="flex w-[calc((100%-1rem)/3)] shrink-0 flex-col items-center justify-center gap-2
                          rounded-2xl border border-dashed border-zinc-200 bg-zinc-50 transition
-                         hover:border-[#4f6f52] hover:bg-[#4f6f52]/5 select-none sm:w-44 sm:gap-3 md:w-[190px]
+                         hover:border-[#813d50] hover:bg-[#813d50]/5 select-none sm:w-44 sm:gap-3 md:w-[190px]
                          lg:w-[180px]"
             >
               <div className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-400">
@@ -481,7 +481,7 @@ export function HomeProductsSection({
             href={viewAllHref}
             className="flex items-center gap-2 rounded-full border border-zinc-200 bg-white
                        px-6 py-2.5 text-[13px] font-medium text-zinc-600 shadow-sm
-                       transition hover:border-[#4f6f52] hover:text-[#4f6f52]"
+                       transition hover:border-[#813d50] hover:text-[#813d50]"
           >
             Tüm Ürünleri Gör
             <FaChevronRight className="h-2.5 w-2.5" />

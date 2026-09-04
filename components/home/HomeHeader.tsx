@@ -174,7 +174,7 @@ export function HomeHeader() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -6 }}
               transition={{ duration: 0.22 }}
-              className="bg-[#4f6f52] rounded-b-xl py-2 overflow-hidden"
+              className="bg-[#813d50] rounded-b-xl py-2 overflow-hidden"
             >
               <style>{`
                 @keyframes marquee {
@@ -190,7 +190,7 @@ export function HomeHeader() {
               `}</style>
               {announcements.length === 1 ? (
                 <div className="flex items-center justify-center px-4">
-                  <span className="text-[11px] font-medium tracking-[0.14em] uppercase text-[#dceadd] whitespace-nowrap">
+                  <span className="text-[11px] font-medium tracking-[0.14em] uppercase text-[#ecdadf] whitespace-nowrap">
                     {announcements[0]}
                   </span>
                 </div>
@@ -199,10 +199,10 @@ export function HomeHeader() {
                   {[...announcements, ...announcements].map((text, i) => (
                     <span
                       key={i}
-                      className="inline-flex items-center gap-5 px-3 text-[11px] font-medium tracking-[0.14em] uppercase text-[#dceadd] whitespace-nowrap"
+                      className="inline-flex items-center gap-5 px-3 text-[11px] font-medium tracking-[0.14em] uppercase text-[#ecdadf] whitespace-nowrap"
                     >
                       {text}
-                      <span className="h-0.5 w-0.5 rounded-full bg-[#dceadd]/40" />
+                      <span className="h-0.5 w-0.5 rounded-full bg-[#ecdadf]/40" />
                     </span>
                   ))}
                 </div>
@@ -226,7 +226,7 @@ export function HomeHeader() {
               >
                 <Image
                   src="/logo2.png"
-                  alt="Little Mom's Store"
+                  alt="Şeyma Collection"
                   width={150}
                   height={52}
                   priority
@@ -243,7 +243,7 @@ export function HomeHeader() {
             >
               <form action="/search" method="GET">
                 <div className="relative flex items-center">
-                  <FaSearch className="pointer-events-none absolute left-4 z-10 h-3.5 w-3.5 text-[#4f6f52]" />
+                  <FaSearch className="pointer-events-none absolute left-4 z-10 h-3.5 w-3.5 text-[#813d50]" />
                   <input
                     type="text"
                     name="q"
@@ -252,7 +252,7 @@ export function HomeHeader() {
                     onFocus={() => setShowSearch(true)}
                     placeholder="Ürün, kategori veya marka ara…"
                     autoComplete="off"
-                    className="h-11 w-full rounded-full border border-[#d4e0d5] bg-[#f4f8f4] pl-10 pr-10 text-[13px] text-zinc-800 placeholder:text-zinc-400 outline-none transition-all duration-200 focus:border-[#4f6f52] focus:bg-white focus:shadow-[0_0_0_3px_rgba(122,156,126,0.12)]"
+                    className="h-11 w-full rounded-full border border-[#e6ced5] bg-[#f9f3f5] pl-10 pr-10 text-[13px] text-zinc-800 placeholder:text-zinc-400 outline-none transition-all duration-200 focus:border-[#813d50] focus:bg-white focus:shadow-[0_0_0_3px_rgba(122,156,126,0.12)]"
                   />
                   {query && (
                     <button
@@ -278,7 +278,7 @@ export function HomeHeader() {
                   >
                     {isSearchLoading ? (
                       <div className="flex items-center justify-center py-10">
-                        <div className="h-5 w-5 animate-spin rounded-full border-[2.5px] border-zinc-200 border-t-[#4f6f52]" />
+                        <div className="h-5 w-5 animate-spin rounded-full border-[2.5px] border-zinc-200 border-t-[#813d50]" />
                       </div>
                     ) : results.length > 0 ? (
                       <div>
@@ -293,7 +293,7 @@ export function HomeHeader() {
                               <Link
                                 href={`/products/${product.slug}`}
                                 onClick={() => setShowSearch(false)}
-                                className="group flex items-center gap-4 px-5 py-3 transition-colors hover:bg-[#f7faf7]"
+                                className="group flex items-center gap-4 px-5 py-3 transition-colors hover:bg-[#fbf6f8]"
                               >
                                 <div className="relative h-12 w-10 shrink-0 overflow-hidden rounded-xl border border-zinc-100 bg-zinc-50">
                                   <Image
@@ -304,17 +304,17 @@ export function HomeHeader() {
                                   />
                                 </div>
                                 <div className="flex-1 min-w-0">
-                                  <p className="truncate text-[13px] font-medium text-zinc-800 group-hover:text-[#4f6f52] transition-colors">
+                                  <p className="truncate text-[13px] font-medium text-zinc-800 group-hover:text-[#813d50] transition-colors">
                                     {product.name}
                                   </p>
                                   <p
                                     style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-                                    className="text-base font-semibold text-[#4f6f52]"
+                                    className="text-base font-semibold text-[#813d50]"
                                   >
                                     ₺{(Number(product.variants[0]?.price ?? product.basePrice)).toFixed(2)}
                                   </p>
                                 </div>
-                                <FaChevronRight className="h-3 w-3 shrink-0 text-zinc-300 group-hover:text-[#4f6f52] transition-colors" />
+                                <FaChevronRight className="h-3 w-3 shrink-0 text-zinc-300 group-hover:text-[#813d50] transition-colors" />
                               </Link>
                             </li>
                           ))}
@@ -323,7 +323,7 @@ export function HomeHeader() {
                           <Link
                             href={`/search?q=${encodeURIComponent(query)}`}
                             onClick={() => setShowSearch(false)}
-                            className="flex items-center justify-between text-[12px] font-semibold text-[#4f6f52] hover:text-[#4f6f52] transition-colors"
+                            className="flex items-center justify-between text-[12px] font-semibold text-[#813d50] hover:text-[#813d50] transition-colors"
                           >
                             <span>&quot;{query}&quot; için tüm sonuçlar</span>
                             <FaChevronRight className="h-3 w-3" />
@@ -351,10 +351,10 @@ export function HomeHeader() {
               {/* Cart button */}
               <button
                 onClick={() => setIsCartOpen(true)}
-                className="group relative flex items-center gap-2.5 rounded-full border border-[#d4e0d5] bg-[#f4f8f4] px-4 py-2.5 transition-all duration-200 hover:border-[#4f6f52] hover:bg-white hover:shadow-[0_4px_16px_rgba(61,92,66,0.12)]"
+                className="group relative flex items-center gap-2.5 rounded-full border border-[#e6ced5] bg-[#f9f3f5] px-4 py-2.5 transition-all duration-200 hover:border-[#813d50] hover:bg-white hover:shadow-[0_4px_16px_rgba(61,92,66,0.12)]"
               >
-                <FaShoppingBag className="h-4 w-4 text-[#4f6f52]" />
-                <span className="hidden md:block text-[12px] font-semibold uppercase tracking-widest text-[#4f6f52]">
+                <FaShoppingBag className="h-4 w-4 text-[#813d50]" />
+                <span className="hidden md:block text-[12px] font-semibold uppercase tracking-widest text-[#813d50]">
                   Sepet
                 </span>
                 <HeaderCartCount />
@@ -367,7 +367,7 @@ export function HomeHeader() {
         <nav
           aria-label="Kategoriler"
           aria-busy={navLoading}
-          className="relative z-40 border-t border-[#e0e8e1] overflow-visible"
+          className="relative z-40 border-t border-[#eddbe0] overflow-visible"
         >
           <div className="w-full px-5 md:px-10">
             <ul className="flex items-center overflow-x-auto md:overflow-visible md:overflow-y-visible [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
@@ -403,9 +403,9 @@ export function HomeHeader() {
                     className={`
                       group relative flex items-center gap-1 px-4 py-4 text-[12px] font-medium
                       tracking-widest text-zinc-600 transition-colors duration-150
-                      hover:text-[#4f6f52]
+                      hover:text-[#813d50]
                       ${item.labelUppercase ? "uppercase" : ""}
-                      ${activeMenu === item.id ? "text-[#4f6f52]" : ""}
+                      ${activeMenu === item.id ? "text-[#813d50]" : ""}
                     `}
                   >
                     {item.label}
@@ -418,7 +418,7 @@ export function HomeHeader() {
                     ) : null}
                     {/* underline */}
                     <span
-                      className={`absolute bottom-0 left-4 right-4 h-[2px] rounded-full bg-[#4f6f52] transition-transform duration-200 origin-left ${
+                      className={`absolute bottom-0 left-4 right-4 h-[2px] rounded-full bg-[#813d50] transition-transform duration-200 origin-left ${
                         activeMenu === item.id ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                       }`}
                     />
@@ -438,9 +438,9 @@ export function HomeHeader() {
                       >
                         {/* subtle top connector so hover doesn't break */}
                         <div className="h-1" />
-                        <div className="overflow-hidden rounded-2xl border border-[#dce6dd] bg-white shadow-[0_24px_64px_rgba(0,0,0,0.10)]">
+                        <div className="overflow-hidden rounded-2xl border border-[#ebd7dd] bg-white shadow-[0_24px_64px_rgba(0,0,0,0.10)]">
                           {/* header stripe */}
-                          <div className="h-1 bg-linear-to-r from-[#4f6f52] via-[#7a9c7e] to-[#4f6f52]" />
+                          <div className="h-1 bg-linear-to-r from-[#813d50] via-[#b56179] to-[#813d50]" />
                           <motion.ul
                             variants={listVariants}
                             initial="hidden"
@@ -454,7 +454,7 @@ export function HomeHeader() {
                                   target={child.openInNewTab ? "_blank" : undefined}
                                   rel={child.openInNewTab ? "noopener noreferrer" : undefined}
                                   onClick={() => setActiveMenu(null)}
-                                  className="group/child flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-[13px] font-medium text-zinc-600 transition-all hover:bg-[#f4f8f4] hover:text-[#4f6f52]"
+                                  className="group/child flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-[13px] font-medium text-zinc-600 transition-all hover:bg-[#f9f3f5] hover:text-[#813d50]"
                                 >
                                   <span>{child.label}</span>
                                   <FaChevronRight className="h-2.5 w-2.5 opacity-0 transition-all group-hover/child:opacity-100 group-hover/child:translate-x-0.5" />

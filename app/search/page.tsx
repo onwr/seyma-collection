@@ -14,7 +14,7 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
   const { q } = await searchParams
   return {
     title: q ? `"${q}" İçin Arama Sonuçları` : "Arama",
-    description: "Aradığınız ürünleri Little Mom's Store'da bulun."
+    description: "Aradığınız ürünleri Şeyma Collection'da bulun."
   }
 }
 
@@ -51,7 +51,7 @@ export default async function SearchPage({ searchParams }: Props) {
                ? `${products.length} ürün bulundu.` 
                : q ? "Aradığınız kriterlere uygun ürün bulunamadı." : "Lütfen bir arama terimi girin."}
            </p>
-           <div className="h-1 w-20 bg-[#6f8f73] rounded-full" />
+           <div className="h-1 w-20 bg-[#ad516b] rounded-full" />
         </div>
 
         {products.length > 0 ? (
@@ -60,7 +60,7 @@ export default async function SearchPage({ searchParams }: Props) {
           <div className="flex flex-col items-center justify-center py-20 border-2 border-dashed border-zinc-200 rounded-3xl bg-zinc-50/50">
             <span className="text-6xl mb-4 opacity-20">🔍</span>
             <p className="text-zinc-400 font-bold uppercase tracking-widest">Arama sonucu yok</p>
-            <Link href="/" className="mt-6 text-sm font-bold text-[#6f8f73] hover:underline">
+            <Link href="/" className="mt-6 text-sm font-bold text-[#ad516b] hover:underline">
               Anasayfaya Dön
             </Link>
           </div>

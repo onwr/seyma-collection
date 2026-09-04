@@ -7,14 +7,14 @@ import { HomeHeader } from "@/components/home/HomeHeader"
 import { getFaqsForPage } from "@/lib/faq"
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.littlemomstore.com/"
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.seymacollection.com/"
 
 export const dynamic = "force-dynamic"
 
 export const metadata: Metadata = {
   title: "Sıkça Sorulan Sorular",
   description:
-    "Sipariş, kargo, iade ve hesap işlemleri hakkında Little Mom's Store sıkça sorulan sorular.",
+    "Sipariş, kargo, iade ve hesap işlemleri hakkında Şeyma Collection sıkça sorulan sorular.",
   alternates: {
     canonical: `${siteUrl}/sikca-sorulan-sorular`,
   },
@@ -30,7 +30,7 @@ export default async function FaqPage() {
         <div className="mx-auto pt-2 md:pt-4">
           <FaqBreadcrumb />
           <header className="mb-10 text-center md:mb-12">
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#6f8f73]">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#ad516b]">
               Yardım merkezi
             </p>
             <h1 className="mt-2 text-3xl font-semibold tracking-tight text-zinc-900 md:text-4xl">
@@ -41,7 +41,7 @@ export default async function FaqPage() {
               yanıtları bulabilirsiniz. Aradığınızı göremezseniz{" "}
               <Link
                 href="/contact"
-                className="font-medium text-[#6f8f73] underline-offset-2 hover:underline"
+                className="font-medium text-[#ad516b] underline-offset-2 hover:underline"
               >
                 iletişim
               </Link>{" "}

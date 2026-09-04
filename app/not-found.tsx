@@ -15,7 +15,7 @@ export default function NotFound() {
 
 
           <div className="space-y-4">
-            <h1 className="text-6xl font-serif font-bold text-[#6f8f73]">404</h1>
+            <h1 className="text-6xl font-serif font-bold text-[#ad516b]">404</h1>
             <h2 className="text-2xl font-medium text-zinc-800">Ups! Yolumuzu Kaybettik</h2>
             <p className="text-zinc-500 text-sm leading-relaxed max-w-xs mx-auto">
               Aradığınız sayfa uykuda olabilir veya başka bir adrese taşınmış olabilir.
@@ -26,13 +26,13 @@ export default function NotFound() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <Link
               href="/"
-              className="w-full sm:w-auto px-8 py-3 bg-[#6f8f73] text-white rounded-full font-medium transition-all hover:bg-[#5a765d] hover:shadow-lg active:scale-95"
+              className="w-full sm:w-auto px-8 py-3 bg-[#ad516b] text-white rounded-full font-medium transition-all hover:bg-[#8d4358] hover:shadow-lg active:scale-95"
             >
               Anasayfaya Dön
             </Link>
             <Link
               href="/categories/yeni-gelenler"
-              className="w-full sm:w-auto px-8 py-3 border border-[#6f8f73] text-[#6f8f73] rounded-full font-medium transition-all hover:bg-[#f4f7f4] active:scale-95"
+              className="w-full sm:w-auto px-8 py-3 border border-[#ad516b] text-[#ad516b] rounded-full font-medium transition-all hover:bg-[#f9f2f4] active:scale-95"
             >
               Yeni Gelenler
             </Link>
@@ -40,7 +40,7 @@ export default function NotFound() {
 
           <div className="pt-8">
             <p className="text-xs text-zinc-400">
-              Yardıma mı ihtiyacınız var? <Link href="/sikca-sorulan-sorular" className="underline hover:text-[#6f8f73]">Destek Merkezine</Link> göz atın.
+              Yardıma mı ihtiyacınız var? <Link href="/sikca-sorulan-sorular" className="underline hover:text-[#ad516b]">Destek Merkezine</Link> göz atın.
             </p>
           </div>
         </div>

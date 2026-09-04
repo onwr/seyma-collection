@@ -128,7 +128,7 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
               {/* Header */}
               <div className="flex items-center justify-between border-b border-zinc-100 p-6 bg-white">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#f4f7f4] text-[#6f8f73]">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#f9f2f4] text-[#ad516b]">
                     <FaShoppingCart className="h-6 w-6" />
                   </div>
                   <div>
@@ -148,7 +148,7 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
               <div className="flex-1 overflow-y-auto p-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                 {loading && lines.length === 0 ? (
                   <div className="flex h-full items-center justify-center">
-                    <div className="h-10 w-10 animate-spin rounded-full border-4 border-[#bcd2bf] border-t-[#6f8f73]" />
+                    <div className="h-10 w-10 animate-spin rounded-full border-4 border-[#ddb1bd] border-t-[#ad516b]" />
                   </div>
                 ) : lines.length > 0 ? (
                   <div className="space-y-8">
@@ -173,7 +173,7 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                             <Link 
                               href={`/products/${line.productSlug}`} 
                               onClick={onClose}
-                              className="text-sm font-bold text-zinc-800 hover:text-[#6f8f73] transition-colors line-clamp-2 uppercase tracking-tight"
+                              className="text-sm font-bold text-zinc-800 hover:text-[#ad516b] transition-colors line-clamp-2 uppercase tracking-tight"
                             >
                               {line.productName}
                             </Link>
@@ -216,7 +216,7 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                     <p className="mt-2 text-sm text-zinc-400 max-w-[200px]">Hemen alışverişe başla ve harika ürünleri sepetine ekle!</p>
                     <button
                       onClick={onClose}
-                      className="mt-8 rounded-2xl bg-[#6f8f73] px-10 py-4 text-xs font-black uppercase tracking-widest text-white shadow-xl shadow-[#6f8f73]/20 transition-all hover:bg-[#5f7f64] hover:scale-105 active:scale-95"
+                      className="mt-8 rounded-2xl bg-[#ad516b] px-10 py-4 text-xs font-black uppercase tracking-widest text-white shadow-xl shadow-[#ad516b]/20 transition-all hover:bg-[#97475e] hover:scale-105 active:scale-95"
                     >
                       Alışverişe Başla
                     </button>

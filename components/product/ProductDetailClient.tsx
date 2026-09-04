@@ -144,7 +144,7 @@ export function ProductDetailClient({ product }: Props) {
                 type="button"
                 onClick={() => setSelectedImageIndex(index)}
                 className={`overflow-hidden rounded-lg border transition ${index === selectedImageIndex
-                    ? "border-[#6f8f73]"
+                    ? "border-[#ad516b]"
                     : "border-zinc-200 hover:border-zinc-300"
                   }`}
               >
@@ -174,7 +174,7 @@ export function ProductDetailClient({ product }: Props) {
               type="button"
               onClick={() => setSelectedImageIndex(index)}
               className={`overflow-hidden rounded-md border transition ${index === selectedImageIndex
-                  ? "border-[#6f8f73]"
+                  ? "border-[#ad516b]"
                   : "border-zinc-200"
                 }`}
             >
@@ -201,7 +201,7 @@ export function ProductDetailClient({ product }: Props) {
           </div>
         ) : null}
 
-        <div className="mt-3 flex items-center gap-1 text-[#6f8f73]">
+        <div className="mt-3 flex items-center gap-1 text-[#ad516b]">
           {ratingStars.map((active, idx) =>
             active ? <FaStar key={idx} className="h-4 w-4" /> : <FaRegStar key={idx} className="h-4 w-4" />
           )}
@@ -216,7 +216,7 @@ export function ProductDetailClient({ product }: Props) {
                   {selectedVariant?.compareAtPriceText ?? product.compareAtPriceText}
                 </span>
                 {(selectedVariant?.discountPct || product.discountPct) && (
-                  <span className="rounded-full bg-[#6f8f73] px-2 py-0.5 text-[10px] font-bold text-white uppercase tracking-wider">
+                  <span className="rounded-full bg-[#ad516b] px-2 py-0.5 text-[10px] font-bold text-white uppercase tracking-wider">
                     %{selectedVariant?.discountPct ?? product.discountPct} İndirim
                   </span>
                 )}
@@ -240,7 +240,7 @@ export function ProductDetailClient({ product }: Props) {
             id="size"
             value={selectedVariant?.id ?? 0}
             onChange={(e) => setSelectedVariantId(Number(e.target.value))}
-            className="h-11 w-full rounded-lg border border-zinc-300 px-3 text-sm outline-none transition focus:border-[#6f8f73]"
+            className="h-11 w-full rounded-lg border border-zinc-300 px-3 text-sm outline-none transition focus:border-[#ad516b]"
           >
             {product.variants.map((variant) => (
               <option key={variant.id} value={variant.id}>
@@ -252,7 +252,7 @@ export function ProductDetailClient({ product }: Props) {
             <span className="rounded-full bg-zinc-100 px-2.5 py-1 text-zinc-600">
               SKU: {selectedVariant?.sku ?? "-"}
             </span>
-            <span className="rounded-full bg-[#eef4ef] px-2.5 py-1 text-[#4d6951]">
+            <span className="rounded-full bg-[#f5edef] px-2.5 py-1 text-[#7c3a4d]">
               {selectedVariant?.stockText ?? "Stok bilgisi yok"}
             </span>
           </div>
@@ -281,7 +281,7 @@ export function ProductDetailClient({ product }: Props) {
             type="button"
             disabled={isAdding}
             onClick={() => void handleAddToCart()}
-            className="h-11 rounded-lg bg-[#6f8f73] px-6 text-sm font-semibold tracking-wide text-white transition hover:bg-[#5f7f64]"
+            className="h-11 rounded-lg bg-[#ad516b] px-6 text-sm font-semibold tracking-wide text-white transition hover:bg-[#97475e]"
           >
             {isAdding ? "Ekleniyor..." : "Sepete Ekle"}
           </button>
@@ -297,7 +297,7 @@ export function ProductDetailClient({ product }: Props) {
         <button
           type="button"
           onClick={() => setPhonePopupOpen(true)}
-          className="mt-3 inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg border border-[#bcd2bf] bg-[#eef4ef] px-5 text-sm font-semibold text-[#4d6951] transition hover:bg-[#e1ede3]"
+          className="mt-3 inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg border border-[#ddb1bd] bg-[#f5edef] px-5 text-sm font-semibold text-[#7c3a4d] transition hover:bg-[#efdfe4]"
         >
           <FaPhoneAlt className="h-3.5 w-3.5" />
           {product.phoneOrderLabel || "Telefonla / WhatsApp'tan Sipariş Ver"}
@@ -336,7 +336,7 @@ export function ProductDetailClient({ product }: Props) {
                   aria-disabled={!whatsappHref || phoneSettingsLoading}
                   className={`flex h-11 items-center justify-center rounded-xl border px-4 text-[13px] font-bold transition
                     ${whatsappHref && !phoneSettingsLoading
-                      ? "border-[#bcd2bf] bg-[#eef4ef] text-[#4d6951] hover:bg-[#e1ede3]"
+                      ? "border-[#ddb1bd] bg-[#f5edef] text-[#7c3a4d] hover:bg-[#efdfe4]"
                       : "border-zinc-200 bg-zinc-100 text-zinc-400 cursor-not-allowed"}`}
                   onClick={(e) => {
                     if (!whatsappHref || phoneSettingsLoading) e.preventDefault()

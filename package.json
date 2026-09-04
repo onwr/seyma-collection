@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "import:woo": "tsx scripts/import-woocommerce.ts"
+    "import:woo": "tsx scripts/import-woocommerce.ts",
+    "import:trendyol": "tsx scripts/import-trendyol.ts"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"

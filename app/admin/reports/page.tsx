@@ -201,7 +201,7 @@ export default function AdminReportsPage() {
     return (
       <div className="flex min-h-[400px] items-center justify-center">
         <div className="flex flex-col items-center gap-3">
-          <div className="h-9 w-9 animate-spin rounded-full border-2 border-zinc-200 border-t-[#4f6f52]" />
+          <div className="h-9 w-9 animate-spin rounded-full border-2 border-zinc-200 border-t-[#813d50]" />
           <p className="text-[11px] font-medium text-zinc-400">Rapor yükleniyor…</p>
         </div>
       </div>
@@ -221,7 +221,7 @@ export default function AdminReportsPage() {
         <div>
           <Link
             href="/admin"
-            className="mb-2 inline-flex items-center gap-1 text-[11px] font-medium text-zinc-400 hover:text-[#4f6f52]"
+            className="mb-2 inline-flex items-center gap-1 text-[11px] font-medium text-zinc-400 hover:text-[#813d50]"
           >
             <FaChevronLeft className="h-2.5 w-2.5" /> Panele dön
           </Link>
@@ -285,7 +285,7 @@ export default function AdminReportsPage() {
           type="button"
           onClick={() => void load()}
           disabled={loading}
-          className="flex items-center gap-2 rounded-lg bg-[#4f6f52] px-4 py-2 text-[12px] font-medium text-white hover:bg-[#3d5a3f] disabled:opacity-60"
+          className="flex items-center gap-2 rounded-lg bg-[#813d50] px-4 py-2 text-[12px] font-medium text-white hover:bg-[#673040] disabled:opacity-60"
         >
           <FaSync className={`h-3 w-3 ${loading ? "animate-spin" : ""}`} />
           Yenile
@@ -453,10 +453,10 @@ export default function AdminReportsPage() {
                         strokeWidth="1"
                       />
                     ))}
-                    <polygon points={areaPts} fill="#4f6f52" fillOpacity="0.07" />
+                    <polygon points={areaPts} fill="#813d50" fillOpacity="0.07" />
                     <motion.polyline
                       fill="none"
-                      stroke="#4f6f52"
+                      stroke="#813d50"
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -472,7 +472,7 @@ export default function AdminReportsPage() {
                         cy={toY(d.revenue).toFixed(1)}
                         r="3"
                         fill="white"
-                        stroke="#4f6f52"
+                        stroke="#813d50"
                         strokeWidth="1.5"
                       />
                     ))}
@@ -563,7 +563,7 @@ export default function AdminReportsPage() {
                       <td className="px-4 py-2.5">
                         <Link
                           href={`/admin/products/${p.productId}/edit`}
-                          className="font-medium text-[#4f6f52] hover:underline"
+                          className="font-medium text-[#813d50] hover:underline"
                         >
                           {p.name}
                         </Link>

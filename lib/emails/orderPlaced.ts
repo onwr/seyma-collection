@@ -22,7 +22,7 @@ export function orderPlacedEmailContent(params: {
   storeName?: string
 }): { subject: string; text: string; html: string } {
   const base = params.siteUrl.replace(/\/$/, "")
-  const store = params.storeName ?? "Little Mom's Store"
+  const store = params.storeName ?? "Şeyma Collection"
   const pm = paymentMethodLabel(params.paymentMethod)
   const ordersLink = `${base}/siparislerim/${encodeURIComponent(params.orderNo)}`
 

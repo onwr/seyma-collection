@@ -116,7 +116,7 @@ export function CartClient() {
   if (state.loading && !hasItems) {
     return (
       <div className="flex h-64 flex-col items-center justify-center space-y-4">
-        <div className="h-10 w-10 animate-spin rounded-full border-4 border-zinc-200 border-t-[#6f8f73]" />
+        <div className="h-10 w-10 animate-spin rounded-full border-4 border-zinc-200 border-t-[#ad516b]" />
         <p className="text-sm font-medium text-zinc-500">Sepetiniz yükleniyor...</p>
       </div>
     )
@@ -138,7 +138,7 @@ export function CartClient() {
         </p>
         <Link
           href="/"
-          className="mt-8 rounded-2xl bg-[#6f8f73] px-10 py-4 text-xs font-black uppercase tracking-widest text-white shadow-lg shadow-[#6f8f73]/20 transition-all hover:bg-[#5f7f64] hover:scale-105 active:scale-95"
+          className="mt-8 rounded-2xl bg-[#ad516b] px-10 py-4 text-xs font-black uppercase tracking-widest text-white shadow-lg shadow-[#ad516b]/20 transition-all hover:bg-[#97475e] hover:scale-105 active:scale-95"
         >
           Alışverişe Başla
         </Link>
@@ -152,7 +152,7 @@ export function CartClient() {
       <section className="space-y-6">
         <div className="flex items-center justify-between border-b border-zinc-100 pb-4">
           <div className="flex items-center gap-3">
-             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#f4f7f4] text-[#6f8f73]">
+             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#f9f2f4] text-[#ad516b]">
                 <FaShoppingCart className="h-5 w-5" />
              </div>
              <h2 className="text-lg font-black text-zinc-800 uppercase tracking-tight">Sepet Ürünleri</h2>
@@ -182,7 +182,7 @@ export function CartClient() {
                   <div className="flex flex-1 flex-col justify-between">
                     <div className="flex justify-between gap-4">
                       <div className="space-y-1">
-                        <Link href={`/products/${line.productSlug}`} className="text-sm font-bold text-zinc-800 hover:text-[#6f8f73] transition-colors line-clamp-1">
+                        <Link href={`/products/${line.productSlug}`} className="text-sm font-bold text-zinc-800 hover:text-[#ad516b] transition-colors line-clamp-1">
                           {line.productName}
                         </Link>
                         <p className="text-[10px] font-black uppercase tracking-widest text-zinc-400">{line.variantName}</p>
@@ -261,7 +261,7 @@ export function CartClient() {
 
           <Link
             href="/checkout"
-            className="group mt-8 flex h-14 w-full items-center justify-center gap-3 rounded-2xl bg-[#6f8f73] text-sm font-black uppercase tracking-widest text-white shadow-xl shadow-[#6f8f73]/20 transition-all hover:bg-[#5f7f64] hover:scale-[1.02]"
+            className="group mt-8 flex h-14 w-full items-center justify-center gap-3 rounded-2xl bg-[#ad516b] text-sm font-black uppercase tracking-widest text-white shadow-xl shadow-[#ad516b]/20 transition-all hover:bg-[#97475e] hover:scale-[1.02]"
           >
             Ödemeye Geç
             <FaArrowRight className="transition-transform group-hover:translate-x-1" />
@@ -269,15 +269,15 @@ export function CartClient() {
 
           <Link
             href="/"
-            className="mt-4 block text-center text-[10px] font-black uppercase tracking-[0.2em] text-[#6f8f73] hover:underline"
+            className="mt-4 block text-center text-[10px] font-black uppercase tracking-[0.2em] text-[#ad516b] hover:underline"
           >
             Alışverişe Devam Et
           </Link>
         </div>
 
-        <div className="rounded-2xl bg-[#f4f7f4] p-5 border border-[#bcd2bf]">
+        <div className="rounded-2xl bg-[#f9f2f4] p-5 border border-[#ddb1bd]">
           <div className="flex items-center gap-4">
-             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#6f8f73] text-white">
+             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#ad516b] text-white">
                 <FaTruck className="h-5 w-5" />
              </div>
              <div>

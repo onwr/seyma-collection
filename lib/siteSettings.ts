@@ -23,13 +23,13 @@ export type SiteBranding = {
 }
 
 const FALLBACK: SiteBranding = {
-  titleDefault: "Little Mom's Store",
-  titleTemplate: "%s | Little Mom's Store",
+  titleDefault: "Şeyma Collection",
+  titleTemplate: "%s | Şeyma Collection",
   metaDescription:
     "Anne ve bebek ürünleri, güvenilir alışveriş. Kıyafet, bakım, beslenme ve daha fazlası.",
   metaKeywordsRaw:
-    "anne bebek, bebek giyim, çocuk giyim, bebek ürünleri, Little Mom's Store, online mağaza",
-  ogSiteName: "Little Mom's Store",
+    "anne bebek, bebek giyim, çocuk giyim, bebek ürünleri, Şeyma Collection, online mağaza",
+  ogSiteName: "Şeyma Collection",
   faviconUrl: "/logo.jpeg",
   ogImageUrl: "/logo.jpeg",
 }

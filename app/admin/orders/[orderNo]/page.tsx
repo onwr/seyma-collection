@@ -27,7 +27,7 @@ const STATUS_META: Record<string, { label: string; bg: string; color: string; do
    PAID: { label: "Ödendi", bg: "#dbeafe", color: "#1e40af", dot: "#3b82f6" },
    PROCESSING: { label: "Hazırlanıyor", bg: "#f3e8ff", color: "#6b21a8", dot: "#a855f7" },
    SHIPPED: { label: "Kargoda", bg: "#dbeafe", color: "#1e40af", dot: "#3b82f6" },
-   DELIVERED: { label: "Teslim Edildi", bg: "#d1fae5", color: "#065f46", dot: "#4f6f52" },
+   DELIVERED: { label: "Teslim Edildi", bg: "#d1fae5", color: "#065f46", dot: "#813d50" },
    CANCELLED: { label: "İptal", bg: "#fee2e2", color: "#991b1b", dot: "#ef4444" },
    REFUNDED: { label: "İade Edildi", bg: "#fee2e2", color: "#b91c1c", dot: "#ef4444" },
 }
@@ -96,15 +96,15 @@ function OrderTimeline({ currentStatus }: { currentStatus: string }) {
                         className={`flex h-8 w-8 items-center justify-center rounded-full text-[11px] transition-all
                   ${isDone
                               ? isCurrent
-                                 ? "bg-[#4f6f52] text-white ring-4 ring-[#4f6f52]/15"
-                                 : "bg-[#d1fae5] text-[#4f6f52]"
+                                 ? "bg-[#813d50] text-white ring-4 ring-[#813d50]/15"
+                                 : "bg-[#d1fae5] text-[#813d50]"
                               : "bg-zinc-100 text-zinc-300"}`}
                      >
                         {step.icon}
                      </div>
                      <span
                         className={`whitespace-nowrap text-[10px] font-medium
-                  ${isDone ? (isCurrent ? "text-[#4f6f52]" : "text-zinc-500") : "text-zinc-300"}`}
+                  ${isDone ? (isCurrent ? "text-[#813d50]" : "text-zinc-500") : "text-zinc-300"}`}
                      >
                         {step.label}
                      </span>
@@ -112,7 +112,7 @@ function OrderTimeline({ currentStatus }: { currentStatus: string }) {
 
                   {/* Bağlantı çizgisi */}
                   {!isLast && (
-                     <div className={`mb-5 h-px flex-1 mx-2 ${i < currentIdx ? "bg-[#4f6f52]/30" : "bg-zinc-100"}`} />
+                     <div className={`mb-5 h-px flex-1 mx-2 ${i < currentIdx ? "bg-[#813d50]/30" : "bg-zinc-100"}`} />
                   )}
                </div>
             )
@@ -237,7 +237,7 @@ export default function AdminOrderDetail({
    if (loading) return (
       <div className="flex h-[600px] items-center justify-center">
          <div className="flex flex-col items-center gap-3">
-            <div className="h-8 w-8 animate-spin rounded-full border-2 border-zinc-200 border-t-[#4f6f52]" />
+            <div className="h-8 w-8 animate-spin rounded-full border-2 border-zinc-200 border-t-[#813d50]" />
             <p className="text-[11px] text-zinc-400">Yükleniyor...</p>
          </div>
       </div>
@@ -246,7 +246,7 @@ export default function AdminOrderDetail({
    if (!order || order.message) return (
       <div className="flex h-[400px] flex-col items-center justify-center gap-4">
          <p className="text-[13px] text-zinc-400">Sipariş bulunamadı.</p>
-         <Link href="/admin/orders" className="text-[12px] text-[#4f6f52] hover:underline">
+         <Link href="/admin/orders" className="text-[12px] text-[#813d50] hover:underline">
             ← Siparişlere dön
          </Link>
       </div>
@@ -310,7 +310,7 @@ export default function AdminOrderDetail({
                      <button onClick={copyOrderNo} className="text-zinc-300 transition hover:text-zinc-500">
                         <FaCopy className="h-3 w-3" />
                      </button>
-                     {copied && <span className="text-[10.5px] text-[#4f6f52]">Kopyalandı!</span>}
+                     {copied && <span className="text-[10.5px] text-[#813d50]">Kopyalandı!</span>}
                   </div>
                   <p className="text-[12px] text-zinc-400">
                      {new Date(order.createdAt).toLocaleDateString("tr-TR", { day: "2-digit", month: "long", year: "numeric", hour: "2-digit", minute: "2-digit" })}
@@ -340,7 +340,7 @@ export default function AdminOrderDetail({
                      <option value="CANCELLED">İptal</option>
                      <option value="REFUNDED">İade Edildi</option>
                   </select>
-                  {updating && <div className="h-3.5 w-3.5 animate-spin rounded-full border border-zinc-200 border-t-[#4f6f52]" />}
+                  {updating && <div className="h-3.5 w-3.5 animate-spin rounded-full border border-zinc-200 border-t-[#813d50]" />}
                </div>
             </div>
          </div>
@@ -378,7 +378,7 @@ export default function AdminOrderDetail({
                      </div>
                      <div className="mt-4 space-y-2 border-t border-zinc-100 pt-4">
                         <div className="flex justify-between text-[12px] text-zinc-500"><span>Ara Toplam</span><span>₺{subtotal.toLocaleString("tr-TR")}</span></div>
-                        <div className="flex justify-between text-[12px] text-zinc-500"><span>Kargo</span><span className={shippingCost === 0 ? "text-[#4f6f52] font-medium" : ""}>{shippingCost === 0 ? "Ücretsiz" : `₺${shippingCost.toLocaleString("tr-TR")}`}</span></div>
+                        <div className="flex justify-between text-[12px] text-zinc-500"><span>Kargo</span><span className={shippingCost === 0 ? "text-[#813d50] font-medium" : ""}>{shippingCost === 0 ? "Ücretsiz" : `₺${shippingCost.toLocaleString("tr-TR")}`}</span></div>
                         {discountTotal > 0 && <div className="flex justify-between text-[12px] text-red-500"><span>İndirim</span><span>−₺{discountTotal.toLocaleString("tr-TR")}</span></div>}
                         <div className="flex justify-between border-t border-zinc-100 pt-3 text-[14px] font-semibold text-zinc-800"><span>Genel Toplam</span><span>₺{grandTotal.toLocaleString("tr-TR")}</span></div>
                      </div>
@@ -386,7 +386,7 @@ export default function AdminOrderDetail({
 
                   <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                      <div className="rounded-xl border border-zinc-100 bg-white p-5">
-                        <div className="mb-4 flex items-center gap-2 text-zinc-400"><FaMapMarkerAlt className="h-3.5 w-3.5 text-[#4f6f52]" /><p className="text-[12px] font-medium text-zinc-600">Teslimat Adresi</p></div>
+                        <div className="mb-4 flex items-center gap-2 text-zinc-400"><FaMapMarkerAlt className="h-3.5 w-3.5 text-[#813d50]" /><p className="text-[12px] font-medium text-zinc-600">Teslimat Adresi</p></div>
                         <p className="text-[13px] font-medium text-zinc-800">{order.shippingFullName}</p>
                         <p className="mb-3 text-[11.5px] text-zinc-400">{order.shippingPhone}</p>
                         <div className="space-y-0.5 text-[12px] leading-relaxed text-zinc-500">
@@ -397,7 +397,7 @@ export default function AdminOrderDetail({
                         </div>
                      </div>
                      <div className="rounded-xl border border-zinc-100 bg-white p-5">
-                        <div className="mb-4 flex items-center gap-2"><FaFileAlt className="h-3.5 w-3.5 text-[#4f6f52]" /><p className="text-[12px] font-medium text-zinc-600">Sipariş Notu</p></div>
+                        <div className="mb-4 flex items-center gap-2"><FaFileAlt className="h-3.5 w-3.5 text-[#813d50]" /><p className="text-[12px] font-medium text-zinc-600">Sipariş Notu</p></div>
                         {order.note ? <p className="text-[12.5px] italic leading-relaxed text-zinc-600">"{order.note}"</p> : <p className="text-[12px] text-zinc-300">Müşteri not bırakmamış.</p>}
                      </div>
                   </div>
@@ -405,12 +405,12 @@ export default function AdminOrderDetail({
 
                <div className="space-y-4">
                   <div className="rounded-xl border border-zinc-100 bg-white p-5">
-                     <div className="mb-4 flex items-center gap-2"><FaCreditCard className="h-3.5 w-3.5 text-[#4f6f52]" /><p className="text-[12px] font-medium text-zinc-600">Müşteri & Ödeme</p></div>
+                     <div className="mb-4 flex items-center gap-2"><FaCreditCard className="h-3.5 w-3.5 text-[#813d50]" /><p className="text-[12px] font-medium text-zinc-600">Müşteri & Ödeme</p></div>
                      <div className="space-y-4">
                         <div><p className="mb-0.5 text-[10.5px] text-zinc-400">Müşteri</p><p className="text-[12.5px] font-medium text-zinc-800">{order.shippingFullName}</p><p className="text-[11.5px] text-zinc-400">{order.guestEmail ?? order.user?.email ?? "—"}</p></div>
                         <div className="h-px bg-zinc-100" />
                         <div className="grid grid-cols-2 gap-4">
-                           <div><p className="mb-1 text-[10.5px] text-zinc-400">Ödeme Durumu</p><span className={`text-[12px] font-medium ${order.paymentStatus === "PAID" ? "text-[#4f6f52]" : "text-amber-600"}`}>{order.paymentStatus === "PAID" ? "Ödendi" : "Bekliyor"}</span></div>
+                           <div><p className="mb-1 text-[10.5px] text-zinc-400">Ödeme Durumu</p><span className={`text-[12px] font-medium ${order.paymentStatus === "PAID" ? "text-[#813d50]" : "text-amber-600"}`}>{order.paymentStatus === "PAID" ? "Ödendi" : "Bekliyor"}</span></div>
                            <div><p className="mb-1 text-[10.5px] text-zinc-400">Ödeme Yöntemi</p><p className="text-[12px] font-medium text-zinc-700">{getPaymentMethod(order.payments?.[0]?.method)}</p></div>
                         </div>
                      </div>

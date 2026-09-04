@@ -6,7 +6,7 @@ export function passwordResetEmailContent(params: {
   storeName?: string
 }): { subject: string; text: string; html: string } {
   const base = params.siteUrl.replace(/\/$/, "")
-  const store = params.storeName ?? "Little Mom's Store"
+  const store = params.storeName ?? "Şeyma Collection"
   const link = `${base}/reset-password?token=${encodeURIComponent(params.token)}`
 
   const subject = `${store} — Şifre sıfırlama`

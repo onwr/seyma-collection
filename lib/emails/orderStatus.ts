@@ -40,7 +40,7 @@ export function orderStatusEmailContent(params: {
   storeName?: string
 }): { subject: string; text: string; html: string } {
   const base = params.siteUrl.replace(/\/$/, "")
-  const store = params.storeName ?? "Little Mom's Store"
+  const store = params.storeName ?? "Şeyma Collection"
   const label = orderStatusLabel(params.newStatus)
   const ordersLink = `${base}/siparislerim/${encodeURIComponent(params.orderNo)}`
 

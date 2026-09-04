@@ -108,7 +108,7 @@ export async function PATCH(
     const to =
       existing.user?.email?.trim() || existing.guestEmail?.trim() || null
     const siteUrlBase =
-      process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://www.littlemomstore.com"
+      process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://www.seymacollection.com"
 
     if (to && existing.status !== nextStatus) {
       const no = order.orderNo

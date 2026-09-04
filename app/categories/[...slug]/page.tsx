@@ -83,7 +83,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const category = await loadCategoryForPath(slug)
   const title = category?.name ?? slugToTitle(currentSlug)
   return {
-    title: `${title} - Little Mom's Store`,
+    title: `${title} - Şeyma Collection`,
     description: `${title} kategorisindeki en yeni ve en kaliteli ürünler.`,
   }
 }
@@ -189,19 +189,19 @@ export default async function CategoryPage({ params, searchParams }: Props) {
 
       <main className="mx-auto w-full max-w-7xl px-4 py-6">
         <nav className="mb-6 flex items-center gap-2 text-[13px] text-zinc-500">
-          <Link href="/" className="flex items-center gap-1 hover:text-[#6f8f73]">
+          <Link href="/" className="flex items-center gap-1 hover:text-[#ad516b]">
             Anasayfa
           </Link>
           <span>&gt;</span>
           {category?.parent && (
             <>
-              <Link href={`/categories/${category.parent.slug}`} className="hover:text-[#6f8f73]">
+              <Link href={`/categories/${category.parent.slug}`} className="hover:text-[#ad516b]">
                 {category.parent.name}
               </Link>
               <span>&gt;</span>
             </>
           )}
-          <span className="font-semibold text-[#6f8f73] uppercase">
+          <span className="font-semibold text-[#ad516b] uppercase">
             {category?.name ?? slugToTitle(currentSlug)}
           </span>
         </nav>
@@ -218,7 +218,7 @@ export default async function CategoryPage({ params, searchParams }: Props) {
                   <Link
                     key={cat.id}
                     href={href}
-                    className={`h-10 px-6 flex items-center rounded-full text-sm font-medium transition-all ${isActive ? "bg-[#6f8f73] text-white shadow-lg shadow-[#6f8f73]/20" : "bg-white border border-zinc-200 text-zinc-600 hover:border-[#6f8f73] hover:text-[#6f8f73]"}`}
+                    className={`h-10 px-6 flex items-center rounded-full text-sm font-medium transition-all ${isActive ? "bg-[#ad516b] text-white shadow-lg shadow-[#ad516b]/20" : "bg-white border border-zinc-200 text-zinc-600 hover:border-[#ad516b] hover:text-[#ad516b]"}`}
                   >
                     {cat.name}
                   </Link>
@@ -234,31 +234,31 @@ export default async function CategoryPage({ params, searchParams }: Props) {
             <div className="flex flex-wrap gap-2">
               <Link
                 href={createFilterHref({ sort: "price-asc" })}
-                className={`h-9 px-4 flex items-center rounded-md border text-xs font-medium transition ${sort === "price-asc" ? "bg-[#f4f7f4] border-[#bcd2bf] text-[#6f8f73]" : "bg-white border-zinc-200 text-zinc-600 hover:border-[#bcd2bf] hover:text-[#6f8f73]"}`}
+                className={`h-9 px-4 flex items-center rounded-md border text-xs font-medium transition ${sort === "price-asc" ? "bg-[#f9f2f4] border-[#ddb1bd] text-[#ad516b]" : "bg-white border-zinc-200 text-zinc-600 hover:border-[#ddb1bd] hover:text-[#ad516b]"}`}
               >
                 Fiyata Göre (Artan)
               </Link>
               <Link
                 href={createFilterHref({ sort: "price-desc" })}
-                className={`h-9 px-4 flex items-center rounded-md border text-xs font-medium transition ${sort === "price-desc" ? "bg-[#f4f7f4] border-[#bcd2bf] text-[#6f8f73]" : "bg-white border-zinc-200 text-zinc-600 hover:border-[#bcd2bf] hover:text-[#6f8f73]"}`}
+                className={`h-9 px-4 flex items-center rounded-md border text-xs font-medium transition ${sort === "price-desc" ? "bg-[#f9f2f4] border-[#ddb1bd] text-[#ad516b]" : "bg-white border-zinc-200 text-zinc-600 hover:border-[#ddb1bd] hover:text-[#ad516b]"}`}
               >
                 Fiyata Göre (Azalan)
               </Link>
               <Link
                 href={createFilterHref({ sort: "name-asc" })}
-                className={`h-9 px-4 flex items-center rounded-md border text-xs font-medium transition ${sort === "name-asc" ? "bg-[#f4f7f4] border-[#bcd2bf] text-[#6f8f73]" : "bg-white border-zinc-200 text-zinc-600 hover:border-[#bcd2bf] hover:text-[#6f8f73]"}`}
+                className={`h-9 px-4 flex items-center rounded-md border text-xs font-medium transition ${sort === "name-asc" ? "bg-[#f9f2f4] border-[#ddb1bd] text-[#ad516b]" : "bg-white border-zinc-200 text-zinc-600 hover:border-[#ddb1bd] hover:text-[#ad516b]"}`}
               >
                 Ürün Adına Göre (A&gt;Z)
               </Link>
               <Link
                 href={createFilterHref({ sort: "name-desc" })}
-                className={`h-9 px-4 flex items-center rounded-md border text-xs font-medium transition ${sort === "name-desc" ? "bg-[#f4f7f4] border-[#bcd2bf] text-[#6f8f73]" : "bg-white border-zinc-200 text-zinc-600 hover:border-[#bcd2bf] hover:text-[#6f8f73]"}`}
+                className={`h-9 px-4 flex items-center rounded-md border text-xs font-medium transition ${sort === "name-desc" ? "bg-[#f9f2f4] border-[#ddb1bd] text-[#ad516b]" : "bg-white border-zinc-200 text-zinc-600 hover:border-[#ddb1bd] hover:text-[#ad516b]"}`}
               >
                 Ürün Adına Göre (Z&lt;A)
               </Link>
               <Link
                 href={createFilterHref({ inStock: !inStock })}
-                className={`h-9 px-4 flex items-center rounded-md border text-xs font-medium transition ${inStock ? "bg-[#f4f7f4] border-[#bcd2bf] text-[#6f8f73]" : "bg-white border-zinc-200 text-zinc-600 hover:border-[#bcd2bf] hover:text-[#6f8f73]"}`}
+                className={`h-9 px-4 flex items-center rounded-md border text-xs font-medium transition ${inStock ? "bg-[#f9f2f4] border-[#ddb1bd] text-[#ad516b]" : "bg-white border-zinc-200 text-zinc-600 hover:border-[#ddb1bd] hover:text-[#ad516b]"}`}
               >
                 Stoktakiler
               </Link>
@@ -272,14 +272,14 @@ export default async function CategoryPage({ params, searchParams }: Props) {
 
             <div className="flex items-center gap-3">
               <Link href={createFilterHref({ view: "grid2" })} title="2'li Görünüm" className="flex gap-1 p-2 group">
-                <div className={`w-1.5 h-1.5 rounded-full transition-colors ${view === "grid2" ? "bg-[#6f8f73]" : "bg-zinc-300 group-hover:bg-zinc-400"}`} />
-                <div className={`w-1.5 h-1.5 rounded-full transition-colors ${view === "grid2" ? "bg-[#6f8f73]" : "bg-zinc-300 group-hover:bg-zinc-400"}`} />
+                <div className={`w-1.5 h-1.5 rounded-full transition-colors ${view === "grid2" ? "bg-[#ad516b]" : "bg-zinc-300 group-hover:bg-zinc-400"}`} />
+                <div className={`w-1.5 h-1.5 rounded-full transition-colors ${view === "grid2" ? "bg-[#ad516b]" : "bg-zinc-300 group-hover:bg-zinc-400"}`} />
               </Link>
               <Link href={createFilterHref({ view: "grid4" })} title="4'lü Görünüm" className="flex gap-1 p-2 group">
-                <div className={`w-1 h-1 rounded-full transition-colors ${view === "grid4" ? "bg-[#6f8f73]" : "bg-zinc-300 group-hover:bg-zinc-400"}`} />
-                <div className={`w-1 h-1 rounded-full transition-colors ${view === "grid4" ? "bg-[#6f8f73]" : "bg-zinc-300 group-hover:bg-zinc-400"}`} />
-                <div className={`w-1 h-1 rounded-full transition-colors ${view === "grid4" ? "bg-[#6f8f73]" : "bg-zinc-300 group-hover:bg-zinc-400"}`} />
-                <div className={`w-1 h-1 rounded-full transition-colors ${view === "grid4" ? "bg-[#6f8f73]" : "bg-zinc-300 group-hover:bg-zinc-400"}`} />
+                <div className={`w-1 h-1 rounded-full transition-colors ${view === "grid4" ? "bg-[#ad516b]" : "bg-zinc-300 group-hover:bg-zinc-400"}`} />
+                <div className={`w-1 h-1 rounded-full transition-colors ${view === "grid4" ? "bg-[#ad516b]" : "bg-zinc-300 group-hover:bg-zinc-400"}`} />
+                <div className={`w-1 h-1 rounded-full transition-colors ${view === "grid4" ? "bg-[#ad516b]" : "bg-zinc-300 group-hover:bg-zinc-400"}`} />
+                <div className={`w-1 h-1 rounded-full transition-colors ${view === "grid4" ? "bg-[#ad516b]" : "bg-zinc-300 group-hover:bg-zinc-400"}`} />
               </Link>
             </div>
           </div>
@@ -295,7 +295,7 @@ export default async function CategoryPage({ params, searchParams }: Props) {
             {page > 1 ? (
               <Link
                 href={createFilterHref({ page: (page - 1).toString() })}
-                className="flex h-10 min-w-10 items-center justify-center rounded-md border border-zinc-200 bg-white px-3 text-sm font-medium text-zinc-600 transition hover:border-[#6f8f73] hover:text-[#6f8f73]"
+                className="flex h-10 min-w-10 items-center justify-center rounded-md border border-zinc-200 bg-white px-3 text-sm font-medium text-zinc-600 transition hover:border-[#ad516b] hover:text-[#ad516b]"
               >
                 Önceki
               </Link>
@@ -318,7 +318,7 @@ export default async function CategoryPage({ params, searchParams }: Props) {
                   key={item}
                   href={createFilterHref({ page: item.toString() })}
                   aria-current={page === item ? "page" : undefined}
-                  className={`flex h-10 w-10 items-center justify-center rounded-md border text-sm font-medium transition ${page === item ? "border-[#6f8f73] bg-[#6f8f73] text-white" : "border-zinc-200 bg-white text-zinc-600 hover:border-[#6f8f73] hover:text-[#6f8f73]"}`}
+                  className={`flex h-10 w-10 items-center justify-center rounded-md border text-sm font-medium transition ${page === item ? "border-[#ad516b] bg-[#ad516b] text-white" : "border-zinc-200 bg-white text-zinc-600 hover:border-[#ad516b] hover:text-[#ad516b]"}`}
                 >
                   {item}
                 </Link>
@@ -327,7 +327,7 @@ export default async function CategoryPage({ params, searchParams }: Props) {
             {page < totalPages ? (
               <Link
                 href={createFilterHref({ page: (page + 1).toString() })}
-                className="flex h-10 min-w-10 items-center justify-center rounded-md border border-zinc-200 bg-white px-3 text-sm font-medium text-zinc-600 transition hover:border-[#6f8f73] hover:text-[#6f8f73]"
+                className="flex h-10 min-w-10 items-center justify-center rounded-md border border-zinc-200 bg-white px-3 text-sm font-medium text-zinc-600 transition hover:border-[#ad516b] hover:text-[#ad516b]"
               >
                 Sonraki
               </Link>

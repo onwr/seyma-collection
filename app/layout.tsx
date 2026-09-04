@@ -5,7 +5,7 @@ import { prisma } from "@/lib/prisma"
 import { getSiteBrandingSettings, siteKeywordsToArray } from "@/lib/siteSettings"
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.littlemomstore.com"
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.seymacollection.com"
 
 const baloo2 = Baloo_2({
   variable: "--font-baloo2",

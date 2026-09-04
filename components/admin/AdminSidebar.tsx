@@ -29,6 +29,7 @@ import {
   FaTimes,
   FaPhoneAlt,
   FaSync,
+  FaCreditCard,
 } from "react-icons/fa"
 import {
   HOME_TAB_KEYS,
@@ -82,6 +83,7 @@ const NAV_SECTIONS_SYSTEM: { title: string; items: NavItem[] }[] = [
       { label: "Telefonla Sipariş", href: "/admin/phone-order", icon: <FaPhoneAlt /> },
       { label: "Trendyol", href: "/admin/trendyol", icon: <FaSync /> },
       { label: "E-posta (SMTP)", href: "/admin/smtp", icon: <FaEnvelope /> },
+      { label: "PayTR", href: "/admin/paytr", icon: <FaCreditCard /> },
       { label: "İşlem günlüğü", href: "/admin/activity-log", icon: <FaHistory /> },
     ],
   },
@@ -171,16 +173,16 @@ export function AdminSidebar({
         {/* ── Logo / Marka ─────────────────────────── */}
         <div className="flex h-20 items-center justify-between px-6 border-b border-zinc-100">
           <div className="flex items-center gap-3">
-            <div className="relative h-9 w-9 shrink-0 rounded-xl overflow-hidden bg-[#4f6f52]/10 flex items-center justify-center">
+            <div className="relative h-9 w-9 shrink-0 rounded-xl overflow-hidden bg-[#813d50]/10 flex items-center justify-center">
               <Image
                 src="/logo.jpeg"
-                alt="Little Mom's Store"
+                alt="Şeyma Collection"
                 fill
                 className="object-contain"
               />
             </div>
             <div className="leading-tight min-w-0">
-              <p className="text-[13px] font-bold text-zinc-800 truncate">Little Mom&apos;s</p>
+              <p className="text-[13px] font-bold text-zinc-800 truncate">Şeyma Collection</p>
               <p className="text-[10px] font-medium text-zinc-400 uppercase tracking-widest">Admin Panel</p>
             </div>
           </div>
@@ -215,14 +217,14 @@ export function AdminSidebar({
                       className={`
                       group flex items-center justify-between rounded-xl px-3 py-2.5 text-[13px] font-medium transition-all
                       ${isActive
-                          ? "bg-[#4f6f52]/10 text-[#4f6f52]"
+                          ? "bg-[#813d50]/10 text-[#813d50]"
                           : "text-zinc-500 hover:bg-zinc-50 hover:text-zinc-900"
                         }
                     `}
                     >
                       <div className="flex items-center gap-3">
                         <span className={`text-[15px] shrink-0 transition-colors
-                        ${isActive ? "text-[#4f6f52]" : "text-zinc-300 group-hover:text-zinc-500"}`}>
+                        ${isActive ? "text-[#813d50]" : "text-zinc-300 group-hover:text-zinc-500"}`}>
                           {item.icon}
                         </span>
                         {item.label}
@@ -230,11 +232,11 @@ export function AdminSidebar({
 
                       {badgeCount ? (
                         <span className={`text-[10px] font-black px-2 py-0.5 rounded-full leading-none
-                                       ${isActive ? "bg-[#4f6f52] text-white" : "bg-zinc-100 text-zinc-500"}`}>
+                                       ${isActive ? "bg-[#813d50] text-white" : "bg-zinc-100 text-zinc-500"}`}>
                           {badgeCount}
                         </span>
                       ) : isActive ? (
-                        <div className="h-1.5 w-1.5 rounded-full bg-[#4f6f52]" />
+                        <div className="h-1.5 w-1.5 rounded-full bg-[#813d50]" />
                       ) : null}
                     </Link>
                   )
@@ -256,14 +258,14 @@ export function AdminSidebar({
                 className={`
                 group flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-left text-[13px] font-medium transition-all
                 ${onHomepage
-                    ? "bg-[#4f6f52]/10 text-[#4f6f52]"
+                    ? "bg-[#813d50]/10 text-[#813d50]"
                     : "text-zinc-500 hover:bg-zinc-50 hover:text-zinc-900"
                   }
               `}
               >
                 <div className="flex items-center gap-3 min-w-0">
                   <span
-                    className={`text-[15px] shrink-0 transition-colors ${onHomepage ? "text-[#4f6f52]" : "text-zinc-300 group-hover:text-zinc-500"
+                    className={`text-[15px] shrink-0 transition-colors ${onHomepage ? "text-[#813d50]" : "text-zinc-300 group-hover:text-zinc-500"
                       }`}
                   >
                     <FaHome />
@@ -288,21 +290,21 @@ export function AdminSidebar({
                         className={`
                         group flex items-center justify-between rounded-lg px-2.5 py-2 text-[12px] font-medium transition-all
                         ${subActive
-                            ? "bg-[#4f6f52]/10 text-[#4f6f52]"
+                            ? "bg-[#813d50]/10 text-[#813d50]"
                             : "text-zinc-500 hover:bg-zinc-50 hover:text-zinc-900"
                           }
                       `}
                       >
                         <div className="flex items-center gap-2.5 min-w-0">
                           <span
-                            className={`text-[13px] shrink-0 ${subActive ? "text-[#4f6f52]" : "text-zinc-300 group-hover:text-zinc-500"
+                            className={`text-[13px] shrink-0 ${subActive ? "text-[#813d50]" : "text-zinc-300 group-hover:text-zinc-500"
                               }`}
                           >
                             {HOME_SIDEBAR_TAB_ICONS[tab]}
                           </span>
                           <span className="truncate">{HOME_TAB_LABELS[tab]}</span>
                         </div>
-                        {subActive ? <div className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#4f6f52]" /> : null}
+                        {subActive ? <div className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#813d50]" /> : null}
                       </Link>
                     )
                   })}
@@ -313,57 +315,57 @@ export function AdminSidebar({
                 href={CONTENT_MENUS_ITEM.href}
                 className={`
                 group flex items-center justify-between rounded-xl px-3 py-2.5 text-[13px] font-medium transition-all
-                ${menusActive ? "bg-[#4f6f52]/10 text-[#4f6f52]" : "text-zinc-500 hover:bg-zinc-50 hover:text-zinc-900"}
+                ${menusActive ? "bg-[#813d50]/10 text-[#813d50]" : "text-zinc-500 hover:bg-zinc-50 hover:text-zinc-900"}
               `}
               >
                 <div className="flex items-center gap-3">
                   <span
-                    className={`text-[15px] shrink-0 transition-colors ${menusActive ? "text-[#4f6f52]" : "text-zinc-300 group-hover:text-zinc-500"
+                    className={`text-[15px] shrink-0 transition-colors ${menusActive ? "text-[#813d50]" : "text-zinc-300 group-hover:text-zinc-500"
                       }`}
                   >
                     {CONTENT_MENUS_ITEM.icon}
                   </span>
                   {CONTENT_MENUS_ITEM.label}
                 </div>
-                {menusActive ? <div className="h-1.5 w-1.5 rounded-full bg-[#4f6f52]" /> : null}
+                {menusActive ? <div className="h-1.5 w-1.5 rounded-full bg-[#813d50]" /> : null}
               </Link>
 
               <Link
                 href="/admin/faqs"
                 className={`
                 group flex items-center justify-between rounded-xl px-3 py-2.5 text-[13px] font-medium transition-all
-                ${faqsActive ? "bg-[#4f6f52]/10 text-[#4f6f52]" : "text-zinc-500 hover:bg-zinc-50 hover:text-zinc-900"}
+                ${faqsActive ? "bg-[#813d50]/10 text-[#813d50]" : "text-zinc-500 hover:bg-zinc-50 hover:text-zinc-900"}
               `}
               >
                 <div className="flex items-center gap-3">
                   <span
-                    className={`text-[15px] shrink-0 transition-colors ${faqsActive ? "text-[#4f6f52]" : "text-zinc-300 group-hover:text-zinc-500"
+                    className={`text-[15px] shrink-0 transition-colors ${faqsActive ? "text-[#813d50]" : "text-zinc-300 group-hover:text-zinc-500"
                       }`}
                   >
                     <FaQuestionCircle />
                   </span>
                   SSS
                 </div>
-                {faqsActive ? <div className="h-1.5 w-1.5 rounded-full bg-[#4f6f52]" /> : null}
+                {faqsActive ? <div className="h-1.5 w-1.5 rounded-full bg-[#813d50]" /> : null}
               </Link>
 
               <Link
                 href="/admin/footer-social"
                 className={`
                 group flex items-center justify-between rounded-xl px-3 py-2.5 text-[13px] font-medium transition-all
-                ${footerSocialActive ? "bg-[#4f6f52]/10 text-[#4f6f52]" : "text-zinc-500 hover:bg-zinc-50 hover:text-zinc-900"}
+                ${footerSocialActive ? "bg-[#813d50]/10 text-[#813d50]" : "text-zinc-500 hover:bg-zinc-50 hover:text-zinc-900"}
               `}
               >
                 <div className="flex items-center gap-3">
                   <span
-                    className={`text-[15px] shrink-0 transition-colors ${footerSocialActive ? "text-[#4f6f52]" : "text-zinc-300 group-hover:text-zinc-500"
+                    className={`text-[15px] shrink-0 transition-colors ${footerSocialActive ? "text-[#813d50]" : "text-zinc-300 group-hover:text-zinc-500"
                       }`}
                   >
                     <FaShareAlt />
                   </span>
                   Sosyal Medya
                 </div>
-                {footerSocialActive ? <div className="h-1.5 w-1.5 rounded-full bg-[#4f6f52]" /> : null}
+                {footerSocialActive ? <div className="h-1.5 w-1.5 rounded-full bg-[#813d50]" /> : null}
               </Link>
             </div>
           </div>
@@ -389,14 +391,14 @@ export function AdminSidebar({
                       className={`
                       group flex items-center justify-between rounded-xl px-3 py-2.5 text-[13px] font-medium transition-all
                       ${isActive
-                          ? "bg-[#4f6f52]/10 text-[#4f6f52]"
+                          ? "bg-[#813d50]/10 text-[#813d50]"
                           : "text-zinc-500 hover:bg-zinc-50 hover:text-zinc-900"
                         }
                     `}
                     >
                       <div className="flex items-center gap-3">
                         <span className={`text-[15px] shrink-0 transition-colors
-                        ${isActive ? "text-[#4f6f52]" : "text-zinc-300 group-hover:text-zinc-500"}`}>
+                        ${isActive ? "text-[#813d50]" : "text-zinc-300 group-hover:text-zinc-500"}`}>
                           {item.icon}
                         </span>
                         {item.label}
@@ -404,11 +406,11 @@ export function AdminSidebar({
 
                       {badgeCount ? (
                         <span className={`text-[10px] font-black px-2 py-0.5 rounded-full leading-none
-                                       ${isActive ? "bg-[#4f6f52] text-white" : "bg-zinc-100 text-zinc-500"}`}>
+                                       ${isActive ? "bg-[#813d50] text-white" : "bg-zinc-100 text-zinc-500"}`}>
                           {badgeCount}
                         </span>
                       ) : isActive ? (
-                        <div className="h-1.5 w-1.5 rounded-full bg-[#4f6f52]" />
+                        <div className="h-1.5 w-1.5 rounded-full bg-[#813d50]" />
                       ) : null}
                     </Link>
                   )

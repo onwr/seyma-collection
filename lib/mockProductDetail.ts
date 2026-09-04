@@ -11,7 +11,7 @@ const mockProductSource = [
     category: { name: "Kız Çocuk" },
     basePrice: 949.9,
     attributes: {
-      Marka: "Little Mom's Store",
+      Marka: "Şeyma Collection",
       Sezon: "İlkbahar / Yaz",
       "Üretim Yeri": "Türkiye",
       "Yaka Tipi": "Bisiklet Yaka",

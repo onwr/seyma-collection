@@ -141,7 +141,7 @@ export default function CouponsPage() {
 
   const generateCode = () => {
     const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"
-    let result = "LITTLE-"
+    let result = "SEYMA-"
     for (let i = 0; i < 6; i++) {
       result += chars.charAt(Math.floor(Math.random() * chars.length))
     }

@@ -92,7 +92,7 @@ export const STORE_SETTINGS_REGISTRY: StoreSettingsRegistryEntry[] = [
     description: "Ana sayfa ve şablon kullanılmayan sayfalarda görünen tarayıcı başlığı.",
     maxLength: 120,
     dbType: "string",
-    defaultValue: "Little Mom's Store",
+    defaultValue: "Şeyma Collection",
     stringKind: "plain",
   },
   {
@@ -103,7 +103,7 @@ export const STORE_SETTINGS_REGISTRY: StoreSettingsRegistryEntry[] = [
     description: "Alt sayfalar için; mutlaka %s içermeli (sayfa başlığı yerine geçer). Örn: %s | Mağaza",
     maxLength: 120,
     dbType: "string",
-    defaultValue: "%s | Little Mom's Store",
+    defaultValue: "%s | Şeyma Collection",
     stringKind: "titleTemplate",
   },
   {
@@ -127,7 +127,7 @@ export const STORE_SETTINGS_REGISTRY: StoreSettingsRegistryEntry[] = [
     maxLength: 500,
     dbType: "string",
     defaultValue:
-      "anne bebek, bebek giyim, çocuk giyim, bebek ürünleri, Little Mom's Store, online mağaza",
+      "anne bebek, bebek giyim, çocuk giyim, bebek ürünleri, Şeyma Collection, online mağaza",
     stringKind: "plain",
   },
   {
@@ -138,7 +138,7 @@ export const STORE_SETTINGS_REGISTRY: StoreSettingsRegistryEntry[] = [
     description: "Boş bırakılırsa varsayılan site başlığı kullanılır. Yazar / yayıncı meta alanlarında da kullanılır.",
     maxLength: 120,
     dbType: "string",
-    defaultValue: "Little Mom's Store",
+    defaultValue: "Şeyma Collection",
     stringKind: "plain",
   },
   {

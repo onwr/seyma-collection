@@ -53,7 +53,7 @@ export function OrdersListClient() {
     return (
       <div className="rounded-xl border border-dashed border-zinc-300 bg-white p-8 text-center text-sm text-zinc-600">
         Henüz siparişiniz yok.
-        <Link href="/" className="mt-3 block font-medium text-[#6f8f73] hover:underline">
+        <Link href="/" className="mt-3 block font-medium text-[#ad516b] hover:underline">
           Alışverişe başlayın
         </Link>
       </div>
@@ -89,7 +89,7 @@ export function OrdersListClient() {
               <td className="px-4 py-3 text-right">
                 <Link
                   href={`/siparislerim/${encodeURIComponent(o.orderNo)}`}
-                  className="font-medium text-[#6f8f73] hover:underline"
+                  className="font-medium text-[#ad516b] hover:underline"
                 >
                   Detay
                 </Link>

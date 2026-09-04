@@ -47,7 +47,7 @@ export const FALLBACK_HOME_FAQS: FaqPublic[] = [
     sortOrder: 5,
     question: "Ürünleriniz güvenli ve bebekler için uygun mu?",
     answer:
-      "Little Mom's Store olarak seçtiğimiz markaları ve ürünleri titizlikle değerlendiriyor; ürün sayfalarında yaş önerisi ve kullanım bilgilerini paylaşıyoruz. Her bebeğin farklı olduğunu unutmayın; alerji veya özel durumlarda üretici etiketini ve doktor önerisini dikkate almanızı öneririz.",
+      "Şeyma Collection olarak seçtiğimiz markaları ve ürünleri titizlikle değerlendiriyor; ürün sayfalarında yaş önerisi ve kullanım bilgilerini paylaşıyoruz. Her bebeğin farklı olduğunu unutmayın; alerji veya özel durumlarda üretici etiketini ve doktor önerisini dikkate almanızı öneririz.",
   },
   {
     id: -6,

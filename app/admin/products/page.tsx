@@ -72,7 +72,7 @@ function stockStatus(p: Product): "ok" | "low" | "out" {
 }
 
 const STOCK_META = {
-   ok: { label: "Stokta", bg: "#d1fae5", color: "#065f46", dot: "#4f6f52" },
+   ok: { label: "Stokta", bg: "#d1fae5", color: "#065f46", dot: "#813d50" },
    low: { label: "Azalıyor", bg: "#fef3c7", color: "#92400e", dot: "#f59e0b" },
    out: { label: "Tükendi", bg: "#fee2e2", color: "#991b1b", dot: "#ef4444" },
 }
@@ -94,8 +94,8 @@ function StockBadge({ product }: { product: Product }) {
 function SortIcon({ field, active, dir }: { field: string; active: string; dir: SortDir }) {
    if (active !== field) return <FaSort className="h-2.5 w-2.5 text-zinc-300" />
    return dir === "asc"
-      ? <FaSortUp className="h-2.5 w-2.5 text-[#4f6f52]" />
-      : <FaSortDown className="h-2.5 w-2.5 text-[#4f6f52]" />
+      ? <FaSortUp className="h-2.5 w-2.5 text-[#813d50]" />
+      : <FaSortDown className="h-2.5 w-2.5 text-[#813d50]" />
 }
 
 // ── Grid kart ────────────────────────────────────────────────────────────────
@@ -135,8 +135,8 @@ function ProductCard({ product, i, editHref }: { product: Product; i: number; ed
                </Link>
                <Link
                   href={editHref(product.id)}
-                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#4f6f52] text-white
-                       shadow transition hover:bg-[#3d5a3f]"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#813d50] text-white
+                       shadow transition hover:bg-[#673040]"
                >
                   <FaEdit className="h-3.5 w-3.5" />
                </Link>
@@ -664,8 +664,8 @@ export default function AdminProducts() {
                </button>
                <Link
                   href="/admin/products/new"
-                  className="flex items-center gap-2 rounded-lg bg-[#4f6f52] px-4 py-2 text-[12px]
-                       font-medium text-white transition hover:bg-[#3d5a3f] active:scale-[.98]"
+                  className="flex items-center gap-2 rounded-lg bg-[#813d50] px-4 py-2 text-[12px]
+                       font-medium text-white transition hover:bg-[#673040] active:scale-[.98]"
                >
                   <FaPlus className="h-2.5 w-2.5" /> Yeni Ürün
                </Link>
@@ -699,7 +699,7 @@ export default function AdminProducts() {
                   value={search}
                   onChange={e => setSearch(e.target.value)}
                   className="h-9 w-full rounded-lg border border-zinc-100 bg-zinc-50 pl-9 pr-4 text-[12.5px]
-                       text-zinc-800 outline-none transition focus:border-[#4f6f52] focus:bg-white"
+                       text-zinc-800 outline-none transition focus:border-[#813d50] focus:bg-white"
                />
             </form>
 
@@ -710,7 +710,7 @@ export default function AdminProducts() {
                      value={categoryId}
                      onChange={e => { setCategoryId(e.target.value); setPage(1) }}
                      className="h-9 rounded-lg border border-zinc-100 bg-zinc-50 px-3 text-[12px]
-                         text-zinc-700 outline-none transition focus:border-[#4f6f52] focus:bg-white cursor-pointer"
+                         text-zinc-700 outline-none transition focus:border-[#813d50] focus:bg-white cursor-pointer"
                   >
                      <option value="">Tüm Kategoriler</option>
                      {rootCategories.map((c) => (
@@ -787,7 +787,7 @@ export default function AdminProducts() {
                            type="button"
                            disabled={isBulkLoading}
                            onClick={() => void applyBulkPrice()}
-                           className="flex h-9 items-center gap-1.5 rounded-lg bg-[#4f6f52] px-3 text-[11px] font-bold text-white disabled:opacity-50"
+                           className="flex h-9 items-center gap-1.5 rounded-lg bg-[#813d50] px-3 text-[11px] font-bold text-white disabled:opacity-50"
                         >
                            <FaPercent className="h-3 w-3" />
                            Uygula
@@ -877,7 +877,7 @@ export default function AdminProducts() {
                            type="button"
                            disabled={isBulkLoading}
                            onClick={() => void applyBulkCategories()}
-                           className="flex h-9 items-center gap-1.5 rounded-lg bg-[#4f6f52] px-3 text-[11px] font-bold text-white disabled:opacity-50"
+                           className="flex h-9 items-center gap-1.5 rounded-lg bg-[#813d50] px-3 text-[11px] font-bold text-white disabled:opacity-50"
                         >
                            <FaTag className="h-3 w-3" />
                            Uygula
@@ -894,7 +894,7 @@ export default function AdminProducts() {
 
                   <div className="flex flex-wrap items-center gap-3 px-4 py-3 sm:gap-6">
                      <div className="flex items-center gap-3 border-white/10 sm:border-r sm:pr-6">
-                        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#4f6f52] text-[11px] font-bold text-white">
+                        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#813d50] text-[11px] font-bold text-white">
                            {selected.size}
                         </span>
                         <span className="text-[12.5px] font-medium text-white">Seçili</span>
@@ -1026,12 +1026,12 @@ export default function AdminProducts() {
                          products.every(p => selected.has(String(p.id))) && 
                          selected.size !== totalCount && totalCount > products.length && (
                            <tr>
-                              <th colSpan={8} className="bg-[#4f6f52]/5 px-4 py-2.5 text-center text-[11.5px] font-normal text-zinc-600">
+                              <th colSpan={8} className="bg-[#813d50]/5 px-4 py-2.5 text-center text-[11.5px] font-normal text-zinc-600">
                                  Bu sayfadaki {products.length} ürünün tamamı seçildi. 
                                  <button 
                                     onClick={selectAllInDatabase}
                                     disabled={selectAllLoading}
-                                    className="ml-2 font-bold text-[#4f6f52] underline hover:text-[#3d5a3f]"
+                                    className="ml-2 font-bold text-[#813d50] underline hover:text-[#673040]"
                                  >
                                     {selectAllLoading ? "Seçiliyor..." : `Filtrelere uygun ${totalCount} ürünün tamamını seç`}
                                  </button>
@@ -1047,7 +1047,7 @@ export default function AdminProducts() {
                                  disabled={selectAllLoading || loading}
                                  checked={products.length > 0 && products.every(p => selected.has(String(p.id)))}
                                  onChange={toggleSelectAll}
-                                 className="h-3.5 w-3.5 cursor-pointer accent-[#4f6f52] rounded disabled:opacity-40"
+                                 className="h-3.5 w-3.5 cursor-pointer accent-[#813d50] rounded disabled:opacity-40"
                               />
                            </th>
                            {[
@@ -1080,7 +1080,7 @@ export default function AdminProducts() {
                               <tr>
                                  <td colSpan={8} className="py-20 text-center">
                                     <div className="flex flex-col items-center gap-3">
-                                       <div className="h-7 w-7 animate-spin rounded-full border-2 border-zinc-200 border-t-[#4f6f52]" />
+                                       <div className="h-7 w-7 animate-spin rounded-full border-2 border-zinc-200 border-t-[#813d50]" />
                                        <span className="text-[11px] text-zinc-400">Yükleniyor...</span>
                                     </div>
                                  </td>
@@ -1095,7 +1095,7 @@ export default function AdminProducts() {
                                        </p>
                                        <Link
                                           href="/admin/products/new"
-                                          className="mt-1 rounded-lg bg-[#4f6f52] px-4 py-2 text-[12px] text-white transition hover:bg-[#3d5a3f]"
+                                          className="mt-1 rounded-lg bg-[#813d50] px-4 py-2 text-[12px] text-white transition hover:bg-[#673040]"
                                        >
                                           İlk Ürünü Ekle
                                        </Link>
@@ -1114,7 +1114,7 @@ export default function AdminProducts() {
                                     initial={{ opacity: 0, y: 4 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: i * 0.025 }}
-                                    className={`group transition-colors ${isSelected ? "bg-[#4f6f52]/5" : "hover:bg-zinc-50/70"}`}
+                                    className={`group transition-colors ${isSelected ? "bg-[#813d50]/5" : "hover:bg-zinc-50/70"}`}
                                  >
                                     {/* Checkbox */}
                                     <td className="px-4 py-4">
@@ -1122,7 +1122,7 @@ export default function AdminProducts() {
                                           type="checkbox"
                                           checked={isSelected}
                                           onChange={() => toggleSelect(product.id)}
-                                          className="h-3.5 w-3.5 cursor-pointer accent-[#4f6f52] rounded"
+                                          className="h-3.5 w-3.5 cursor-pointer accent-[#813d50] rounded"
                                        />
                                     </td>
 
@@ -1141,7 +1141,7 @@ export default function AdminProducts() {
                                              <Link
                                                 href={editHref(product.id)}
                                                 className="block truncate text-[12.5px] font-medium text-zinc-800
-                                           hover:text-[#4f6f52] transition-colors"
+                                           hover:text-[#813d50] transition-colors"
                                              >
                                                 {product.name}
                                              </Link>
@@ -1260,7 +1260,7 @@ export default function AdminProducts() {
                                              href={editHref(product.id)}
                                              className="flex h-8 w-8 items-center justify-center rounded-lg border border-zinc-100
                                          bg-white text-zinc-400 shadow-sm transition
-                                         hover:border-[#4f6f52] hover:text-[#4f6f52]"
+                                         hover:border-[#813d50] hover:text-[#813d50]"
                                           >
                                              <FaEdit className="h-3 w-3" />
                                           </Link>
@@ -1293,7 +1293,7 @@ export default function AdminProducts() {
                {loading ? (
                   <div className="flex h-64 items-center justify-center">
                      <div className="flex flex-col items-center gap-3">
-                        <div className="h-7 w-7 animate-spin rounded-full border-2 border-zinc-200 border-t-[#4f6f52]" />
+                        <div className="h-7 w-7 animate-spin rounded-full border-2 border-zinc-200 border-t-[#813d50]" />
                         <span className="text-[11px] text-zinc-400">Yükleniyor...</span>
                      </div>
                   </div>
@@ -1379,7 +1379,7 @@ export default function AdminProducts() {
                            placeholder="örn: 20"
                            value={trendyolCommission}
                            onChange={(e) => setTrendyolCommission(e.target.value)}
-                           className="h-10 w-full rounded-lg border border-zinc-200 px-3 text-[13px] outline-none focus:border-[#4f6f52]"
+                           className="h-10 w-full rounded-lg border border-zinc-200 px-3 text-[13px] outline-none focus:border-[#813d50]"
                         />
                         <p className="text-[11px] text-zinc-400">
                            Girilen oran kadar fiyatların üzerine eklenir (örn. %20 girilirse fiyatlar %20 artırılarak yazılır).
@@ -1437,7 +1437,7 @@ export default function AdminProducts() {
                         <button
                            type="button"
                            onClick={handleTrendyolExport}
-                           className="flex items-center gap-2 rounded-lg bg-[#4f6f52] px-4 py-2 text-[12px] font-medium text-white transition hover:bg-[#3d5a3f]"
+                           className="flex items-center gap-2 rounded-lg bg-[#813d50] px-4 py-2 text-[12px] font-medium text-white transition hover:bg-[#673040]"
                         >
                            <FaFileExport className="h-3 w-3" />
                            İndir
@@ -1596,7 +1596,7 @@ function Pagination({
                      onClick={() => setPage(p)}
                      className={`flex h-8 w-8 items-center justify-center rounded-lg text-[12px] transition disabled:opacity-50
                 ${active
-                           ? "bg-[#4f6f52] text-white font-medium"
+                           ? "bg-[#813d50] text-white font-medium"
                            : "border border-zinc-200 bg-white text-zinc-500 hover:border-zinc-300"}`}
                   >
                      {p}

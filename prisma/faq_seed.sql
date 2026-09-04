@@ -34,7 +34,7 @@ FROM (
   UNION ALL SELECT
     'Ürün & Güvenlik',
     'Ürünleriniz güvenli ve bebekler için uygun mu?',
-    'Little Mom''s Store olarak seçtiğimiz markaları ve ürünleri titizlikle değerlendiriyor; ürün sayfalarında yaş önerisi ve kullanım bilgilerini paylaşıyoruz. Her bebeğin farklı olduğunu unutmayın; alerji veya özel durumlarda üretici etiketini ve doktor önerisini dikkate almanızı öneririz.',
+    'Şeyma Collection olarak seçtiğimiz markaları ve ürünleri titizlikle değerlendiriyor; ürün sayfalarında yaş önerisi ve kullanım bilgilerini paylaşıyoruz. Her bebeğin farklı olduğunu unutmayın; alerji veya özel durumlarda üretici etiketini ve doktor önerisini dikkate almanızı öneririz.',
     5, 1, 1
   UNION ALL SELECT
     'Ürün & Güvenlik',

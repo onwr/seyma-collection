@@ -35,12 +35,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "cdn.littlemomstore.com",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "cdn.littlemoms.store",
+        hostname: "cdn.seymacollection.com",
         pathname: "/**",
       },
       {
@@ -50,12 +45,12 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "www.littlemomstore.com",
+        hostname: "www.seymacollection.com",
         pathname: "/**",
       },
       {
         protocol: "https",
-        hostname: "littlemomstore.com",
+        hostname: "seymacollection.com",
         pathname: "/**",
       },
     ],

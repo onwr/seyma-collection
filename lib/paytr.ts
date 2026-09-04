@@ -1,6 +1,12 @@
 import crypto from "crypto"
 
-export interface PaytrTokenParams {
+export interface PaytrCredentials {
+  merchantId: string
+  merchantKey: string
+  merchantSalt: string
+}
+
+export interface PaytrTokenParams extends PaytrCredentials {
   merchantOid: string
   email: string
   paymentAmount: number
@@ -16,15 +22,17 @@ export interface PaytrTokenParams {
   currency?: string
 }
 
-const MERCHANT_ID = process.env.PAYTR_MERCHANT_ID || ""
-const MERCHANT_KEY = process.env.PAYTR_MERCHANT_KEY || ""
-const MERCHANT_SALT = process.env.PAYTR_MERCHANT_SALT || ""
-const TEST_MODE = process.env.PAYTR_TEST_MODE === "1" ? 1 : 0
+/** `.env`'deki `PAYTR_*` değerleri — yönetim panelinden ayrı bir yapılandırma yoksa
+ *  kullanılan son çare. Gerçek kaynak: `lib/paytrSettings.ts` → `getPaytrConfig`. */
+const ENV_MERCHANT_ID = process.env.PAYTR_MERCHANT_ID || ""
+const ENV_MERCHANT_KEY = process.env.PAYTR_MERCHANT_KEY || ""
+const ENV_MERCHANT_SALT = process.env.PAYTR_MERCHANT_SALT || ""
+const ENV_TEST_MODE = process.env.PAYTR_TEST_MODE === "1" ? 1 : 0
 
 function getSiteUrl() {
   return (
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
-    "https://www.littlemomstore.com"
+    "https://www.seymacollection.com"
   )
 }
 
@@ -50,14 +58,18 @@ export async function getPaytrToken(params: PaytrTokenParams) {
     userPhone,
     userIp,
     debugOn = 1,
-    testMode = TEST_MODE,
+    testMode = ENV_TEST_MODE,
     noInstallment = 0,
     maxInstallment = 0,
     currency = "TL",
   } = params
 
+  const MERCHANT_ID = params.merchantId || ENV_MERCHANT_ID
+  const MERCHANT_KEY = params.merchantKey || ENV_MERCHANT_KEY
+  const MERCHANT_SALT = params.merchantSalt || ENV_MERCHANT_SALT
+
   if (!MERCHANT_ID || !MERCHANT_KEY || !MERCHANT_SALT) {
-    throw new Error("PayTR env bilgileri eksik.")
+    throw new Error("PayTR bilgileri eksik. Yönetim panelinden PayTR ayarlarını girin.")
   }
 
   const siteUrl = getSiteUrl()
@@ -151,8 +163,12 @@ export function verifyPaytrCallback(params: {
   status: string
   total_amount: string
   hash: string
+  merchantKey?: string
+  merchantSalt?: string
 }) {
   const { merchant_oid, status, total_amount, hash } = params
+  const MERCHANT_KEY = params.merchantKey || ENV_MERCHANT_KEY
+  const MERCHANT_SALT = params.merchantSalt || ENV_MERCHANT_SALT
 
   if (!MERCHANT_KEY || !MERCHANT_SALT) {
     return false

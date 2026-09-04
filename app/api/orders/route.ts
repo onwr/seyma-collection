@@ -19,6 +19,7 @@ import { generateOrderNoCandidate } from "@/lib/orderNo"
 import { prisma } from "@/lib/prisma"
 import { getShippingSettings } from "@/lib/shippingSettings"
 import { getPaytrToken } from "@/lib/paytr"
+import { getPaytrConfig } from "@/lib/paytrSettings"
 import { orderPlacedEmailContent } from "@/lib/emails/orderPlaced"
 import { sendMail } from "@/lib/smtpSettings"
 
@@ -489,7 +490,12 @@ export async function POST(request: Request) {
         }
 
         try {
+            const paytrConfig = await getPaytrConfig(prisma)
             const pt = await getPaytrToken({
+                merchantId: paytrConfig.merchantId,
+                merchantKey: paytrConfig.merchantKey,
+                merchantSalt: paytrConfig.merchantSalt,
+                testMode: paytrConfig.testMode ? 1 : 0,
                 merchantOid: result.orderNo,
                 email: user?.email || "",
                 paymentAmount: Math.round(grandTotal * 100), // Kuruş
@@ -528,7 +534,7 @@ export async function POST(request: Request) {
 
     const recipientEmail = user?.email?.trim() || null
     const siteUrlBase =
-      process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://www.littlemomstore.com"
+      process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://www.seymacollection.com"
     if (recipientEmail) {
       const orderNoForMail = result.orderNo
       const grandTotalStr = moneyString(grandTotal)

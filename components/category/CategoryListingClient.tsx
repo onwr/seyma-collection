@@ -148,7 +148,7 @@ export function CategoryListingClient({ products, view }: CategoryListingClientP
                     />
                     
                     {hasDiscount && (
-                      <div className="absolute left-3 top-3 z-10 rounded-full bg-[#6f8f73] px-2.5 py-1 text-[10px] font-bold text-white shadow-sm">
+                      <div className="absolute left-3 top-3 z-10 rounded-full bg-[#ad516b] px-2.5 py-1 text-[10px] font-bold text-white shadow-sm">
                         %{discountPct} İndirim
                       </div>
                     )}
@@ -172,7 +172,7 @@ export function CategoryListingClient({ products, view }: CategoryListingClientP
                   </div>
 
                   <div className="mt-4 flex flex-col items-center px-2 text-center">
-                    <h3 className="line-clamp-2 text-[13px] font-medium text-zinc-700 transition-colors group-hover:text-[#6f8f73]">
+                    <h3 className="line-clamp-2 text-[13px] font-medium text-zinc-700 transition-colors group-hover:text-[#ad516b]">
                       {product.name}
                     </h3>
                     <div className="mt-1 flex flex-col items-center gap-0">
@@ -182,7 +182,7 @@ export function CategoryListingClient({ products, view }: CategoryListingClientP
                         </span>
                       )}
                       <div className="flex items-center gap-1 text-[15px] font-bold text-zinc-900">
-                        <span className="text-[14px] text-[#6f8f73]">₺</span>
+                        <span className="text-[14px] text-[#ad516b]">₺</span>
                         {formatPrice(Number(displayPrice))}
                       </div>
                     </div>

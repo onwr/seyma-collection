@@ -336,7 +336,7 @@ export default function AdminSmtpPage() {
                 className="h-11 w-full rounded-xl border border-zinc-200 bg-white px-4 text-[13px] font-medium outline-none focus:border-zinc-900"
                 value={form.fromEmail}
                 onChange={(e) => setForm({ ...form, fromEmail: e.target.value })}
-                placeholder="noreply@littlemomstore.com"
+                placeholder="noreply@seymacollection.com"
               />
             </div>
 
@@ -349,7 +349,7 @@ export default function AdminSmtpPage() {
                 className="h-11 w-full rounded-xl border border-zinc-200 bg-white px-4 text-[13px] font-medium outline-none focus:border-zinc-900"
                 value={form.fromName}
                 onChange={(e) => setForm({ ...form, fromName: e.target.value })}
-                placeholder="Little Mom's Store"
+                placeholder="Şeyma Collection"
               />
             </div>
 

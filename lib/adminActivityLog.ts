@@ -5,6 +5,7 @@ import { getClientIp } from "@/lib/checkoutRateLimit"
 export const AdminActivityAction = {
   SMTP_SAVE: "SMTP_SAVE",
   SMTP_TEST: "SMTP_TEST",
+  PAYTR_SAVE: "PAYTR_SAVE",
   ORDER_STATUS_UPDATE: "ORDER_STATUS_UPDATE",
   ORDER_BULK_UPDATE: "ORDER_BULK_UPDATE",
   ORDER_DELETE: "ORDER_DELETE",

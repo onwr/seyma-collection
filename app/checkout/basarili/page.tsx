@@ -33,7 +33,7 @@ export default function CheckoutSuccessPage({
             initial={{ scale: 0, rotate: -180 }}
             animate={{ scale: 1, rotate: 0 }}
             transition={{ type: "spring", damping: 12, stiffness: 100 }}
-            className="mx-auto mb-8 flex h-24 w-24 items-center justify-center rounded-full bg-[#f4f7f4] text-[#6f8f73]"
+            className="mx-auto mb-8 flex h-24 w-24 items-center justify-center rounded-full bg-[#f9f2f4] text-[#ad516b]"
           >
             <FaCheckCircle className="h-12 w-12" />
           </motion.div>
@@ -46,7 +46,7 @@ export default function CheckoutSuccessPage({
             className="space-y-4"
           >
             <h1 className="text-4xl font-black uppercase tracking-tight text-zinc-900 md:text-5xl">
-              SİPARİŞİNİZ <span className="text-[#6f8f73]">ALINDI!</span>
+              SİPARİŞİNİZ <span className="text-[#ad516b]">ALINDI!</span>
             </h1>
             <p className="mx-auto max-w-md text-zinc-500">
               Harika bir seçim yaptınız! Siparişiniz başarıyla sistemimize ulaştı ve hazırlık ekibimize iletildi.
@@ -71,7 +71,7 @@ export default function CheckoutSuccessPage({
                 <p className="mt-1 text-lg font-bold text-zinc-800">2-4 İş Günü</p>
               </div>
               <div className="h-px w-full bg-zinc-200 md:h-12 md:w-px" />
-              <div className="flex items-center space-x-3 text-[#6f8f73]">
+              <div className="flex items-center space-x-3 text-[#ad516b]">
                 <FaTruck className="h-6 w-6" />
                 <span className="text-xs font-black uppercase tracking-widest">Hızlı Kargo</span>
               </div>
@@ -93,7 +93,7 @@ export default function CheckoutSuccessPage({
             </Link>
             <Link
               href="/"
-              className="flex w-full items-center justify-center space-x-3 rounded-full border-2 border-zinc-100 bg-white px-10 py-5 text-xs font-black uppercase tracking-[0.2em] text-zinc-900 transition-all hover:border-[#6f8f73] hover:text-[#6f8f73] hover:scale-105 active:scale-95 sm:w-auto"
+              className="flex w-full items-center justify-center space-x-3 rounded-full border-2 border-zinc-100 bg-white px-10 py-5 text-xs font-black uppercase tracking-[0.2em] text-zinc-900 transition-all hover:border-[#ad516b] hover:text-[#ad516b] hover:scale-105 active:scale-95 sm:w-auto"
             >
               <span>ALIŞVERİŞE DEVAM ET</span>
               <FaArrowRight className="h-3 w-3" />

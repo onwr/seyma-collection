@@ -61,7 +61,7 @@ export async function POST(request: Request) {
     ])
 
     const siteUrl =
-      process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://www.littlemomstore.com"
+      process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://www.seymacollection.com"
     const { subject, text, html } = passwordResetEmailContent({
       siteUrl,
       token: rawToken,

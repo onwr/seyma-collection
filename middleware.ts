@@ -8,9 +8,9 @@ export function middleware(request: NextRequest) {
   const host = request.headers.get("host")
 
   // www to non-www redirect
-  if (host === "www.littlemomstore.com") {
+  if (host === "www.seymacollection.com") {
     return NextResponse.redirect(
-      new URL(request.nextUrl.pathname + request.nextUrl.search, "https://littlemomstore.com"),
+      new URL(request.nextUrl.pathname + request.nextUrl.search, "https://seymacollection.com"),
       301
     )
   }

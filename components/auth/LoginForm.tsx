@@ -85,7 +85,7 @@ export function LoginForm() {
         <div className="space-y-1">
           <div className="flex items-center justify-between">
             <label className="text-[11px] text-zinc-500">Şifre</label>
-            <Link href="/forgot-password" title="Şifremi Unuttum" className="text-[11px] text-[#6f8f73] hover:underline">
+            <Link href="/forgot-password" title="Şifremi Unuttum" className="text-[11px] text-[#ad516b] hover:underline">
                Şifremi Unuttum
             </Link>
           </div>
@@ -95,21 +95,21 @@ export function LoginForm() {
             onChange={(e) => setPassword(e.target.value)}
             required
             autoComplete="current-password"
-            className="h-11 w-full border border-zinc-300 px-3 text-sm outline-none focus:border-[#6f8f73] bg-white"
+            className="h-11 w-full border border-zinc-300 px-3 text-sm outline-none focus:border-[#ad516b] bg-white"
           />
         </div>
 
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-[#6f8f73] text-white h-10 text-sm font-semibold transition hover:bg-[#5f7f64] disabled:opacity-40"
+          className="w-full bg-[#ad516b] text-white h-10 text-sm font-semibold transition hover:bg-[#97475e] disabled:opacity-40"
         >
           {loading ? "Giriş Yapılıyor..." : "Giriş Yap"}
         </button>
 
         <p className="text-center text-xs text-zinc-500 pt-2">
           Hesabın yok mu?{" "}
-          <Link href="/register" className="font-bold text-[#6f8f73] hover:underline">
+          <Link href="/register" className="font-bold text-[#ad516b] hover:underline">
             Hemen Üye Ol
           </Link>
         </p>
@@ -137,7 +137,7 @@ function Input({ label, value, onChange, type = "text", required, autoComplete }
         onChange={(e) => onChange(e.target.value)}
         required={required}
         autoComplete={autoComplete}
-        className="h-11 w-full border border-zinc-300 px-3 text-sm outline-none focus:border-[#6f8f73] bg-white"
+        className="h-11 w-full border border-zinc-300 px-3 text-sm outline-none focus:border-[#ad516b] bg-white"
       />
     </div>
   )

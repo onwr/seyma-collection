@@ -356,7 +356,7 @@ export default function AdminMenusPage() {
             type="button"
             onClick={() => void syncFromCategories()}
             disabled={syncingCategories || loading}
-            className="inline-flex items-center justify-center gap-2 rounded-xl border border-zinc-200 bg-white px-4 py-3 text-sm font-bold text-zinc-800 transition-colors hover:border-[#4f6f52] hover:text-[#4f6f52] disabled:opacity-50"
+            className="inline-flex items-center justify-center gap-2 rounded-xl border border-zinc-200 bg-white px-4 py-3 text-sm font-bold text-zinc-800 transition-colors hover:border-[#813d50] hover:text-[#813d50] disabled:opacity-50"
           >
             <FaSync className={`text-xs ${syncingCategories ? "animate-spin" : ""}`} />
             {syncingCategories ? "Senkronize…" : "Kategorilerden senkronize et"}

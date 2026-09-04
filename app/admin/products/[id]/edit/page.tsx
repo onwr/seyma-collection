@@ -90,13 +90,13 @@ function Toggle({
             type="button"
             onClick={() => onChange(!checked)}
             className={`relative h-6 w-10 shrink-0 rounded-full transition-all duration-300
-          ${checked ? "bg-[#4f6f52] shadow-[0_0_10px_rgba(79,111,82,0.3)]" : "bg-zinc-200"}`}
+          ${checked ? "bg-[#813d50] shadow-[0_0_10px_rgba(79,111,82,0.3)]" : "bg-zinc-200"}`}
          >
             <span
                className={`absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-white shadow-md transition-transform duration-300 flex items-center justify-center
             ${checked ? "translate-x-4" : "translate-x-0"}`}
             >
-               {checked && <div className="h-1.5 w-1.5 rounded-full bg-[#4f6f52]" />}
+               {checked && <div className="h-1.5 w-1.5 rounded-full bg-[#813d50]" />}
             </span>
          </button>
       </div>
@@ -126,7 +126,7 @@ function EditorToolbar({ editor }: { editor: any }) {
          onClick={onClick}
          className={`flex h-8 w-8 items-center justify-center rounded-lg text-[13px] transition-all duration-200
         ${active
-               ? "bg-[#4f6f52] text-white shadow-sm scale-105"
+               ? "bg-[#813d50] text-white shadow-sm scale-105"
                : "text-zinc-500 hover:bg-zinc-100 hover:text-zinc-800"}`}
       >
          {icon}
@@ -158,7 +158,7 @@ function EditorToolbar({ editor }: { editor: any }) {
                         : editor.isActive("heading", { level: 4 }) ? "4"
                            : "p"
                }
-               className="h-8 rounded-lg border border-zinc-200 bg-white px-3 pr-8 text-[12px] font-medium text-zinc-600 outline-none transition-all focus:border-[#4f6f52] appearance-none cursor-pointer"
+               className="h-8 rounded-lg border border-zinc-200 bg-white px-3 pr-8 text-[12px] font-medium text-zinc-600 outline-none transition-all focus:border-[#813d50] appearance-none cursor-pointer"
             >
                <option value="p">Gövde Metni</option>
                <option value="2">Büyük Başlık (H2)</option>
@@ -241,7 +241,7 @@ function RichEditor({
    const charCount = editor?.storage.characterCount?.characters() ?? 0
 
    return (
-      <div className="overflow-hidden rounded-xl border border-zinc-200 bg-white transition-all duration-300 focus-within:border-[#4f6f52] focus-within:ring-2 focus-within:ring-[#4f6f52]/5">
+      <div className="overflow-hidden rounded-xl border border-zinc-200 bg-white transition-all duration-300 focus-within:border-[#813d50] focus-within:ring-2 focus-within:ring-[#813d50]/5">
          <EditorToolbar editor={editor} />
 
          {/* Editör içeriği — TipTap global stilleri */}
@@ -252,7 +252,7 @@ function RichEditor({
         .tiptap ul  { list-style:disc;   padding-left:1.5rem; margin:0.75rem 0 }
         .tiptap ol  { list-style:decimal; padding-left:1.5rem; margin:0.75rem 0 }
         .tiptap li  { margin:0.35rem 0 }
-        .tiptap blockquote { border-left:4px solid #4f6f52; padding-left:1.25rem; color:#4b5563; font-style:italic; margin:1.25rem 0; background:#f9fafb; padding-top:0.5rem; padding-bottom:0.5rem; border-radius:0 4px 4px 0 }
+        .tiptap blockquote { border-left:4px solid #813d50; padding-left:1.25rem; color:#4b5563; font-style:italic; margin:1.25rem 0; background:#f9fafb; padding-top:0.5rem; padding-bottom:0.5rem; border-radius:0 4px 4px 0 }
         .tiptap p.is-editor-empty:first-child::before { content:attr(data-placeholder); color:#9ca3af; pointer-events:none; float:left; height:0 }
         .tiptap p { margin: 0.75rem 0 }
         .tiptap a { color: #2563eb; text-decoration: underline; font-weight: 500 }
@@ -296,7 +296,7 @@ function ImageRow({
          animate={{ opacity: 1, scale: 1 }}
          exit={{ opacity: 0, scale: 0.95 }}
          className="group relative flex items-center gap-3 rounded-xl border border-zinc-100 bg-zinc-50/80 p-3
-                 transition-all hover:bg-white hover:shadow-md hover:border-[#4f6f52]/20"
+                 transition-all hover:bg-white hover:shadow-md hover:border-[#813d50]/20"
       >
          <div className="cursor-grab active:cursor-grabbing p-1 text-zinc-300 hover:text-zinc-500 transition-colors">
             <FaGripVertical className="h-3.5 w-3.5" />
@@ -305,7 +305,7 @@ function ImageRow({
          <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg border-2 border-white shadow-sm ring-1 ring-zinc-200 bg-white">
             <img src={url} alt="" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
             {isFirst && (
-               <div className="absolute top-0 left-0 right-0 bg-[#4f6f52] py-0.5 flex items-center justify-center">
+               <div className="absolute top-0 left-0 right-0 bg-[#813d50] py-0.5 flex items-center justify-center">
                   <span className="text-[7.5px] font-bold uppercase tracking-wider text-white">ANA GÖRSEL</span>
                </div>
             )}
@@ -327,7 +327,7 @@ function ImageRow({
                   type="button"
                   onClick={onMoveUp}
                   disabled={isFirst}
-                  className="flex h-6 w-6 items-center justify-center rounded-md bg-white border border-zinc-200 text-zinc-400 hover:text-[#4f6f52] hover:border-[#4f6f52] transition-all disabled:opacity-30 disabled:pointer-events-none shadow-sm"
+                  className="flex h-6 w-6 items-center justify-center rounded-md bg-white border border-zinc-200 text-zinc-400 hover:text-[#813d50] hover:border-[#813d50] transition-all disabled:opacity-30 disabled:pointer-events-none shadow-sm"
                   title="Yukarı Taşı"
                >
                   <span className="text-[10px]">▲</span>
@@ -336,7 +336,7 @@ function ImageRow({
                   type="button"
                   onClick={onMoveDown}
                   disabled={isLast}
-                  className="flex h-6 w-6 items-center justify-center rounded-md bg-white border border-zinc-200 text-zinc-400 hover:text-[#4f6f52] hover:border-[#4f6f52] transition-all disabled:opacity-30 disabled:pointer-events-none shadow-sm"
+                  className="flex h-6 w-6 items-center justify-center rounded-md bg-white border border-zinc-200 text-zinc-400 hover:text-[#813d50] hover:border-[#813d50] transition-all disabled:opacity-30 disabled:pointer-events-none shadow-sm"
                   title="Aşağı Taşı"
                >
                   <span className="text-[10px]">▼</span>
@@ -375,7 +375,7 @@ function SectionHeader({ icon, title, action, subtitle }: { icon: React.ReactNod
       <div className="mb-6 flex flex-col gap-1 border-b border-zinc-100 pb-4">
          <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#4f6f52]/5 text-[#4f6f52] shadow-sm ring-1 ring-[#4f6f52]/10">
+               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#813d50]/5 text-[#813d50] shadow-sm ring-1 ring-[#813d50]/10">
                   {icon}
                </div>
                <div>
@@ -407,7 +407,7 @@ function Field({
       <div className="group/field">
          <div className="mb-2 flex items-center justify-between">
             <div className="flex items-center gap-1.5">
-               <label className="text-[12.5px] font-semibold text-zinc-600 group-focus-within/field:text-[#4f6f52] transition-colors">
+               <label className="text-[12.5px] font-semibold text-zinc-600 group-focus-within/field:text-[#813d50] transition-colors">
                   {label}
                </label>
                {required && <span className="text-[14px] leading-none text-red-500 font-bold">*</span>}
@@ -424,9 +424,9 @@ function Field({
    )
 }
 
-const INPUT_CLS = "h-11 w-full rounded-xl border border-zinc-200 bg-zinc-50/30 px-4 text-[13.5px] text-zinc-800 outline-none transition-all duration-300 focus:border-[#4f6f52] focus:bg-white focus:ring-4 focus:ring-[#4f6f52]/5 placeholder:text-zinc-300"
-const SELECT_CLS = "h-11 w-full rounded-xl border border-zinc-200 bg-zinc-50/30 px-4 text-[13.5px] text-zinc-800 outline-none transition-all duration-300 focus:border-[#4f6f52] focus:bg-white focus:ring-4 focus:ring-[#4f6f52]/5 cursor-pointer appearance-none"
-const TEXTAREA_CLS = "w-full rounded-xl border border-zinc-200 bg-zinc-50/30 p-4 text-[13.5px] text-zinc-800 outline-none transition-all duration-300 focus:border-[#4f6f52] focus:bg-white focus:ring-4 focus:ring-[#4f6f52]/5 resize-none placeholder:text-zinc-300"
+const INPUT_CLS = "h-11 w-full rounded-xl border border-zinc-200 bg-zinc-50/30 px-4 text-[13.5px] text-zinc-800 outline-none transition-all duration-300 focus:border-[#813d50] focus:bg-white focus:ring-4 focus:ring-[#813d50]/5 placeholder:text-zinc-300"
+const SELECT_CLS = "h-11 w-full rounded-xl border border-zinc-200 bg-zinc-50/30 px-4 text-[13.5px] text-zinc-800 outline-none transition-all duration-300 focus:border-[#813d50] focus:bg-white focus:ring-4 focus:ring-[#813d50]/5 cursor-pointer appearance-none"
+const TEXTAREA_CLS = "w-full rounded-xl border border-zinc-200 bg-zinc-50/30 p-4 text-[13.5px] text-zinc-800 outline-none transition-all duration-300 focus:border-[#813d50] focus:bg-white focus:ring-4 focus:ring-[#813d50]/5 resize-none placeholder:text-zinc-300"
 
 // ── UUID ───────────────────────────────────────────────────────────────────
 const uid = () => Math.random().toString(36).slice(2, 9)
@@ -813,7 +813,7 @@ export default function EditProduct({ params }: { params: Promise<{ id: string }
    if (loading) {
       return (
          <div className="flex h-[60vh] flex-col items-center justify-center gap-4">
-            <div className="h-10 w-10 animate-spin rounded-full border-4 border-zinc-100 border-t-[#4f6f52]" />
+            <div className="h-10 w-10 animate-spin rounded-full border-4 border-zinc-100 border-t-[#813d50]" />
             <p className="text-[13px] font-medium text-zinc-400">Ürün verileri yükleniyor...</p>
          </div>
       )
@@ -856,7 +856,7 @@ export default function EditProduct({ params }: { params: Promise<{ id: string }
                Ürün Yönetimi
             </button>
             <FaArrowRight className="h-2 w-2 opacity-50" />
-            <span className="text-[#4f6f52] font-bold">Ürünü Düzenle</span>
+            <span className="text-[#813d50] font-bold">Ürünü Düzenle</span>
          </nav>
 
          {/* ── HEADER ─────────────────────────────────────────────────────── */}
@@ -874,7 +874,7 @@ export default function EditProduct({ params }: { params: Promise<{ id: string }
                   <div className="mt-1 flex items-center gap-3">
                      <p className="text-[13px] text-zinc-400 font-medium">Mevcut ürün bilgilerini güncelleyin ve kaydedin.</p>
                      <span className="h-1 w-1 rounded-full bg-zinc-300" />
-                     <span className="text-[11px] font-bold text-[#4f6f52] uppercase tracking-wider bg-[#4f6f52]/10 px-2 py-0.5 rounded-md">ID: {id}</span>
+                     <span className="text-[11px] font-bold text-[#813d50] uppercase tracking-wider bg-[#813d50]/10 px-2 py-0.5 rounded-md">ID: {id}</span>
                   </div>
                </div>
             </div>
@@ -890,7 +890,7 @@ export default function EditProduct({ params }: { params: Promise<{ id: string }
                <button type="button" onClick={() => setIsPreviewOpen(true)} className="flex items-center gap-2.5 rounded-xl border border-zinc-200 bg-white px-5 py-3 text-[13px] font-bold text-zinc-600 shadow-sm transition-all hover:bg-zinc-50 hover:shadow-md">
                   <FaEye className="h-3.5 w-3.5" /> Ön İzleme
                </button>
-               <button type="button" onClick={() => handleSubmit()} disabled={submitting} className="flex items-center gap-3 rounded-xl bg-[#4f6f52] px-8 py-3 text-[14px] font-black text-white shadow-[0_10px_20px_-5px_rgba(79,111,82,0.4)] transition-all hover:bg-[#3d5a3f] hover:translate-y-[-2px] active:translate-y-0 disabled:opacity-50">
+               <button type="button" onClick={() => handleSubmit()} disabled={submitting} className="flex items-center gap-3 rounded-xl bg-[#813d50] px-8 py-3 text-[14px] font-black text-white shadow-[0_10px_20px_-5px_rgba(79,111,82,0.4)] transition-all hover:bg-[#673040] hover:translate-y-[-2px] active:translate-y-0 disabled:opacity-50">
                   {submitting ? <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/20 border-t-white" /> : <FaSave className="h-4 w-4" />}
                   Değişiklikleri Kaydet
                </button>
@@ -902,7 +902,7 @@ export default function EditProduct({ params }: { params: Promise<{ id: string }
             {([{ key: "info", label: "Genel Ürün Bilgileri", icon: <FaInfoCircle className="h-3.5 w-3.5" /> }, { key: "seo", label: "Arama Motoru (SEO)", icon: <FaGlobe className="h-3.5 w-3.5" /> }] as const).map(tab => (
                <button key={tab.key} type="button" onClick={() => setActiveTab(tab.key)} className={`flex items-center gap-2.5 rounded-xl px-6 py-2.5 text-[13px] font-bold transition-all duration-300 ${activeTab === tab.key ? "bg-zinc-900 text-white shadow-lg -translate-y-px" : "text-zinc-400 hover:text-zinc-600 hover:bg-zinc-50"}`}>
                   {tab.icon} {tab.label}
-                  {activeTab === tab.key && <motion.div layoutId="activeTab" className="h-1.5 w-1.5 rounded-full bg-[#4f6f52]" />}
+                  {activeTab === tab.key && <motion.div layoutId="activeTab" className="h-1.5 w-1.5 rounded-full bg-[#813d50]" />}
                </button>
             ))}
          </div>
@@ -964,7 +964,7 @@ export default function EditProduct({ params }: { params: Promise<{ id: string }
                                                          type="checkbox"
                                                          checked={rootChecked}
                                                          onChange={(e) => toggleExtraRoot(root, e.target.checked)}
-                                                         className="h-4 w-4 accent-[#4f6f52]"
+                                                         className="h-4 w-4 accent-[#813d50]"
                                                       />
                                                       <span className="truncate">{root.name}</span>
                                                       {children.length > 0 && (
@@ -988,7 +988,7 @@ export default function EditProduct({ params }: { params: Promise<{ id: string }
                                                                      type="checkbox"
                                                                      checked={childChecked}
                                                                      onChange={(e) => toggleExtraChild(root, ch, e.target.checked)}
-                                                                     className="h-4 w-4 accent-[#4f6f52]"
+                                                                     className="h-4 w-4 accent-[#813d50]"
                                                                   />
                                                                   <span className="truncate">{ch.name}</span>
                                                                </label>
@@ -1034,7 +1034,7 @@ export default function EditProduct({ params }: { params: Promise<{ id: string }
 
                         <section className="rounded-[32px] border border-zinc-100 bg-white p-8 shadow-sm ring-1 ring-zinc-100">
                            <SectionHeader 
-                              icon={<FaLayerGroup className="h-5 w-5 text-[#4f6f52]" />} 
+                              icon={<FaLayerGroup className="h-5 w-5 text-[#813d50]" />} 
                               title="Varyasyonlar & Stok Havuzu" 
                               action={
                                  <div className="flex items-center gap-3">
@@ -1048,7 +1048,7 @@ export default function EditProduct({ params }: { params: Promise<{ id: string }
                                     <button 
                                        type="button" 
                                        onClick={addVariant} 
-                                       className="flex items-center gap-2 rounded-xl bg-[#4f6f52] px-6 py-3 text-[12px] font-black text-white hover:bg-[#3d5a3f] shadow-xl shadow-[#4f6f52]/20 transition-all active:scale-95"
+                                       className="flex items-center gap-2 rounded-xl bg-[#813d50] px-6 py-3 text-[12px] font-black text-white hover:bg-[#673040] shadow-xl shadow-[#813d50]/20 transition-all active:scale-95"
                                     >
                                        <FaPlus className="h-3 w-3" /> YENİ SEÇENEK
                                     </button>
@@ -1068,7 +1068,7 @@ export default function EditProduct({ params }: { params: Promise<{ id: string }
                                           key={v.id} 
                                           value={v} 
                                           className={`group relative flex flex-col rounded-[24px] border transition-all duration-300 ${
-                                             isExpanded ? "border-[#4f6f52]/30 bg-white shadow-xl" : "border-zinc-100 bg-zinc-50/30 hover:border-zinc-200"
+                                             isExpanded ? "border-[#813d50]/30 bg-white shadow-xl" : "border-zinc-100 bg-zinc-50/30 hover:border-zinc-200"
                                           }`}
                                        >
                                           {/* Card Header — Her zaman görünür */}
@@ -1077,7 +1077,7 @@ export default function EditProduct({ params }: { params: Promise<{ id: string }
                                              className="flex cursor-pointer items-center justify-between px-6 py-5"
                                           >
                                              <div className="flex items-center gap-4">
-                                                <div className="flex h-10 w-10 cursor-grab items-center justify-center rounded-xl bg-white text-zinc-300 shadow-sm transition-colors hover:text-[#4f6f52] active:cursor-grabbing" onClick={e => e.stopPropagation()}>
+                                                <div className="flex h-10 w-10 cursor-grab items-center justify-center rounded-xl bg-white text-zinc-300 shadow-sm transition-colors hover:text-[#813d50] active:cursor-grabbing" onClick={e => e.stopPropagation()}>
                                                    <svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                       <circle cx="2" cy="2" r="1.5" fill="currentColor"/><circle cx="2" cy="9" r="1.5" fill="currentColor"/><circle cx="2" cy="16" r="1.5" fill="currentColor"/>
                                                       <circle cx="10" cy="2" r="1.5" fill="currentColor"/><circle cx="10" cy="9" r="1.5" fill="currentColor"/><circle cx="10" cy="16" r="1.5" fill="currentColor"/>
@@ -1134,7 +1134,7 @@ export default function EditProduct({ params }: { params: Promise<{ id: string }
                                                          value={v.name} 
                                                          onChange={e => setVariantField(v.id, "name", e.target.value)} 
                                                          placeholder="Örn: M / Mavi" 
-                                                         className="h-12 w-full rounded-2xl border border-zinc-100 bg-zinc-50/50 px-4 text-[14px] font-bold text-zinc-800 outline-none transition-all focus:border-[#4f6f52] focus:bg-white" 
+                                                         className="h-12 w-full rounded-2xl border border-zinc-100 bg-zinc-50/50 px-4 text-[14px] font-bold text-zinc-800 outline-none transition-all focus:border-[#813d50] focus:bg-white" 
                                                       />
                                                    </div>
                                                    <div className="space-y-2">
@@ -1144,7 +1144,7 @@ export default function EditProduct({ params }: { params: Promise<{ id: string }
                                                          value={v.sku} 
                                                          onChange={e => setVariantField(v.id, "sku", e.target.value)} 
                                                          placeholder="BK-102-M" 
-                                                         className="h-12 w-full rounded-2xl border border-zinc-100 bg-zinc-50/50 px-4 text-[13px] font-medium text-zinc-500 outline-none transition-all focus:border-[#4f6f52] focus:bg-white" 
+                                                         className="h-12 w-full rounded-2xl border border-zinc-100 bg-zinc-50/50 px-4 text-[13px] font-medium text-zinc-500 outline-none transition-all focus:border-[#813d50] focus:bg-white" 
                                                       />
                                                    </div>
                                                    <div className="space-y-2">
@@ -1154,7 +1154,7 @@ export default function EditProduct({ params }: { params: Promise<{ id: string }
                                                          value={v.price || ""} 
                                                          onChange={e => setVariantField(v.id, "price", e.target.value)} 
                                                          placeholder={form.basePrice || "0.00"} 
-                                                         className="h-12 w-full rounded-2xl border border-zinc-100 bg-zinc-50/50 px-4 text-[14px] font-black text-zinc-900 outline-none transition-all focus:border-[#4f6f52] focus:bg-white" 
+                                                         className="h-12 w-full rounded-2xl border border-zinc-100 bg-zinc-50/50 px-4 text-[14px] font-black text-zinc-900 outline-none transition-all focus:border-[#813d50] focus:bg-white" 
                                                       />
                                                    </div>
                                                    <div className="space-y-2">
@@ -1164,7 +1164,7 @@ export default function EditProduct({ params }: { params: Promise<{ id: string }
                                                          value={v.compareAtPrice || ""} 
                                                          onChange={e => setVariantField(v.id, "compareAtPrice", e.target.value)} 
                                                          placeholder={form.compareAtPrice || "0.00"} 
-                                                         className="h-12 w-full rounded-2xl border border-rose-100 bg-rose-50/20 px-4 text-[14px] font-black text-rose-600 outline-none transition-all focus:border-[#4f6f52] focus:bg-white" 
+                                                         className="h-12 w-full rounded-2xl border border-rose-100 bg-rose-50/20 px-4 text-[14px] font-black text-rose-600 outline-none transition-all focus:border-[#813d50] focus:bg-white" 
                                                       />
                                                    </div>
                                                 </div>
@@ -1176,7 +1176,7 @@ export default function EditProduct({ params }: { params: Promise<{ id: string }
                                                          type="number" 
                                                          value={v.stock || ""} 
                                                          onChange={e => setVariantField(v.id, "stock", e.target.value)} 
-                                                         className={`h-12 w-full rounded-2xl border px-5 text-[15px] font-black outline-none transition-all focus:border-[#4f6f52] 
+                                                         className={`h-12 w-full rounded-2xl border px-5 text-[15px] font-black outline-none transition-all focus:border-[#813d50] 
                                                             ${isOutOfStock ? "border-rose-200 bg-rose-50 text-rose-500" : "border-zinc-100 bg-zinc-50/50 text-zinc-900"}`} 
                                                       />
                                                    </div>
@@ -1186,7 +1186,7 @@ export default function EditProduct({ params }: { params: Promise<{ id: string }
                                                          type="number" 
                                                          value={v.lowStockThreshold || ""} 
                                                          onChange={e => setVariantField(v.id, "lowStockThreshold", e.target.value)} 
-                                                         className="h-12 w-full rounded-2xl border border-zinc-100 bg-zinc-50/50 px-5 text-[13px] font-bold text-zinc-400 outline-none transition-all focus:border-[#4f6f52] focus:bg-white" 
+                                                         className="h-12 w-full rounded-2xl border border-zinc-100 bg-zinc-50/50 px-5 text-[13px] font-bold text-zinc-400 outline-none transition-all focus:border-[#813d50] focus:bg-white" 
                                                       />
                                                    </div>
                                                    <div className="flex items-end pb-1">
@@ -1239,12 +1239,12 @@ export default function EditProduct({ params }: { params: Promise<{ id: string }
                         <section className="rounded-2xl border border-zinc-100 bg-white p-6 shadow-sm ring-1 ring-zinc-100">
                            <SectionHeader icon={<FaImage className="h-4 w-4" />} title="Ürün Görselleri" subtitle="Sürükle bırak veya link yapıştır." />
                            <div className="mb-6 space-y-4">
-                              <button type="button" onClick={() => fileInputRef.current?.click()} onDragOver={handleDragOver} onDragLeave={handleDragLeave} onDrop={handleDrop} className={`flex w-full flex-col items-center justify-center gap-3 rounded-2xl border-2 border-dashed py-10 transition-all ${isDraggingFile ? "border-[#4f6f52] bg-[#4f6f52]/10 scale-[1.02]" : "border-[#4f6f52]/20 bg-[#4f6f52]/5 hover:bg-[#4f6f52]/10"}`}>
-                                 <motion.div animate={isDraggingFile ? { y: [0, -10, 0] } : {}} className="flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-lg text-[#4f6f52] mb-2"><FaPlus className="h-6 w-6" /></motion.div>
-                                 <p className="text-[14px] font-bold text-[#4f6f52]">{isDraggingFile ? "BIRAKIN" : "SÜRÜKLEYİN"}</p>
+                              <button type="button" onClick={() => fileInputRef.current?.click()} onDragOver={handleDragOver} onDragLeave={handleDragLeave} onDrop={handleDrop} className={`flex w-full flex-col items-center justify-center gap-3 rounded-2xl border-2 border-dashed py-10 transition-all ${isDraggingFile ? "border-[#813d50] bg-[#813d50]/10 scale-[1.02]" : "border-[#813d50]/20 bg-[#813d50]/5 hover:bg-[#813d50]/10"}`}>
+                                 <motion.div animate={isDraggingFile ? { y: [0, -10, 0] } : {}} className="flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-lg text-[#813d50] mb-2"><FaPlus className="h-6 w-6" /></motion.div>
+                                 <p className="text-[14px] font-bold text-[#813d50]">{isDraggingFile ? "BIRAKIN" : "SÜRÜKLEYİN"}</p>
                               </button>
                               <input type="file" ref={fileInputRef} onChange={handleFileUpload} multiple accept="image/*" className="hidden" />
-                              <div className="relative group"><input type="text" value={imageUrl} onChange={e => setImageUrl(e.target.value)} onKeyDown={e => e.key === "Enter" && (e.preventDefault(), addImage())} placeholder="Veya link yapıştırın..." className={INPUT_CLS + " pr-12"} /><button type="button" onClick={addImage} className="absolute right-1.5 top-1.5 flex h-8 w-8 items-center justify-center rounded-lg bg-[#4f6f52] text-white transition-all hover:scale-110"><FaPlus className="h-3 w-3" /></button></div>
+                              <div className="relative group"><input type="text" value={imageUrl} onChange={e => setImageUrl(e.target.value)} onKeyDown={e => e.key === "Enter" && (e.preventDefault(), addImage())} placeholder="Veya link yapıştırın..." className={INPUT_CLS + " pr-12"} /><button type="button" onClick={addImage} className="absolute right-1.5 top-1.5 flex h-8 w-8 items-center justify-center rounded-lg bg-[#813d50] text-white transition-all hover:scale-110"><FaPlus className="h-3 w-3" /></button></div>
                            </div>
                            <Reorder.Group axis="y" values={images} onReorder={setImages} className="space-y-3">
                               {images.map((img, i) => (
@@ -1293,13 +1293,13 @@ export default function EditProduct({ params }: { params: Promise<{ id: string }
                                  </Field>
                               </div>
                               <div className="rounded-xl bg-zinc-50 p-4 space-y-3">
-                                 <div className="flex justify-between items-center text-[12px]"><span className="text-zinc-500 font-medium">Strateji:</span><span className="font-bold text-[#4f6f52]">{form.isTaxIncluded ? "Vergi Dahil" : "Vergi Hariç"}</span></div>
+                                 <div className="flex justify-between items-center text-[12px]"><span className="text-zinc-500 font-medium">Strateji:</span><span className="font-bold text-[#813d50]">{form.isTaxIncluded ? "Vergi Dahil" : "Vergi Hariç"}</span></div>
                                  <div className="h-px bg-zinc-200/50" />
                                  <div className="space-y-2">
                                     <div className="flex justify-between items-center text-[13px]"><span className="text-zinc-500 font-medium">Net Fiyat</span><span className="font-bold text-zinc-800">₺{(() => { const p = Number(hasDiscount ? form.compareAtPrice : form.basePrice); const r = Number(form.taxRate) / 100; return (form.isTaxIncluded ? (p / (1 + r)) : p).toLocaleString("tr-TR", { minimumFractionDigits: 2 }) })()}</span></div>
                                     <div className="flex justify-between items-center text-[13px]"><span className="text-zinc-500 font-medium">KDV (%{form.taxRate})</span><span className="font-bold text-zinc-400">₺{(() => { const p = Number(hasDiscount ? form.compareAtPrice : form.basePrice); const r = Number(form.taxRate) / 100; return (form.isTaxIncluded ? (p - (p / (1 + r))) : (p * r)).toLocaleString("tr-TR", { minimumFractionDigits: 2 }) })()}</span></div>
                                  </div>
-                                 <div className="h-px bg-zinc-200/50" /><div className="flex justify-between items-center text-[14px]"><span className="text-zinc-800 font-black">Toplam</span><span className="font-black text-[#4f6f52]">₺{(() => { const p = Number(hasDiscount ? form.compareAtPrice : form.basePrice); const r = Number(form.taxRate) / 100; return (form.isTaxIncluded ? p : (p * (1 + r))).toLocaleString("tr-TR", { minimumFractionDigits: 2 }) })()}</span></div>
+                                 <div className="h-px bg-zinc-200/50" /><div className="flex justify-between items-center text-[14px]"><span className="text-zinc-800 font-black">Toplam</span><span className="font-black text-[#813d50]">₺{(() => { const p = Number(hasDiscount ? form.compareAtPrice : form.basePrice); const r = Number(form.taxRate) / 100; return (form.isTaxIncluded ? p : (p * (1 + r))).toLocaleString("tr-TR", { minimumFractionDigits: 2 }) })()}</span></div>
                               </div>
 
                               <div className="rounded-xl border border-blue-100 bg-blue-50/50 p-4">
@@ -1348,7 +1348,7 @@ export default function EditProduct({ params }: { params: Promise<{ id: string }
                         </section>
                      </div>
                      <div className="space-y-8">
-                        <section className="rounded-2xl bg-zinc-900 p-8 text-white shadow-xl"><h4 className="text-[13px] font-black uppercase tracking-widest text-zinc-500">Google Ön İzleme</h4><div className="mt-4 space-y-1"><p className="text-[18px] text-[#8ab4f8] hover:underline cursor-pointer truncate">{form.metaTitle || form.name || "Ürün Başlığı"}</p><p className="text-[14px] text-[#34a853]">littlemomstore.com/urun/{form.slug}</p><p className="text-[13px] text-zinc-400 line-clamp-2">{form.metaDescription || "Arama sonuçlarında görünecek açıklama metni..."}</p></div></section>
+                        <section className="rounded-2xl bg-zinc-900 p-8 text-white shadow-xl"><h4 className="text-[13px] font-black uppercase tracking-widest text-zinc-500">Google Ön İzleme</h4><div className="mt-4 space-y-1"><p className="text-[18px] text-[#8ab4f8] hover:underline cursor-pointer truncate">{form.metaTitle || form.name || "Ürün Başlığı"}</p><p className="text-[14px] text-[#34a853]">seymacollection.com/urun/{form.slug}</p><p className="text-[13px] text-zinc-400 line-clamp-2">{form.metaDescription || "Arama sonuçlarında görünecek açıklama metni..."}</p></div></section>
                      </div>
                   </motion.div>
                )}
@@ -1370,8 +1370,8 @@ export default function EditProduct({ params }: { params: Promise<{ id: string }
                            <div className="p-8 lg:p-12">
                               <h2 className="text-3xl font-black text-zinc-900">{form.name}</h2>
                               <p className="mt-4 text-[15px] text-zinc-500">{form.shortDescription}</p>
-                              <div className="mt-8 flex items-baseline gap-4"><span className="text-4xl font-black text-[#4f6f52]">₺{Number(hasDiscount ? form.compareAtPrice : form.basePrice).toLocaleString("tr-TR")}</span></div>
-                              <div className="mt-12"><div className="mb-4 border-b border-zinc-100 pb-2"><span className="border-b-2 border-[#4f6f52] pb-2 text-[13px] font-bold text-[#4f6f52]">Ürün Detayları</span></div><div className="prose prose-sm text-zinc-600" dangerouslySetInnerHTML={{ __html: description }} /></div>
+                              <div className="mt-8 flex items-baseline gap-4"><span className="text-4xl font-black text-[#813d50]">₺{Number(hasDiscount ? form.compareAtPrice : form.basePrice).toLocaleString("tr-TR")}</span></div>
+                              <div className="mt-12"><div className="mb-4 border-b border-zinc-100 pb-2"><span className="border-b-2 border-[#813d50] pb-2 text-[13px] font-bold text-[#813d50]">Ürün Detayları</span></div><div className="prose prose-sm text-zinc-600" dangerouslySetInnerHTML={{ __html: description }} /></div>
                            </div>
                         </div>
                      </div>

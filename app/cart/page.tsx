@@ -7,7 +7,7 @@ import { HomeHeader } from "@/components/home/HomeHeader"
 import { getUserIdFromCookies } from "@/lib/authSession"
 import { registerHrefWithCallbackUrl } from "@/lib/safeCallbackUrl"
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.littlemomstore.com"
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.seymacollection.com"
 
 export const metadata: Metadata = {
   title: "Sepetim",
@@ -31,7 +31,7 @@ export default async function CartPage() {
         <HomeHeader />
 
         <div className="mb-6 flex flex-wrap items-center gap-2 text-sm text-zinc-500">
-          <Link href="/" className="transition hover:text-[#6f8f73]">
+          <Link href="/" className="transition hover:text-[#ad516b]">
             Anasayfa
           </Link>
           <span aria-hidden>›</span>

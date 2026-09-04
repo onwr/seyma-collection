@@ -45,7 +45,7 @@ const STATUS_META: Record<string, { label: string; bg: string; color: string; do
   PAID: { label: "Ödendi", bg: "#dbeafe", color: "#1e40af", dot: "#3b82f6" },
   PROCESSING: { label: "Hazırlanıyor", bg: "#f3e8ff", color: "#6b21a8", dot: "#a855f7" },
   SHIPPED: { label: "Kargoda", bg: "#dbeafe", color: "#1e40af", dot: "#3b82f6" },
-  DELIVERED: { label: "Teslim Edildi", bg: "#d1fae5", color: "#065f46", dot: "#4f6f52" },
+  DELIVERED: { label: "Teslim Edildi", bg: "#d1fae5", color: "#065f46", dot: "#813d50" },
   CANCELLED: { label: "İptal", bg: "#fee2e2", color: "#991b1b", dot: "#ef4444" },
   REFUNDED: { label: "İade", bg: "#fee2e2", color: "#b91c1c", dot: "#ef4444" },
 }
@@ -110,8 +110,8 @@ function Avatar({ name }: { name: string }) {
 function SortIcon({ field, active, dir }: { field: string; active: string; dir: SortDir }) {
   if (active !== field) return <FaSort className="h-2.5 w-2.5 text-zinc-300" />
   return dir === "asc"
-    ? <FaSortUp className="h-2.5 w-2.5 text-[#4f6f52]" />
-    : <FaSortDown className="h-2.5 w-2.5 text-[#4f6f52]" />
+    ? <FaSortUp className="h-2.5 w-2.5 text-[#813d50]" />
+    : <FaSortDown className="h-2.5 w-2.5 text-[#813d50]" />
 }
 
 // ── Ana bileşen ───────────────────────────────────────────────────────────────
@@ -296,7 +296,7 @@ export default function AdminOrders() {
     { key: "ALL", label: "Toplam", color: "text-zinc-600" },
     { key: "PENDING", label: "Bekliyor", color: "text-amber-600" },
     { key: "SHIPPED", label: "Kargoda", color: "text-blue-600" },
-    { key: "DELIVERED", label: "Teslim Edildi", color: "text-[#4f6f52]" },
+    { key: "DELIVERED", label: "Teslim Edildi", color: "text-[#813d50]" },
     { key: "CANCELLED", label: "İptal / İade", color: "text-red-500" },
   ]
 
@@ -330,7 +330,7 @@ export default function AdminOrders() {
             </h2>
             <button
               onClick={() => { setStatus("PENDING"); setPage(1) }}
-              className="text-[11.5px] font-medium text-zinc-400 transition hover:text-[#4f6f52]"
+              className="text-[11.5px] font-medium text-zinc-400 transition hover:text-[#813d50]"
             >
               Hepsini Gör →
             </button>
@@ -397,12 +397,12 @@ export default function AdminOrders() {
             value={search}
             onChange={e => setSearch(e.target.value)}
             className="h-9 w-full rounded-lg border border-zinc-100 bg-zinc-50 pl-9 pr-4 text-[12.5px]
-                       text-zinc-800 outline-none transition focus:border-[#4f6f52] focus:bg-white"
+                       text-zinc-800 outline-none transition focus:border-[#813d50] focus:bg-white"
           />
         </form>
 
         <div className="flex flex-wrap items-center gap-3">
-          <div className="flex items-center gap-2 rounded-lg border border-zinc-100 bg-zinc-50 px-2.5 py-1.5 transition-all focus-within:bg-white focus-within:border-[#4f6f52] focus-within:ring-2 focus-within:ring-[#4f6f52]/5">
+          <div className="flex items-center gap-2 rounded-lg border border-zinc-100 bg-zinc-50 px-2.5 py-1.5 transition-all focus-within:bg-white focus-within:border-[#813d50] focus-within:ring-2 focus-within:ring-[#813d50]/5">
             <FaCalendarAlt className="h-3 w-3 text-zinc-400" />
             <input
               type="date"
@@ -425,7 +425,7 @@ export default function AdminOrders() {
               value={status}
               onChange={e => { setStatus(e.target.value); setPage(1) }}
               className="h-9 rounded-lg border border-zinc-100 bg-zinc-50 px-3 text-[12px] text-zinc-700
-                         outline-none transition focus:border-[#4f6f52] focus:bg-white cursor-pointer font-medium"
+                         outline-none transition focus:border-[#813d50] focus:bg-white cursor-pointer font-medium"
             >
               {STATUSES.map(s => (
                 <option key={s} value={s}>
@@ -459,7 +459,7 @@ export default function AdminOrders() {
                     type="checkbox"
                     checked={orders.length > 0 && selectedIds.length === orders.length}
                     onChange={toggleSelectAll}
-                    className="h-3.5 w-3.5 rounded border-zinc-300 text-[#4f6f52] focus:ring-[#4f6f52] cursor-pointer"
+                    className="h-3.5 w-3.5 rounded border-zinc-300 text-[#813d50] focus:ring-[#813d50] cursor-pointer"
                   />
                 </th>
                 {[
@@ -495,7 +495,7 @@ export default function AdminOrders() {
                   <tr>
                     <td colSpan={9} className="py-20 text-center">
                       <div className="flex flex-col items-center gap-3">
-                        <div className="h-7 w-7 animate-spin rounded-full border-2 border-zinc-200 border-t-[#4f6f52]" />
+                        <div className="h-7 w-7 animate-spin rounded-full border-2 border-zinc-200 border-t-[#813d50]" />
                         <span className="text-[11px] text-zinc-400">Yükleniyor...</span>
                       </div>
                     </td>
@@ -524,7 +524,7 @@ export default function AdminOrders() {
                         type="checkbox"
                         checked={selectedIds.includes(order.id)}
                         onChange={() => toggleSelect(order.id)}
-                        className="h-3.5 w-3.5 rounded border-zinc-300 text-[#4f6f52] focus:ring-[#4f6f52] cursor-pointer"
+                        className="h-3.5 w-3.5 rounded border-zinc-300 text-[#813d50] focus:ring-[#813d50] cursor-pointer"
                       />
                     </td>
 
@@ -532,7 +532,7 @@ export default function AdminOrders() {
                     <td className="px-5 py-4">
                       <Link
                         href={`/admin/orders/${order.orderNo}`}
-                        className="font-mono text-[12px] font-medium text-zinc-700 hover:text-[#4f6f52] transition-colors"
+                        className="font-mono text-[12px] font-medium text-zinc-700 hover:text-[#813d50] transition-colors"
                       >
                         #{order.orderNo}
                       </Link>
@@ -601,7 +601,7 @@ export default function AdminOrders() {
                           href={`/admin/orders/${order.orderNo}`}
                           className="inline-flex h-8 w-8 items-center justify-center rounded-lg
                                      border border-zinc-100 bg-white text-zinc-400 shadow-sm
-                                     transition-all hover:border-[#4f6f52] hover:text-[#4f6f52]"
+                                     transition-all hover:border-[#813d50] hover:text-[#813d50]"
                         >
                           <FaEye className="h-3 w-3" />
                         </Link>
@@ -657,7 +657,7 @@ export default function AdminOrders() {
                     onClick={() => setPage(p)}
                     className={`flex h-8 w-8 items-center justify-center rounded-lg text-[12px] transition-all
                       ${page === p
-                        ? "bg-[#4f6f52] text-white font-medium"
+                        ? "bg-[#813d50] text-white font-medium"
                         : "border border-zinc-200 bg-white text-zinc-500 hover:border-zinc-300"}`}
                   >
                     {p}
@@ -688,7 +688,7 @@ export default function AdminOrders() {
               className="fixed bottom-6 left-1/2 z-50 flex -translate-x-1/2 items-center gap-6 rounded-2xl bg-zinc-900 px-6 py-4 shadow-2xl"
             >
               <div className="flex items-center gap-3 border-r border-white/10 pr-6">
-                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#4f6f52] text-[11px] font-bold text-white">
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#813d50] text-[11px] font-bold text-white">
                   {selectedIds.length}
                 </span>
                 <span className="text-[12.5px] font-medium text-white">Sipariş Seçildi</span>
@@ -716,7 +716,7 @@ export default function AdminOrders() {
                   onClick={() => handleBulkAction("status_update", "DELIVERED")}
                   className="flex items-center gap-2 rounded-lg bg-white/5 px-3 py-1.5 text-[11.5px] font-medium text-white transition hover:bg-white/10 disabled:opacity-50"
                 >
-                  <FaCheck className="h-3 w-3 text-[#4f6f52]" />
+                  <FaCheck className="h-3 w-3 text-[#813d50]" />
                   Teslim Edildi Yap
                 </button>
                 <button

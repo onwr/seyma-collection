@@ -78,7 +78,7 @@ export async function POST(request: Request) {
     }
 
     const siteUrlBase =
-      process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://www.littlemomstore.com"
+      process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://www.seymacollection.com"
 
     try {
       if (parsed.data.template === "order_placed") {
@@ -94,7 +94,7 @@ export async function POST(request: Request) {
       } else {
         await sendMailWithConfig(config, {
           to: parsed.data.to,
-          subject: "Little Mom's Store — SMTP testi",
+          subject: "Şeyma Collection — SMTP testi",
           text: "Bu e-posta, yönetim panelindeki SMTP ayarlarınızın doğru çalıştığını doğrulamak için gönderilmiştir.",
           html: "<p>Bu e-posta, yönetim panelindeki <strong>SMTP</strong> ayarlarınızın doğru çalıştığını doğrulamak için gönderilmiştir.</p>",
         })

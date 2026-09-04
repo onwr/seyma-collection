@@ -116,7 +116,7 @@ function ProfileContent() {
   if (loading) {
     return (
       <div className="flex h-screen items-center justify-center bg-white">
-        <div className="h-12 w-12 animate-spin rounded-full border-4 border-[#bcd2bf] border-t-[#6f8f73]" />
+        <div className="h-12 w-12 animate-spin rounded-full border-4 border-[#ddb1bd] border-t-[#ad516b]" />
       </div>
     )
   }
@@ -130,7 +130,7 @@ function ProfileContent() {
   ]
 
   return (
-    <div className="min-h-screen bg-[#fcfdfc] flex flex-col">
+    <div className="min-h-screen bg-[#fdfcfc] flex flex-col">
       <HomeHeader />
       
       <main className="flex-1 mx-auto w-full max-w-7xl px-4 py-12 md:px-8">
@@ -156,7 +156,7 @@ function ProfileContent() {
                 }`}
               >
                 <div className="flex items-center gap-4">
-                  <span className={`text-lg transition-colors ${activeTab === tab.id ? "text-[#bcd2bf]" : "text-zinc-300 group-hover:text-zinc-900"}`}>
+                  <span className={`text-lg transition-colors ${activeTab === tab.id ? "text-[#ddb1bd]" : "text-zinc-300 group-hover:text-zinc-900"}`}>
                     {tab.icon}
                   </span>
                   {tab.label}
@@ -199,7 +199,7 @@ function ProfileContent() {
                         <button 
                           onClick={handleUpdateProfile}
                           disabled={updateLoading}
-                          className="rounded-2xl bg-[#6f8f73] px-10 py-4 text-xs font-black uppercase tracking-widest text-white shadow-xl shadow-[#6f8f73]/20 transition-all hover:bg-[#5f7f64] hover:scale-105 active:scale-95 disabled:opacity-50"
+                          className="rounded-2xl bg-[#ad516b] px-10 py-4 text-xs font-black uppercase tracking-widest text-white shadow-xl shadow-[#ad516b]/20 transition-all hover:bg-[#97475e] hover:scale-105 active:scale-95 disabled:opacity-50"
                         >
                           {updateLoading ? "GÜNCELLENİYOR..." : "Değişiklikleri Kaydet"}
                         </button>
@@ -214,16 +214,16 @@ function ProfileContent() {
                           <h2 className="text-2xl font-black text-zinc-900 uppercase tracking-tight mb-2">Adreslerim</h2>
                           <p className="text-xs font-bold text-zinc-400 uppercase tracking-widest">Kayıtlı teslimat ve fatura adresleriniz.</p>
                         </div>
-                        <button className="rounded-xl border-2 border-[#6f8f73] px-6 py-2.5 text-[10px] font-black uppercase tracking-widest text-[#6f8f73] hover:bg-[#6f8f73] hover:text-white transition-all">
+                        <button className="rounded-xl border-2 border-[#ad516b] px-6 py-2.5 text-[10px] font-black uppercase tracking-widest text-[#ad516b] hover:bg-[#ad516b] hover:text-white transition-all">
                           Yeni Adres Ekle
                         </button>
                       </div>
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {user.addresses?.map((addr: any) => (
-                          <div key={addr.id} className={`group relative rounded-3xl border-2 p-6 transition-all hover:shadow-lg ${addr.isDefault ? "border-[#6f8f73] bg-[#f4f7f4]/30" : "border-zinc-100 bg-zinc-50/20 hover:border-zinc-300"}`}>
+                          <div key={addr.id} className={`group relative rounded-3xl border-2 p-6 transition-all hover:shadow-lg ${addr.isDefault ? "border-[#ad516b] bg-[#f9f2f4]/30" : "border-zinc-100 bg-zinc-50/20 hover:border-zinc-300"}`}>
                              <div className="mb-4 flex items-center justify-between">
-                                <span className={`rounded-lg px-3 py-1 text-[10px] font-black uppercase tracking-widest ${addr.isDefault ? "bg-[#6f8f73] text-white" : "bg-zinc-200 text-zinc-600"}`}>
+                                <span className={`rounded-lg px-3 py-1 text-[10px] font-black uppercase tracking-widest ${addr.isDefault ? "bg-[#ad516b] text-white" : "bg-zinc-200 text-zinc-600"}`}>
                                   {addr.title}
                                 </span>
                                 <div className="flex gap-3">
@@ -238,7 +238,7 @@ function ProfileContent() {
                                {addr.district} / {addr.city}
                              </p>
                              {addr.isDefault && (
-                               <div className="mt-4 flex items-center gap-2 text-[10px] font-black text-[#6f8f73] uppercase tracking-widest">
+                               <div className="mt-4 flex items-center gap-2 text-[10px] font-black text-[#ad516b] uppercase tracking-widest">
                                  <FaCheckCircle className="h-3 w-3" />
                                  Varsayılan Adres
                                 </div>
@@ -312,7 +312,7 @@ function ProfileContent() {
                           </div>
                           <h3 className="text-sm font-black uppercase tracking-widest text-zinc-900 mb-2">HENÜZ BİR SİPARİŞİNİZ YOK</h3>
                           <p className="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-8">Hemen alışverişe başla ve harika ürünleri keşfet!</p>
-                          <Link href="/" className="rounded-2xl bg-[#6f8f73] px-10 py-4 text-[10px] font-black uppercase tracking-widest text-white shadow-xl shadow-[#6f8f73]/20 transition-all hover:scale-105 active:scale-95">
+                          <Link href="/" className="rounded-2xl bg-[#ad516b] px-10 py-4 text-[10px] font-black uppercase tracking-widest text-white shadow-xl shadow-[#ad516b]/20 transition-all hover:scale-105 active:scale-95">
                              Alışverişe Başla
                           </Link>
                         </div>
@@ -330,7 +330,7 @@ function ProfileContent() {
                       {user.favorites?.length > 0 ? (
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                           {user.favorites.map((fav: any) => (
-                            <div key={fav.id} className="group relative rounded-3xl border border-zinc-100 p-4 transition-all hover:shadow-xl hover:border-[#6f8f73]/30">
+                            <div key={fav.id} className="group relative rounded-3xl border border-zinc-100 p-4 transition-all hover:shadow-xl hover:border-[#ad516b]/30">
                               <div className="relative aspect-square w-full overflow-hidden rounded-2xl mb-4">
                                 <Link href={`/products/${fav.product.slug}`}>
                                   <Image src={fav.product.images[0]?.url || "/logo.jpeg"} alt={fav.product.name} fill className="object-cover transition-transform group-hover:scale-110" />
@@ -343,12 +343,12 @@ function ProfileContent() {
                                 </button>
                               </div>
                               <Link href={`/products/${fav.product.slug}`} className="block">
-                                <h3 className="line-clamp-1 text-xs font-black uppercase tracking-tight text-zinc-900 group-hover:text-[#6f8f73] transition-colors">{fav.product.name}</h3>
+                                <h3 className="line-clamp-1 text-xs font-black uppercase tracking-tight text-zinc-900 group-hover:text-[#ad516b] transition-colors">{fav.product.name}</h3>
                                 <p className="mt-1 text-sm font-black text-zinc-900">₺{fav.product.basePrice}</p>
                               </Link>
                               <button 
                                 onClick={() => void handleAddToCart(fav.product.id)}
-                                className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-zinc-900 py-3 text-[10px] font-black uppercase tracking-widest text-white transition-all hover:bg-[#6f8f73]"
+                                className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-zinc-900 py-3 text-[10px] font-black uppercase tracking-widest text-white transition-all hover:bg-[#ad516b]"
                               >
                                 <FaShoppingCart className="h-3 w-3" />
                                 SEPETE EKLE
@@ -397,7 +397,7 @@ export default function ProfilePage() {
   return (
     <Suspense fallback={
       <div className="flex h-screen items-center justify-center bg-white">
-        <div className="h-12 w-12 animate-spin rounded-full border-4 border-[#bcd2bf] border-t-[#6f8f73]" />
+        <div className="h-12 w-12 animate-spin rounded-full border-4 border-[#ddb1bd] border-t-[#ad516b]" />
       </div>
     }>
       <ProfileContent />
@@ -410,7 +410,7 @@ function ProfileInput({ label, value, onChange, icon, type = "text", disabled = 
     <div className="space-y-2">
       <label className="text-[10px] font-black text-zinc-400 uppercase tracking-widest ml-1">{label}</label>
       <div className="relative group">
-        <span className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-300 transition-colors group-focus-within:text-[#6f8f73]">
+        <span className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-300 transition-colors group-focus-within:text-[#ad516b]">
           {icon}
         </span>
         <input
@@ -418,7 +418,7 @@ function ProfileInput({ label, value, onChange, icon, type = "text", disabled = 
           value={value}
           onChange={(e) => onChange(e.target.value)}
           disabled={disabled}
-          className="h-14 w-full rounded-2xl border-2 border-zinc-100 bg-zinc-50/30 pl-12 pr-4 text-sm font-bold text-zinc-900 outline-none transition-all focus:border-[#6f8f73] focus:bg-white disabled:opacity-50"
+          className="h-14 w-full rounded-2xl border-2 border-zinc-100 bg-zinc-50/30 pl-12 pr-4 text-sm font-bold text-zinc-900 outline-none transition-all focus:border-[#ad516b] focus:bg-white disabled:opacity-50"
         />
       </div>
     </div>

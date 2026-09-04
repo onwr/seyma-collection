@@ -67,8 +67,8 @@ async function main() {
   const settings = [
     { key: 'FREE_SHIPPING_THRESHOLD', value: '750', type: 'number' },
     { key: 'STANDARD_SHIPPING_COST', value: '49.90', type: 'number' },
-    { key: 'SITE_TITLE_DEFAULT', value: "Little Mom's Store", type: 'string' },
-    { key: 'SITE_TITLE_TEMPLATE', value: "%s | Little Mom's Store", type: 'string' },
+    { key: 'SITE_TITLE_DEFAULT', value: "Şeyma Collection", type: 'string' },
+    { key: 'SITE_TITLE_TEMPLATE', value: "%s | Şeyma Collection", type: 'string' },
     {
       key: 'SITE_META_DESCRIPTION',
       value:
@@ -78,10 +78,10 @@ async function main() {
     {
       key: 'SITE_META_KEYWORDS',
       value:
-        "anne bebek, bebek giyim, çocuk giyim, bebek ürünleri, Little Mom's Store, online mağaza",
+        "anne bebek, bebek giyim, çocuk giyim, bebek ürünleri, Şeyma Collection, online mağaza",
       type: 'string',
     },
-    { key: 'SITE_OG_SITE_NAME', value: "Little Mom's Store", type: 'string' },
+    { key: 'SITE_OG_SITE_NAME', value: "Şeyma Collection", type: 'string' },
     { key: 'SITE_FAVICON_URL', value: '/logo.jpeg', type: 'string' },
     { key: 'SITE_OG_IMAGE_URL', value: '/logo.jpeg', type: 'string' },
     { key: 'FOOTER_SOCIAL_FACEBOOK_URL', value: 'https://facebook.com', type: 'string' },

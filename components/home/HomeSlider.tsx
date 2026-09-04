@@ -9,6 +9,7 @@ import Link from "next/link"
 interface Slide {
   id: number
   imageUrl: string
+  mobileImageUrl?: string | null
   linkUrl: string | null
 }
 
@@ -32,7 +33,6 @@ export function HomeSlider({ slides }: { slides: Slide[] }) {
 
   const neighborOffsetPercent = 100
 
-  // Otomatik kaydırma
   useEffect(() => {
     if (total <= 1) return
     const timer = setInterval(() => go("next"), 6000)
@@ -56,19 +56,19 @@ export function HomeSlider({ slides }: { slides: Slide[] }) {
               onClick={() => go("prev")}
               className="absolute left-3 top-1/2 z-40 -translate-y-1/2 rounded-full border border-white/70 bg-white/55 p-3 text-zinc-700 shadow-md backdrop-blur-md transition hover:bg-white/80"
             >
-              <FaArrowLeft className="h-4 w-4 text-[#8cae90]" />
+              <FaArrowLeft className="h-4 w-4 text-[#c4768c]" />
             </button>
             <button
               type="button"
               onClick={() => go("next")}
               className="absolute right-3 top-1/2 z-40 -translate-y-1/2 rounded-full border border-white/70 bg-white/55 p-3 text-zinc-700 shadow-md backdrop-blur-md transition hover:bg-white/80"
             >
-              <FaArrowRight className="h-4 w-4 text-[#8cae90]" />
+              <FaArrowRight className="h-4 w-4 text-[#c4768c]" />
             </button>
           </>
         )}
 
-        <div className="relative h-[240px] md:h-[550px] overflow-hidden">
+        <div className="relative h-[240px] overflow-hidden md:h-[550px]">
           <AnimatePresence initial={false}>
             {slides.map((slide, index) => {
               const relative = getRelativeIndex(index)
@@ -92,24 +92,51 @@ export function HomeSlider({ slides }: { slides: Slide[] }) {
                   transition={{
                     type: "spring",
                     stiffness: 260,
-                    damping: 25
+                    damping: 25,
                   }}
                   className="absolute left-1/2 top-0 h-full w-[78%] overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm md:w-[62%]"
                 >
                   {!isActive && (
                     <div className="pointer-events-none absolute inset-0 z-10 bg-white/35" />
                   )}
-                  <Image
-                    src={slide.imageUrl}
-                    alt="Slider"
-                    width={1400}
-                    height={560}
-                    quality={95}
-                    sizes="(max-width: 768px) 78vw, 62vw"
-                    className="h-full w-full object-cover"
-                    draggable={false}
-                    priority={index === 0}
-                  />
+                  {slide.mobileImageUrl ? (
+                    <>
+                      <Image
+                        src={slide.mobileImageUrl}
+                        alt="Slider"
+                        width={941}
+                        height={1672}
+                        quality={95}
+                        sizes="78vw"
+                        className="block h-full w-full object-cover md:hidden"
+                        draggable={false}
+                        priority={index === 0}
+                      />
+                      <Image
+                        src={slide.imageUrl}
+                        alt="Slider"
+                        width={1400}
+                        height={560}
+                        quality={95}
+                        sizes="62vw"
+                        className="hidden h-full w-full object-cover md:block"
+                        draggable={false}
+                        priority={index === 0}
+                      />
+                    </>
+                  ) : (
+                    <Image
+                      src={slide.imageUrl}
+                      alt="Slider"
+                      width={1400}
+                      height={560}
+                      quality={95}
+                      sizes="(max-width: 768px) 78vw, 62vw"
+                      className="h-full w-full object-cover"
+                      draggable={false}
+                      priority={index === 0}
+                    />
+                  )}
                 </motion.article>
               )
 
@@ -118,9 +145,7 @@ export function HomeSlider({ slides }: { slides: Slide[] }) {
                   {Content}
                 </Link>
               ) : (
-                <div key={slide.id}>
-                  {Content}
-                </div>
+                <div key={slide.id}>{Content}</div>
               )
             })}
           </AnimatePresence>

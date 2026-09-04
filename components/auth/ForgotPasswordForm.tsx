@@ -62,20 +62,20 @@ export function ForgotPasswordForm() {
             onChange={(e) => setEmail(e.target.value)}
             required
             autoComplete="email"
-            className="h-11 w-full border border-zinc-300 bg-white px-3 text-sm outline-none focus:border-[#6f8f73]"
+            className="h-11 w-full border border-zinc-300 bg-white px-3 text-sm outline-none focus:border-[#ad516b]"
           />
         </div>
 
         <button
           type="submit"
           disabled={loading}
-          className="h-10 w-full bg-[#6f8f73] text-sm font-semibold text-white transition hover:bg-[#5f7f64] disabled:opacity-40"
+          className="h-10 w-full bg-[#ad516b] text-sm font-semibold text-white transition hover:bg-[#97475e] disabled:opacity-40"
         >
           {loading ? "Gönderiliyor…" : "Bağlantı gönder"}
         </button>
 
         <p className="pt-2 text-center text-xs text-zinc-500">
-          <Link href="/login" className="font-bold text-[#6f8f73] hover:underline">
+          <Link href="/login" className="font-bold text-[#ad516b] hover:underline">
             Girişe dön
           </Link>
         </p>

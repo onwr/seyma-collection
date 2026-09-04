@@ -95,7 +95,7 @@ export function HomeFooter() {
             <Link href="/" className="mx-auto shrink-0">
               <Image
                 src="/logo2.png"
-                alt="Little Mom's Store"
+                alt="Şeyma Collection"
                 width={200}
                 height={70}
                 className="h-auto w-36 object-contain sm:w-44 md:w-52"
@@ -121,7 +121,7 @@ export function HomeFooter() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={label}
-                    className="flex h-9 w-9 items-center justify-center rounded-full border border-zinc-200 transition hover:border-[#bcd2bf] hover:text-[#6f8f73]"
+                    className="flex h-9 w-9 items-center justify-center rounded-full border border-zinc-200 transition hover:border-[#ddb1bd] hover:text-[#ad516b]"
                   >
                     <Icon className={iconClass} />
                   </a>
@@ -186,7 +186,7 @@ export function HomeFooter() {
 
          <div className="flex items-center  flex-col md:flex-row md:justify-between mt-12 border-t border-zinc-800 pt-10 md:pt-2 text-center text-xs text-zinc-500">
           <p className="text-left">
-            © {new Date().getFullYear()}&nbsp;Little Mom&apos;s Store — Tüm hakları saklıdır.
+            © {new Date().getFullYear()}&nbsp;Şeyma Collection — Tüm hakları saklıdır.
           </p>
           <Link href="https://kurkayayazilim.com" target="_blank" rel="noopener noreferrer">
             <Image
@@ -228,7 +228,7 @@ export function HomeFooter() {
               type="button"
               onClick={scrollTop}
               aria-label="Yukarı çık"
-              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-zinc-700 bg-zinc-900 text-zinc-300 transition hover:border-[#bcd2bf] hover:text-white"
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-zinc-700 bg-zinc-900 text-zinc-300 transition hover:border-[#ddb1bd] hover:text-white"
             >
               <FaChevronUp className="h-4 w-4" />
             </button>

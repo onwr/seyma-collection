@@ -179,7 +179,7 @@ export default function CheckoutClient() {
         {steps.map((s) => (
           <div key={s.id} className="flex items-center space-x-2">
             <div className={`flex h-10 w-10 items-center justify-center rounded-full text-sm transition-all duration-500 
-              ${currentStep >= s.id ? "bg-[#6f8f73] text-white" : "bg-zinc-100 text-zinc-400"}`}>
+              ${currentStep >= s.id ? "bg-[#ad516b] text-white" : "bg-zinc-100 text-zinc-400"}`}>
               {currentStep > s.id ? <FaCheck /> : s.icon}
             </div>
             <span className={`hidden text-xs font-bold uppercase tracking-widest md:block 
@@ -222,9 +222,9 @@ export default function CheckoutClient() {
                             key={addr.id}
                             type="button"
                             onClick={() => applySavedAddress(addr)}
-                            className="flex flex-col items-start rounded-2xl border-2 border-zinc-100 p-4 text-left transition-all hover:border-[#6f8f73] hover:bg-[#f4f7f4]/30"
+                            className="flex flex-col items-start rounded-2xl border-2 border-zinc-100 p-4 text-left transition-all hover:border-[#ad516b] hover:bg-[#f9f2f4]/30"
                           >
-                            <span className="text-[10px] font-black uppercase tracking-widest text-[#6f8f73] mb-1">{addr.title}</span>
+                            <span className="text-[10px] font-black uppercase tracking-widest text-[#ad516b] mb-1">{addr.title}</span>
                             <p className="text-xs font-bold text-zinc-900">{addr.fullName}</p>
                             <p className="mt-1 text-[10px] text-zinc-400 line-clamp-1">{addr.district}, {addr.city}</p>
                           </button>
@@ -246,7 +246,7 @@ export default function CheckoutClient() {
                   <Input label="Posta Kodu" value={form.postalCode} onChange={(v: string) => update("postalCode", v)} placeholder="34000" />
                   <textarea
                     placeholder="Mahalle, Sokak, No, Daire..."
-                    className="w-full rounded-xl border border-zinc-200 p-4 text-sm font-bold outline-none focus:border-[#6f8f73] transition-all"
+                    className="w-full rounded-xl border border-zinc-200 p-4 text-sm font-bold outline-none focus:border-[#ad516b] transition-all"
                     rows={3}
                     value={form.address}
                     onChange={e => update("address", e.target.value)}
@@ -281,7 +281,7 @@ export default function CheckoutClient() {
                     </div>
                   ) : (
                     <>
-                      <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-[#f4f7f4] text-[#6f8f73]">
+                      <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-[#f9f2f4] text-[#ad516b]">
                         <FaCreditCard className="h-10 w-10" />
                       </div>
                       <div className="space-y-2">
@@ -297,7 +297,7 @@ export default function CheckoutClient() {
                       <label className="text-[10px] font-black uppercase tracking-widest text-zinc-400 ml-1">SİPARİŞ NOTU (OPSİYONEL)</label>
                       <textarea
                         placeholder="Siparişinize dair bir notunuz var mı?"
-                        className="w-full rounded-4xl border-2 border-zinc-100 bg-white p-6 text-sm font-bold outline-none focus:border-[#6f8f73] transition-all"
+                        className="w-full rounded-4xl border-2 border-zinc-100 bg-white p-6 text-sm font-bold outline-none focus:border-[#ad516b] transition-all"
                         rows={4}
                         value={form.note}
                         onChange={e => update("note", e.target.value)}
@@ -322,7 +322,7 @@ export default function CheckoutClient() {
               <button
                 onClick={next}
                 disabled={!isStepValid()}
-                className="flex items-center space-x-3 rounded-full bg-[#6f8f73] px-8 py-4 text-xs font-black uppercase tracking-[0.2em] text-white shadow-lg disabled:opacity-40 transition-all hover:scale-105 active:scale-95"
+                className="flex items-center space-x-3 rounded-full bg-[#ad516b] px-8 py-4 text-xs font-black uppercase tracking-[0.2em] text-white shadow-lg disabled:opacity-40 transition-all hover:scale-105 active:scale-95"
               >
                 <span>Devam Et</span> <FaChevronRight />
               </button>
@@ -330,7 +330,7 @@ export default function CheckoutClient() {
               <button
                 onClick={handleFinalSubmit}
                 disabled={loading}
-                className="flex items-center space-x-3 rounded-full bg-zinc-900 px-10 py-4 text-xs font-black uppercase tracking-[0.2em] text-white shadow-lg hover:bg-[#6f8f73] transition-all hover:scale-105 active:scale-95"
+                className="flex items-center space-x-3 rounded-full bg-zinc-900 px-10 py-4 text-xs font-black uppercase tracking-[0.2em] text-white shadow-lg hover:bg-[#ad516b] transition-all hover:scale-105 active:scale-95"
               >
                 <span>{loading ? "Tamamlanıyor..." : "Siparişi Onayla"}</span> <FaCheck />
               </button>
@@ -354,10 +354,10 @@ export default function CheckoutClient() {
           <div className="mb-8 space-y-3">
             <p className="text-[9px] font-black uppercase tracking-widest text-zinc-400 ml-1">İNDİRİM KUPONU</p>
             {activeCoupon ? (
-              <div className="flex items-center justify-between rounded-2xl bg-[#6f8f73]/10 px-4 py-3 border border-[#6f8f73]/20">
+              <div className="flex items-center justify-between rounded-2xl bg-[#ad516b]/10 px-4 py-3 border border-[#ad516b]/20">
                 <div className="flex items-center gap-2">
-                  <FaTicketAlt className="text-[#6f8f73] h-3 w-3" />
-                  <span className="text-xs font-black text-[#6f8f73] uppercase">{activeCoupon.code}</span>
+                  <FaTicketAlt className="text-[#ad516b] h-3 w-3" />
+                  <span className="text-xs font-black text-[#ad516b] uppercase">{activeCoupon.code}</span>
                 </div>
                 <button onClick={removeCoupon} className="text-zinc-400 hover:text-zinc-600 transition-colors">
                   <FaTimes className="h-3 w-3" />
@@ -369,12 +369,12 @@ export default function CheckoutClient() {
                   value={couponCode}
                   onChange={(e) => setCouponCode(e.target.value.toUpperCase())}
                   placeholder="KODU GİRİN"
-                  className="h-11 flex-1 rounded-xl border border-zinc-200 bg-white px-4 text-[10px] font-black uppercase outline-none focus:border-[#6f8f73]"
+                  className="h-11 flex-1 rounded-xl border border-zinc-200 bg-white px-4 text-[10px] font-black uppercase outline-none focus:border-[#ad516b]"
                 />
                 <button 
                   onClick={applyCoupon}
                   disabled={couponLoading || !couponCode}
-                  className="h-11 rounded-xl bg-zinc-900 px-4 text-[10px] font-black uppercase text-white transition-all hover:bg-[#6f8f73] disabled:opacity-40"
+                  className="h-11 rounded-xl bg-zinc-900 px-4 text-[10px] font-black uppercase text-white transition-all hover:bg-[#ad516b] disabled:opacity-40"
                 >
                   {couponLoading ? "..." : "UYGULA"}
                 </button>
@@ -391,13 +391,13 @@ export default function CheckoutClient() {
             
             <div className="flex justify-between text-xs">
               <span className="text-zinc-400 uppercase tracking-widest text-[9px]">Kargo</span>
-              <span className={`font-bold ${totals.shipping === 0 ? "text-[#6f8f73]" : ""}`}>
+              <span className={`font-bold ${totals.shipping === 0 ? "text-[#ad516b]" : ""}`}>
                 {totals.shipping === 0 ? "BEDAVA" : formatCurrency(totals.shipping)}
               </span>
             </div>
 
             {totals.discount > 0 && (
-              <div className="flex justify-between text-xs text-[#6f8f73]">
+              <div className="flex justify-between text-xs text-[#ad516b]">
                 <span className="uppercase tracking-widest text-[9px]">İndirim</span>
                 <span className="font-bold">-{formatCurrency(totals.discount)}</span>
               </div>
@@ -405,7 +405,7 @@ export default function CheckoutClient() {
 
             <div className="mt-6 flex justify-between border-t-2 border-dashed border-zinc-200 pt-6">
               <span className="text-xs font-black uppercase tracking-widest">Toplam</span>
-              <span className="text-2xl font-black text-[#6f8f73] tracking-tighter">{formatCurrency(totals.grandTotal)}</span>
+              <span className="text-2xl font-black text-[#ad516b] tracking-tighter">{formatCurrency(totals.grandTotal)}</span>
             </div>
           </div>
         </aside>
@@ -421,7 +421,7 @@ function Input({ label, value, onChange, placeholder }: { label: string, value: 
     <div className="flex flex-col space-y-1">
       <label className="text-[10px] font-black uppercase tracking-widest text-zinc-400 ml-1">{label}</label>
       <input
-        className="h-14 rounded-xl border border-zinc-200 bg-white px-4 text-sm font-bold outline-none focus:border-[#6f8f73] transition-all"
+        className="h-14 rounded-xl border border-zinc-200 bg-white px-4 text-sm font-bold outline-none focus:border-[#ad516b] transition-all"
         value={value}
         onChange={e => onChange(e.target.value)}
         placeholder={placeholder}
@@ -436,7 +436,7 @@ function Select({ label, value, options, onChange, disabled }: { label: string, 
       <label className="text-[10px] font-black uppercase tracking-widest text-zinc-400 ml-1">{label}</label>
       <select
         disabled={disabled}
-        className="h-14 rounded-xl border border-zinc-200 bg-white px-4 text-sm font-bold outline-none focus:border-[#6f8f73] disabled:bg-zinc-50 transition-all"
+        className="h-14 rounded-xl border border-zinc-200 bg-white px-4 text-sm font-bold outline-none focus:border-[#ad516b] disabled:bg-zinc-50 transition-all"
         value={value}
         onChange={e => onChange(e.target.value)}
       >

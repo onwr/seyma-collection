@@ -29,14 +29,14 @@ export default function OrderDetailPage({
 
   if (loading) return (
     <div className="flex h-screen items-center justify-center bg-white">
-      <div className="h-12 w-12 animate-spin rounded-full border-4 border-[#bcd2bf] border-t-[#6f8f73]" />
+      <div className="h-12 w-12 animate-spin rounded-full border-4 border-[#ddb1bd] border-t-[#ad516b]" />
     </div>
   )
 
   if (!order || order.message) return (
     <div className="flex h-screen flex-col items-center justify-center bg-white space-y-4">
       <p className="text-sm font-black uppercase tracking-widest text-zinc-400">Sipariş bulunamadı</p>
-      <Link href="/profil?tab=siparisler" className="text-xs font-black text-[#6f8f73] underline">Siparişlerime dön</Link>
+      <Link href="/profil?tab=siparisler" className="text-xs font-black text-[#ad516b] underline">Siparişlerime dön</Link>
     </div>
   )
 
@@ -50,7 +50,7 @@ export default function OrderDetailPage({
   const activeStepIndex = currentStepIndex === -1 ? 0 : currentStepIndex
 
   return (
-    <div className="min-h-screen bg-[#fcfdfc] flex flex-col">
+    <div className="min-h-screen bg-[#fdfcfc] flex flex-col">
       <HomeHeader />
       
       <main className="flex-1 mx-auto w-full max-w-5xl px-4 py-12">
@@ -61,7 +61,7 @@ export default function OrderDetailPage({
           </Link>
           <div className="text-right">
              <h1 className="text-2xl font-black uppercase tracking-tighter text-zinc-900">Sipariş Detayı</h1>
-             <p className="text-[10px] font-black text-[#6f8f73] uppercase tracking-widest">#{order.orderNo}</p>
+             <p className="text-[10px] font-black text-[#ad516b] uppercase tracking-widest">#{order.orderNo}</p>
           </div>
         </div>
 
@@ -69,12 +69,12 @@ export default function OrderDetailPage({
         <div className="mb-12 rounded-[2.5rem] bg-white border border-zinc-100 p-10 shadow-sm">
            <div className="relative flex justify-between">
               <div className="absolute top-6 left-0 h-0.5 w-full bg-zinc-100" />
-              <div className="absolute top-6 left-0 h-0.5 bg-[#6f8f73] transition-all duration-1000" style={{ width: `${(activeStepIndex / (steps.length - 1)) * 100}%` }} />
+              <div className="absolute top-6 left-0 h-0.5 bg-[#ad516b] transition-all duration-1000" style={{ width: `${(activeStepIndex / (steps.length - 1)) * 100}%` }} />
               
               {steps.map((step, i) => (
                 <div key={step.id} className="relative z-10 flex flex-col items-center group">
                   <div className={`flex h-12 w-12 items-center justify-center rounded-full transition-all duration-500 
-                    ${i <= activeStepIndex ? "bg-[#6f8f73] text-white shadow-lg shadow-[#6f8f73]/20" : "bg-zinc-100 text-zinc-400"}`}>
+                    ${i <= activeStepIndex ? "bg-[#ad516b] text-white shadow-lg shadow-[#ad516b]/20" : "bg-zinc-100 text-zinc-400"}`}>
                     {step.icon}
                   </div>
                   <p className={`mt-4 text-[10px] font-black uppercase tracking-widest transition-colors ${i <= activeStepIndex ? "text-zinc-900" : "text-zinc-400"}`}>
@@ -115,7 +115,7 @@ export default function OrderDetailPage({
             {/* Address & Note */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                <div className="rounded-3xl bg-white border border-zinc-100 p-8 shadow-sm">
-                  <div className="mb-4 flex items-center gap-2 text-[#6f8f73]">
+                  <div className="mb-4 flex items-center gap-2 text-[#ad516b]">
                     <FaMapMarkerAlt className="h-4 w-4" />
                     <h3 className="text-[10px] font-black uppercase tracking-widest">Teslimat Adresi</h3>
                   </div>
@@ -127,7 +127,7 @@ export default function OrderDetailPage({
                   </p>
                </div>
                <div className="rounded-3xl bg-white border border-zinc-100 p-8 shadow-sm">
-                  <div className="mb-4 flex items-center gap-2 text-[#6f8f73]">
+                  <div className="mb-4 flex items-center gap-2 text-[#ad516b]">
                     <FaFileAlt className="h-4 w-4" />
                     <h3 className="text-[10px] font-black uppercase tracking-widest">Sipariş Notu</h3>
                   </div>
@@ -149,10 +149,10 @@ export default function OrderDetailPage({
                   </div>
                   <div className="flex justify-between text-xs font-bold uppercase tracking-widest">
                     <span className="opacity-40">KARGO</span>
-                    <span className="text-[#bcd2bf]">{Number(order.shippingCost) === 0 ? "BEDAVA" : formatCurrency(Number(order.shippingCost))}</span>
+                    <span className="text-[#ddb1bd]">{Number(order.shippingCost) === 0 ? "BEDAVA" : formatCurrency(Number(order.shippingCost))}</span>
                   </div>
                   {Number(order.discountTotal) > 0 && (
-                    <div className="flex justify-between text-xs font-bold uppercase tracking-widest text-[#bcd2bf]">
+                    <div className="flex justify-between text-xs font-bold uppercase tracking-widest text-[#ddb1bd]">
                       <span>İNDİRİM</span>
                       <span>-{formatCurrency(Number(order.discountTotal))}</span>
                     </div>
@@ -160,7 +160,7 @@ export default function OrderDetailPage({
                </div>
                <div className="mt-6 flex justify-between items-end">
                   <span className="text-xs font-black uppercase tracking-widest opacity-40">TOPLAM</span>
-                  <span className="text-3xl font-black tracking-tighter text-[#bcd2bf]">{formatCurrency(Number(order.grandTotal))}</span>
+                  <span className="text-3xl font-black tracking-tighter text-[#ddb1bd]">{formatCurrency(Number(order.grandTotal))}</span>
                </div>
             </div>
 
@@ -170,7 +170,7 @@ export default function OrderDetailPage({
                  <h3 className="text-[10px] font-black uppercase tracking-widest">Ödeme Yöntemi</h3>
                </div>
                <p className="text-xs font-black text-zinc-900 uppercase tracking-widest">{order.payments[0]?.method || "Bilinmiyor"}</p>
-               <p className="mt-1 text-[10px] font-black uppercase tracking-widest text-[#6f8f73]">{order.paymentStatus}</p>
+               <p className="mt-1 text-[10px] font-black uppercase tracking-widest text-[#ad516b]">{order.paymentStatus}</p>
             </div>
           </aside>
         </div>

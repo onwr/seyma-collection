@@ -29,7 +29,7 @@ export function TrendyolSyncButton() {
       type="button"
       onClick={() => void handleClick()}
       disabled={loading}
-      className="flex items-center gap-2 rounded-lg bg-[#4f6f52] px-4 py-2 text-[12px] font-medium text-white transition hover:bg-[#3d5a3f] disabled:opacity-50"
+      className="flex items-center gap-2 rounded-lg bg-[#813d50] px-4 py-2 text-[12px] font-medium text-white transition hover:bg-[#673040] disabled:opacity-50"
     >
       <FaSync className={loading ? "animate-spin" : ""} />
       {loading ? "Senkronize ediliyor..." : "Şimdi Senkronize Et"}

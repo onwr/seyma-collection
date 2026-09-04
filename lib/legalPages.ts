@@ -8,54 +8,54 @@ export const LEGAL_PAGES: Record<string, LegalPage> = {
     title: "Üyelik ve Kullanım Sözleşmesi",
     content: `1. Taraflar
 
-İşbu Üyelik ve Kullanım Sözleşmesi (kısaca "Sözleşme") www.littlemomstore.com uzantılı web sitesinin, aplikasyonunun ve buna bağlı tüm uygulamaların (kısaca "Site") tüm haklarının sahibi olan merkezi İvedik OSB. 2259. Cad. No: 18 Yenimahalle / Ankara adresinde bulunan Mareşal Danışmanlık ve Bilişim Sistemleri San. Tic. Ltd. Şti. (kısaca "Mareşal") ile kimlik ve iletişim bilgilerini işbu sözleşmenin kabulü öncesinde sisteme tanımlamış olan Üye arasındadır. Üye, Site'ye üye olarak, işbu 'Sözleşme'nin tamamını okuduğunu, anladığını ve tüm hükümlerini onayladığını kabul, beyan ve taahhüt eder.
+İşbu Üyelik ve Kullanım Sözleşmesi (kısaca "Sözleşme") www.seymacollection.com uzantılı web sitesinin, aplikasyonunun ve buna bağlı tüm uygulamaların (kısaca "Site") tüm haklarının sahibi olan merkezi İvedik OSB. 2259. Cad. No: 18 Yenimahalle / Ankara adresinde bulunan BUŞRA YARALI (kısaca "Şeyma Collection") ile kimlik ve iletişim bilgilerini işbu sözleşmenin kabulü öncesinde sisteme tanımlamış olan Üye arasındadır. Üye, Site'ye üye olarak, işbu 'Sözleşme'nin tamamını okuduğunu, anladığını ve tüm hükümlerini onayladığını kabul, beyan ve taahhüt eder.
 
-Sözleşmede geçen Mareşal Danışmanlık ve Bilişim Sistemleri Sanayi Ticaret Limited Şirketi, Mareşal, Little Mom Store ve www.littlemomstore.com aynı kuruluşlardır.
+Sözleşmede geçen BUŞRA YARALI, Şeyma Collection ve www.seymacollection.com aynı kuruluşlardır.
 
 2. Sözleşmenin Konusu
 
-İşbu Sözleşme'nin konusu Mareşal'in sahibi olduğu platform üzerinden çeşitli iletişim ve reklam platformlarının dahil olduğu geniş kapsamlı ürün ve hizmetler sunan www.littlemomstore.com uzantılı web sitesinin kullanım koşullarının ve tarafların karşılıklı hak ve yükümlülüklerinin belirlenmesidir.
+İşbu Sözleşme'nin konusu Şeyma Collection'ın sahibi olduğu platform üzerinden çeşitli iletişim ve reklam platformlarının dahil olduğu geniş kapsamlı ürün ve hizmetler sunan www.seymacollection.com uzantılı web sitesinin kullanım koşullarının ve tarafların karşılıklı hak ve yükümlülüklerinin belirlenmesidir.
 
-3. Little Mom Store'un Hakları
+3. Şeyma Collection'un Hakları
 
-A) Little Mom Store güvenlik nedeniyle Üye'nin site üzerindeki her türlü aktivitesini izleyebilir, kayda alabilir ve/veya gerekli gördüğünde, Site'den uzaklaştırma, üyelik dondurma, üyelik iptal etme ve benzeri her türlü müdahalede bulunabilir.
-B) Little Mom Store, önceden Üye'ye bildirimde bulunmaksızın Site'nin biçim ve içeriğini kısmen ve/veya tamamen değiştirebileceği gibi, Site'nin yayın yaptığı alan adını değiştirebilir, farklı alt alan adları kullanabilir, alan adı yönlendirmesi yapabilir ve/veya alan adını kapatabilir.
-C) Little Mom Store, dilediği zamanda ve/veya sebep göstermeksizin, önceden Üye'ye bilgi vermeksizin Site'de sunduğu hizmetlerin kapsam ve/veya çeşitlerini değiştirebileceği gibi, Site'de sunulan hizmetleri kısmen veya tamamen dondurabilir, sona erdirebilir veya tamamen iptal edebilir.
-D) Little Mom Store sözleşmede belirtilen iş ve/veya işlemlerin daha etkin gerçekleştirilebilmesi açısından dilediği zaman hizmet, satış şartları ve/veya işleyişte değişiklikler ve/veya güncellemeler yapabilir. Üyeler işbu değişiklikleri kabul ettiklerini, bu değişikliklere uygun davranacaklarını şimdiden kabul ve beyan ederler.
-E) İşbu sözleşme Little Mom Store'nın ürün satışı için herhangi bir taahhüt içermez. Üye, bu ve sair nedenlerle Little Mom Store'dan hiçbir ad altında hak ve alacak talep edemez.
-F) Little Mom Store'nın üyeliği tek taraflı olarak durdurma, sona erdirme ve/veya iptal etme hakkı mevcuttur. Üye bu hususta herhangi bir itiraz hakkının mevcut olmadığını kabul, beyan ve taahhüt eder.
-G) Little Mom Store kullanıcı profili ve pazar araştırmaları yapmak, satış ve site kullanım istatistikleri oluşturmak gibi amaçlar dahil ancak bunlarla sınırlı olmamak üzere tüm yasal amaçlar için, Üye'nin kimlik, adres, iletişim ve site kullanım bilgilerini bir veri tabanında toplayabilir ve bu bilgileri herhangi bir kısıtlama olmaksızın işleyebilir. Ayrıca Little Mom Store bu bilgileri, yasaların getirdiği zorunluluklara uyma amacıyla veya yetkili adli veya idari otoritenin yürüttüğü soruşturma veya araştırma açısından talep edilmesi durumunda veya kullanıcıların hak ve güvenliklerinin korunması amacıyla üçüncü kişi/kurumlarla paylaşabilir.
-H) Little Mom Store, ilave hizmetler açabilir, bazı hizmetlerini kısmen veya tamamen değiştirebilir veya ücretli hale dönüştürebilir. Bu durumda kullanıcının Sözleşme'yi feshederek, üyelikten ayrılma hakkı saklıdır.
-I) Little Mom Store, ileride doğacak teknik zaruretler ve mevzuata uyum amacıyla kullanıcıların aleyhine olmamak kaydıyla işbu Sözleşme'nin uygulamasında değişiklikler yapabilir, mevcut maddelerini değiştirebilir veya yeni maddeler ilave edebilir.
+A) Şeyma Collection güvenlik nedeniyle Üye'nin site üzerindeki her türlü aktivitesini izleyebilir, kayda alabilir ve/veya gerekli gördüğünde, Site'den uzaklaştırma, üyelik dondurma, üyelik iptal etme ve benzeri her türlü müdahalede bulunabilir.
+B) Şeyma Collection, önceden Üye'ye bildirimde bulunmaksızın Site'nin biçim ve içeriğini kısmen ve/veya tamamen değiştirebileceği gibi, Site'nin yayın yaptığı alan adını değiştirebilir, farklı alt alan adları kullanabilir, alan adı yönlendirmesi yapabilir ve/veya alan adını kapatabilir.
+C) Şeyma Collection, dilediği zamanda ve/veya sebep göstermeksizin, önceden Üye'ye bilgi vermeksizin Site'de sunduğu hizmetlerin kapsam ve/veya çeşitlerini değiştirebileceği gibi, Site'de sunulan hizmetleri kısmen veya tamamen dondurabilir, sona erdirebilir veya tamamen iptal edebilir.
+D) Şeyma Collection sözleşmede belirtilen iş ve/veya işlemlerin daha etkin gerçekleştirilebilmesi açısından dilediği zaman hizmet, satış şartları ve/veya işleyişte değişiklikler ve/veya güncellemeler yapabilir. Üyeler işbu değişiklikleri kabul ettiklerini, bu değişikliklere uygun davranacaklarını şimdiden kabul ve beyan ederler.
+E) İşbu sözleşme Şeyma Collection'nın ürün satışı için herhangi bir taahhüt içermez. Üye, bu ve sair nedenlerle Şeyma Collection'dan hiçbir ad altında hak ve alacak talep edemez.
+F) Şeyma Collection'nın üyeliği tek taraflı olarak durdurma, sona erdirme ve/veya iptal etme hakkı mevcuttur. Üye bu hususta herhangi bir itiraz hakkının mevcut olmadığını kabul, beyan ve taahhüt eder.
+G) Şeyma Collection kullanıcı profili ve pazar araştırmaları yapmak, satış ve site kullanım istatistikleri oluşturmak gibi amaçlar dahil ancak bunlarla sınırlı olmamak üzere tüm yasal amaçlar için, Üye'nin kimlik, adres, iletişim ve site kullanım bilgilerini bir veri tabanında toplayabilir ve bu bilgileri herhangi bir kısıtlama olmaksızın işleyebilir. Ayrıca Şeyma Collection bu bilgileri, yasaların getirdiği zorunluluklara uyma amacıyla veya yetkili adli veya idari otoritenin yürüttüğü soruşturma veya araştırma açısından talep edilmesi durumunda veya kullanıcıların hak ve güvenliklerinin korunması amacıyla üçüncü kişi/kurumlarla paylaşabilir.
+H) Şeyma Collection, ilave hizmetler açabilir, bazı hizmetlerini kısmen veya tamamen değiştirebilir veya ücretli hale dönüştürebilir. Bu durumda kullanıcının Sözleşme'yi feshederek, üyelikten ayrılma hakkı saklıdır.
+I) Şeyma Collection, ileride doğacak teknik zaruretler ve mevzuata uyum amacıyla kullanıcıların aleyhine olmamak kaydıyla işbu Sözleşme'nin uygulamasında değişiklikler yapabilir, mevcut maddelerini değiştirebilir veya yeni maddeler ilave edebilir.
 
 4. Üye'nin Yükümlülükleri
 
-A) Üyelik, sitede belirtilen üyelik prosedürünün üye olmak isteyen kişi tarafından yerine getirilerek kayıt işleminin yapılması ile tamamlanır. Üye, üye olmakla, işbu sözleşme hükümlerini, üyeliğe ve hizmetlere ilişkin Little Mom Store tarafından açıklanan/açıklanacak her türlü beyanı da kabul etmiş olmaktadır.
-B) Üye, üyelik işlemlerinde belirtmiş olduğu kimlik, adres ve/veya iletişim bilgilerinin eksiksiz ve doğru olduğunu, bilgilerinde değişiklik olması halinde bu bilgileri derhal yazılı olarak Little Mom Store'a ileteceğini, eksik, güncel olmayan ve/veya yanlış bilgi vermesi nedeniyle ortaya çıkabilecek her türlü hukuki uyuşmazlık ve/veya zarardan sadece kendisinin sorumlu olacağını kabul ve beyan eder.
+A) Üyelik, sitede belirtilen üyelik prosedürünün üye olmak isteyen kişi tarafından yerine getirilerek kayıt işleminin yapılması ile tamamlanır. Üye, üye olmakla, işbu sözleşme hükümlerini, üyeliğe ve hizmetlere ilişkin Şeyma Collection tarafından açıklanan/açıklanacak her türlü beyanı da kabul etmiş olmaktadır.
+B) Üye, üyelik işlemlerinde belirtmiş olduğu kimlik, adres ve/veya iletişim bilgilerinin eksiksiz ve doğru olduğunu, bilgilerinde değişiklik olması halinde bu bilgileri derhal yazılı olarak Şeyma Collection'a ileteceğini, eksik, güncel olmayan ve/veya yanlış bilgi vermesi nedeniyle ortaya çıkabilecek her türlü hukuki uyuşmazlık ve/veya zarardan sadece kendisinin sorumlu olacağını kabul ve beyan eder.
 C) Üye, Site'yi kullanırken başkaları tarafından kolay tahmin edilemeyecek bir şifre kullanacağını, kullanıcı adı, şifre ve benzeri bilgilerini başkalarıyla paylaşmayacağını ve bu güvenliğinden bizzat ve sadece kendisinin sorumlu olacağını kabul ve beyan eder.
 D) Üye, Sitede yer alan forum ve blogların kullanımı esnasında; Anayasa kanun, yönetmelik, kanun hükmünde kararname, yönerge, tebliğ, genelge ve talimatlara ve gerçek ve/veya tüzel kişilerin maddi ve manevi varlıklarına aykırı davranışlarda bulunmayacağını kabul eder.
 E) Üye, hileli davranışlarda bulunmayacağını, Site'nin güvenlik mekanizmasına müdahale etmeyeceğini aksi halde oluşabilecek her türlü zarardan sorumlu olduğunu kabul ve taahhüt eder.
 F) Üye, sadece kendisine ait üyelik hesabını kullanacağını, başka üyelerin hesap bilgilerini kullanmayacağını ve/veya kendisine ait üyelik hesabını başkalarına kullandırtmayacağını kabul eder.
 G) Üye, üyelik hesabını üçüncü kişilere devredemez.
 H) Üye, başkalarının Site'yi kullanımını kısıtlayamaz, engel olamaz ve Site'nin veya Site'yi kullanılabilir hale getirmek için kullanılan sunucu veya ağların işletimine müdahale edemez.
-I) Üye'nin, bilgisayar donanımını etkileyen virüs saldırılarından ve/veya siteden edindiği bilgiler sebebiyle veya siteye erişimine ve kullanımına ilişkin olarak doğrudan veya dolaylı olarak meydana gelebilecek zararlardan Little Mom Store sorumlu değildir.
+I) Üye'nin, bilgisayar donanımını etkileyen virüs saldırılarından ve/veya siteden edindiği bilgiler sebebiyle veya siteye erişimine ve kullanımına ilişkin olarak doğrudan veya dolaylı olarak meydana gelebilecek zararlardan Şeyma Collection sorumlu değildir.
 J) Üye, site çalışmasına müdahale etmek veya müdahaleye teşebbüs etmek amacıyla herhangi bir alet, yazılım ve/veya araç kullanmayacağını kabul eder.
 K) Üye, üyelik işlemleri sırasında verilen bilgilerin doğru olduğunu taahhüt eder.
 
 5. Kampanyalar
-Kampanya ve avantajlara katılım, Little Mom Store tarafından belirlenen tarih, belli kontenjan, stok ve sınırlamaları ile diğer kısıtlamalara tabi olabilir.
+Kampanya ve avantajlara katılım, Şeyma Collection tarafından belirlenen tarih, belli kontenjan, stok ve sınırlamaları ile diğer kısıtlamalara tabi olabilir.
 
 6. Kişisel Verilerin Gizliliği ve Ticari Elektronik İleti
-Little Mom Store, Üye'lerin Bireysel Üye olması halinde adı-soyadı, adresi, telefon numarası, vb. kişisel veriyi toplama, saklama, aktarma gibi her türlü işleme işlemini yapmaya yetkilidir.
+Şeyma Collection, Üye'lerin Bireysel Üye olması halinde adı-soyadı, adresi, telefon numarası, vb. kişisel veriyi toplama, saklama, aktarma gibi her türlü işleme işlemini yapmaya yetkilidir.
 
 7. Fikri Mülkiyet Hakları
 Site'nin sunumu ve tüm içeriği T.C. Mevzuatı ve fikri mülkiyet mevzuatı tarafından korunmaktadır.
 
 8. Sorumluluk
-Little Mom Store hizmetin hatasız olacağını veya sürekli sağlanacağını veya hizmetin virüs ve diğer zararlı unsurlardan arınmış olduğunu garanti etmemektedir.
+Şeyma Collection hizmetin hatasız olacağını veya sürekli sağlanacağını veya hizmetin virüs ve diğer zararlı unsurlardan arınmış olduğunu garanti etmemektedir.
 
 9. Üyelik İptali ve Sözleşmenin Feshi
-Üye'nin işbu sözleşmeden kaynaklanan yükümlülüklerinden herhangi biri ve/veya tamamına aykırı davranması durumunda Little Mom Store, üyeliği iptal edebilir.
+Üye'nin işbu sözleşmeden kaynaklanan yükümlülüklerinden herhangi biri ve/veya tamamına aykırı davranması durumunda Şeyma Collection, üyeliği iptal edebilir.
 
 10. Sözleşmenin Süresi
 İşbu sözleşme Site'de onaylandığı andan itibaren yürürlüğe girer ve üyeliğin iptal edilmesi ile sona erer.
@@ -132,7 +132,7 @@ Bankaya iletilecek sipariş toplamının kaç taksitle ödeneceği bilgisi/taksi
 İşbu Mesafeli Satış Sözleşmesi (kısaca "Sözleşme") Alıcı ve Satıcı arasında elektronik ortamda imzalanmıştır.
 
 2. KONU
-İşbu Sözleşme'nin konusu, Alıcı'nın Satıcı'ya ait www.littlemomstore.com alan adı altındaki internet sitesinden (kısaca "Site") elektronik ortamda siparişini verdiği ürünün satışı ve teslimi ile ilgili olarak 6502 sayılı Tüketicinin Korunması Hakkındaki Kanun ve 27.02.2015 yürürlük tarihli Mesafeli Sözleşmeler Yönetmeliği hükümleri gereğince tarafların hak ve yükümlülüklerinin düzenlenmesidir.
+İşbu Sözleşme'nin konusu, Alıcı'nın Satıcı'ya ait www.seymacollection.com alan adı altındaki internet sitesinden (kısaca "Site") elektronik ortamda siparişini verdiği ürünün satışı ve teslimi ile ilgili olarak 6502 sayılı Tüketicinin Korunması Hakkındaki Kanun ve 27.02.2015 yürürlük tarihli Mesafeli Sözleşmeler Yönetmeliği hükümleri gereğince tarafların hak ve yükümlülüklerinin düzenlenmesidir.
 
 Alıcı, Sitede Sözleşme konusu ürünün temel nitelikleri, nakliye, kargo, KDV ve diğer her türlü ek bedel dahil toplam satış fiyatı ve ödeme şekli ile teslimata ilişkin ön bilgileri okuyup bilgi sahibi olduğunu ve elektronik ortamda ürünün satışının gerçekleşmesine dair onay verdiğini beyan eder.
 
@@ -150,7 +150,7 @@ Satıcı, Alıcı'ya tesliminin imkansız hale gelmesi nedeniyle Sözleşme konu
     title: "Gizlilik Politikası",
     content: `Gizlilik ve Güvenlik
 
-Mağazamızda verilen tüm servisler Mareşal Danışmanlık ve Bilişim Sistemleri San. Tic. Ltd. Şti. firmamıza aittir ve firmamız tarafından işletilir.
+Mağazamızda verilen tüm servisler BUŞRA YARALI firmamıza aittir ve firmamız tarafından işletilir.
 
 Firmamız, çeşitli amaçlarla kişisel veriler toplayabilir.
 

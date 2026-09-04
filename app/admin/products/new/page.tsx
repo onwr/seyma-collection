@@ -83,13 +83,13 @@ function Toggle({
             type="button"
             onClick={() => onChange(!checked)}
             className={`relative h-6 w-10 shrink-0 rounded-full transition-all duration-300
-          ${checked ? "bg-[#4f6f52] shadow-[0_0_10px_rgba(79,111,82,0.3)]" : "bg-zinc-200"}`}
+          ${checked ? "bg-[#813d50] shadow-[0_0_10px_rgba(79,111,82,0.3)]" : "bg-zinc-200"}`}
          >
             <span
                className={`absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-white shadow-md transition-transform duration-300 flex items-center justify-center
             ${checked ? "translate-x-4" : "translate-x-0"}`}
             >
-               {checked && <div className="h-1.5 w-1.5 rounded-full bg-[#4f6f52]" />}
+               {checked && <div className="h-1.5 w-1.5 rounded-full bg-[#813d50]" />}
             </span>
          </button>
       </div>
@@ -120,7 +120,7 @@ function EditorToolbar({ editor }: { editor: any }) {
          onClick={onClick}
          className={`flex h-8 w-8 items-center justify-center rounded-lg text-[13px] transition-all duration-200
         ${active
-               ? "bg-[#4f6f52] text-white shadow-sm scale-105"
+               ? "bg-[#813d50] text-white shadow-sm scale-105"
                : "text-zinc-500 hover:bg-zinc-100 hover:text-zinc-800"}`}
       >
          {icon}
@@ -170,7 +170,7 @@ function EditorToolbar({ editor }: { editor: any }) {
                         : editor.isActive("heading", { level: 4 }) ? "4"
                            : "p"
                }
-               className="h-8 rounded-lg border border-zinc-200 bg-white px-3 pr-8 text-[12px] font-medium text-zinc-600 outline-none transition-all focus:border-[#4f6f52] appearance-none cursor-pointer"
+               className="h-8 rounded-lg border border-zinc-200 bg-white px-3 pr-8 text-[12px] font-medium text-zinc-600 outline-none transition-all focus:border-[#813d50] appearance-none cursor-pointer"
             >
                <option value="p">Gövde Metni</option>
                <option value="2">Büyük Başlık (H2)</option>
@@ -246,7 +246,7 @@ function RichEditor({
    const charCount = editor?.storage.characterCount?.characters() ?? 0
 
    return (
-      <div className="overflow-hidden rounded-xl border border-zinc-200 bg-white transition-all duration-300 focus-within:border-[#4f6f52] focus-within:ring-2 focus-within:ring-[#4f6f52]/5">
+      <div className="overflow-hidden rounded-xl border border-zinc-200 bg-white transition-all duration-300 focus-within:border-[#813d50] focus-within:ring-2 focus-within:ring-[#813d50]/5">
          <EditorToolbar editor={editor} />
 
          {/* Editör içeriği — TipTap global stilleri */}
@@ -257,7 +257,7 @@ function RichEditor({
         .tiptap ul  { list-style:disc;   padding-left:1.5rem; margin:0.75rem 0 }
         .tiptap ol  { list-style:decimal; padding-left:1.5rem; margin:0.75rem 0 }
         .tiptap li  { margin:0.35rem 0 }
-        .tiptap blockquote { border-left:4px solid #4f6f52; padding-left:1.25rem; color:#4b5563; font-style:italic; margin:1.25rem 0; background:#f9fafb; padding-top:0.5rem; padding-bottom:0.5rem; border-radius:0 4px 4px 0 }
+        .tiptap blockquote { border-left:4px solid #813d50; padding-left:1.25rem; color:#4b5563; font-style:italic; margin:1.25rem 0; background:#f9fafb; padding-top:0.5rem; padding-bottom:0.5rem; border-radius:0 4px 4px 0 }
         .tiptap p.is-editor-empty:first-child::before { content:attr(data-placeholder); color:#9ca3af; pointer-events:none; float:left; height:0 }
         .tiptap p { margin: 0.75rem 0 }
         .tiptap a { color: #2563eb; text-decoration: underline; font-weight: 500 }
@@ -301,7 +301,7 @@ function ImageRow({
          animate={{ opacity: 1, scale: 1 }}
          exit={{ opacity: 0, scale: 0.95 }}
          className="group relative flex items-center gap-3 rounded-xl border border-zinc-100 bg-zinc-50/80 p-3
-                 transition-all hover:bg-white hover:shadow-md hover:border-[#4f6f52]/20"
+                 transition-all hover:bg-white hover:shadow-md hover:border-[#813d50]/20"
       >
          <div className="cursor-grab active:cursor-grabbing p-1 text-zinc-300 hover:text-zinc-500 transition-colors">
             <FaGripVertical className="h-3.5 w-3.5" />
@@ -310,7 +310,7 @@ function ImageRow({
          <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg border-2 border-white shadow-sm ring-1 ring-zinc-200 bg-white">
             <img src={url} alt="" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
             {isFirst && (
-               <div className="absolute top-0 left-0 right-0 bg-[#4f6f52] py-0.5 flex items-center justify-center">
+               <div className="absolute top-0 left-0 right-0 bg-[#813d50] py-0.5 flex items-center justify-center">
                   <span className="text-[7.5px] font-bold uppercase tracking-wider text-white">ANA GÖRSEL</span>
                </div>
             )}
@@ -332,7 +332,7 @@ function ImageRow({
                   type="button"
                   onClick={onMoveUp}
                   disabled={isFirst}
-                  className="flex h-6 w-6 items-center justify-center rounded-md bg-white border border-zinc-200 text-zinc-400 hover:text-[#4f6f52] hover:border-[#4f6f52] transition-all disabled:opacity-30 disabled:pointer-events-none shadow-sm"
+                  className="flex h-6 w-6 items-center justify-center rounded-md bg-white border border-zinc-200 text-zinc-400 hover:text-[#813d50] hover:border-[#813d50] transition-all disabled:opacity-30 disabled:pointer-events-none shadow-sm"
                   title="Yukarı Taşı"
                >
                   <span className="text-[10px]">▲</span>
@@ -341,7 +341,7 @@ function ImageRow({
                   type="button"
                   onClick={onMoveDown}
                   disabled={isLast}
-                  className="flex h-6 w-6 items-center justify-center rounded-md bg-white border border-zinc-200 text-zinc-400 hover:text-[#4f6f52] hover:border-[#4f6f52] transition-all disabled:opacity-30 disabled:pointer-events-none shadow-sm"
+                  className="flex h-6 w-6 items-center justify-center rounded-md bg-white border border-zinc-200 text-zinc-400 hover:text-[#813d50] hover:border-[#813d50] transition-all disabled:opacity-30 disabled:pointer-events-none shadow-sm"
                   title="Aşağı Taşı"
                >
                   <span className="text-[10px]">▼</span>
@@ -380,7 +380,7 @@ function SectionHeader({ icon, title, action, subtitle }: { icon: React.ReactNod
       <div className="mb-6 flex flex-col gap-1 border-b border-zinc-100 pb-4">
          <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#4f6f52]/5 text-[#4f6f52] shadow-sm ring-1 ring-[#4f6f52]/10">
+               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#813d50]/5 text-[#813d50] shadow-sm ring-1 ring-[#813d50]/10">
                   {icon}
                </div>
                <div>
@@ -412,7 +412,7 @@ function Field({
       <div className="group/field">
          <div className="mb-2 flex items-center justify-between">
             <div className="flex items-center gap-1.5">
-               <label className="text-[12.5px] font-semibold text-zinc-600 group-focus-within/field:text-[#4f6f52] transition-colors">
+               <label className="text-[12.5px] font-semibold text-zinc-600 group-focus-within/field:text-[#813d50] transition-colors">
                   {label}
                </label>
                {required && <span className="text-[14px] leading-none text-red-500 font-bold">*</span>}
@@ -429,9 +429,9 @@ function Field({
    )
 }
 
-const INPUT_CLS = "h-11 w-full rounded-xl border border-zinc-200 bg-zinc-50/30 px-4 text-[13.5px] text-zinc-800 outline-none transition-all duration-300 focus:border-[#4f6f52] focus:bg-white focus:ring-4 focus:ring-[#4f6f52]/5 placeholder:text-zinc-300"
-const SELECT_CLS = "h-11 w-full rounded-xl border border-zinc-200 bg-zinc-50/30 px-4 text-[13.5px] text-zinc-800 outline-none transition-all duration-300 focus:border-[#4f6f52] focus:bg-white focus:ring-4 focus:ring-[#4f6f52]/5 cursor-pointer appearance-none"
-const TEXTAREA_CLS = "w-full rounded-xl border border-zinc-200 bg-zinc-50/30 p-4 text-[13.5px] text-zinc-800 outline-none transition-all duration-300 focus:border-[#4f6f52] focus:bg-white focus:ring-4 focus:ring-[#4f6f52]/5 resize-none placeholder:text-zinc-300"
+const INPUT_CLS = "h-11 w-full rounded-xl border border-zinc-200 bg-zinc-50/30 px-4 text-[13.5px] text-zinc-800 outline-none transition-all duration-300 focus:border-[#813d50] focus:bg-white focus:ring-4 focus:ring-[#813d50]/5 placeholder:text-zinc-300"
+const SELECT_CLS = "h-11 w-full rounded-xl border border-zinc-200 bg-zinc-50/30 px-4 text-[13.5px] text-zinc-800 outline-none transition-all duration-300 focus:border-[#813d50] focus:bg-white focus:ring-4 focus:ring-[#813d50]/5 cursor-pointer appearance-none"
+const TEXTAREA_CLS = "w-full rounded-xl border border-zinc-200 bg-zinc-50/30 p-4 text-[13.5px] text-zinc-800 outline-none transition-all duration-300 focus:border-[#813d50] focus:bg-white focus:ring-4 focus:ring-[#813d50]/5 resize-none placeholder:text-zinc-300"
 
 // ── Yeni UUID ─────────────────────────────────────────────────────────────────
 const uid = () => Math.random().toString(36).slice(2, 9)
@@ -802,7 +802,7 @@ export default function NewProduct() {
             <FaArrowRight className="h-2 w-2 opacity-50" />
             <Link href="/admin/products" className="hover:text-zinc-600 transition-colors">Ürün Yönetimi</Link>
             <FaArrowRight className="h-2 w-2 opacity-50" />
-            <span className="text-[#4f6f52] font-bold">Yeni Ürün Ekle</span>
+            <span className="text-[#813d50] font-bold">Yeni Ürün Ekle</span>
          </nav>
 
          {/* ── HEADER ─────────────────────────────────────────────────────── */}
@@ -820,7 +820,7 @@ export default function NewProduct() {
                   <div className="mt-1 flex items-center gap-3">
                      <p className="text-[13px] text-zinc-400 font-medium">Mağazanız için en ince ayrıntılarıyla yeni bir vitrin ürünü tanımlayın.</p>
                      <span className="h-1 w-1 rounded-full bg-zinc-300" />
-                     <span className="text-[11px] font-bold text-[#4f6f52] uppercase tracking-wider bg-[#4f6f52]/10 px-2 py-0.5 rounded-md">Taslak</span>
+                     <span className="text-[11px] font-bold text-[#813d50] uppercase tracking-wider bg-[#813d50]/10 px-2 py-0.5 rounded-md">Taslak</span>
                   </div>
                </div>
             </div>
@@ -838,9 +838,9 @@ export default function NewProduct() {
                   type="button"
                   onClick={() => handleSubmit()}
                   disabled={loading}
-                  className="flex items-center gap-3 rounded-xl bg-[#4f6f52] px-8 py-3 text-[14px]
+                  className="flex items-center gap-3 rounded-xl bg-[#813d50] px-8 py-3 text-[14px]
                        font-black text-white shadow-[0_10px_20px_-5px_rgba(79,111,82,0.4)] transition-all
-                       hover:bg-[#3d5a3f] hover:translate-y-[-2px] active:translate-y-0 disabled:opacity-50 disabled:pointer-events-none"
+                       hover:bg-[#673040] hover:translate-y-[-2px] active:translate-y-0 disabled:opacity-50 disabled:pointer-events-none"
                >
                   {loading
                      ? <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/20 border-t-white" />
@@ -867,7 +867,7 @@ export default function NewProduct() {
                >
                   {tab.icon}
                   {tab.label}
-                  {activeTab === tab.key && <motion.div layoutId="activeTab" className="h-1.5 w-1.5 rounded-full bg-[#4f6f52]" />}
+                  {activeTab === tab.key && <motion.div layoutId="activeTab" className="h-1.5 w-1.5 rounded-full bg-[#813d50]" />}
                </button>
             ))}
          </div>
@@ -970,7 +970,7 @@ export default function NewProduct() {
                                                          type="checkbox"
                                                          checked={rootChecked}
                                                          onChange={(e) => toggleExtraRoot(root, e.target.checked)}
-                                                         className="h-4 w-4 accent-[#4f6f52]"
+                                                         className="h-4 w-4 accent-[#813d50]"
                                                       />
                                                       <span className="truncate">{root.name}</span>
                                                       {children.length > 0 && (
@@ -994,7 +994,7 @@ export default function NewProduct() {
                                                                      type="checkbox"
                                                                      checked={childChecked}
                                                                      onChange={(e) => toggleExtraChild(root, ch, e.target.checked)}
-                                                                     className="h-4 w-4 accent-[#4f6f52]"
+                                                                     className="h-4 w-4 accent-[#813d50]"
                                                                   />
                                                                   <span className="truncate">{ch.name}</span>
                                                                </label>
@@ -1099,7 +1099,7 @@ export default function NewProduct() {
                                     <button
                                        type="button"
                                        onClick={addVariant}
-                                       className="flex items-center gap-2 rounded-xl bg-[#4f6f52] px-4 py-2.5 text-[12px] font-bold text-white transition-all hover:bg-[#3d5a3f] shadow-lg shadow-[#4f6f52]/20"
+                                       className="flex items-center gap-2 rounded-xl bg-[#813d50] px-4 py-2.5 text-[12px] font-bold text-white transition-all hover:bg-[#673040] shadow-lg shadow-[#813d50]/20"
                                     >
                                        <FaPlus className="h-3 w-3" /> Yeni Seçenek
                                     </button>
@@ -1152,7 +1152,7 @@ export default function NewProduct() {
                                        exit={{ opacity: 0, x: 10, scale: 0.95 }}
                                        className="group relative grid grid-cols-[1fr_1fr_120px_100px_100px_40px] items-center gap-4
                                      rounded-2xl border border-zinc-100 bg-white px-4 py-3.5
-                                     transition-all hover:shadow-xl hover:border-[#4f6f52]/20 hover:translate-x-1"
+                                     transition-all hover:shadow-xl hover:border-[#813d50]/20 hover:translate-x-1"
                                     >
                                        <div className="relative">
                                           <input
@@ -1161,7 +1161,7 @@ export default function NewProduct() {
                                              onChange={e => setVariantField(v.id, "name", e.target.value)}
                                              placeholder="Örn: 3-6 Ay / Kırmızı"
                                              className="h-10 w-full rounded-xl border border-zinc-200 bg-zinc-50/50 px-3 text-[13px] font-medium
-                                          text-zinc-700 outline-none focus:border-[#4f6f52] focus:bg-white"
+                                          text-zinc-700 outline-none focus:border-[#813d50] focus:bg-white"
                                           />
                                        </div>
                                        <input
@@ -1170,7 +1170,7 @@ export default function NewProduct() {
                                           onChange={e => setVariantField(v.id, "sku", e.target.value)}
                                           placeholder="Varyant SKU"
                                           className="h-10 w-full rounded-xl border border-zinc-200 bg-zinc-50/50 px-3 text-[12px]
-                                       text-zinc-500 outline-none focus:border-[#4f6f52] focus:bg-white"
+                                       text-zinc-500 outline-none focus:border-[#813d50] focus:bg-white"
                                        />
                                        <div className="relative">
                                           <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[11px] font-bold text-zinc-400">₺</span>
@@ -1180,7 +1180,7 @@ export default function NewProduct() {
                                              onChange={e => setVariantField(v.id, "price", e.target.value)}
                                              placeholder={form.basePrice || "0"}
                                              className="h-10 w-full rounded-xl border border-zinc-200 bg-zinc-50/50 pl-7 pr-2 text-[13px] font-bold
-                                         text-zinc-800 outline-none focus:border-[#4f6f52] focus:bg-white"
+                                         text-zinc-800 outline-none focus:border-[#813d50] focus:bg-white"
                                           />
                                        </div>
                                        <div className="relative">
@@ -1189,7 +1189,7 @@ export default function NewProduct() {
                                              value={v.stock}
                                              onChange={e => setVariantField(v.id, "stock", e.target.value)}
                                              min={0}
-                                             className={`h-10 w-full rounded-xl border px-3 text-[13px] font-black outline-none focus:border-[#4f6f52]
+                                             className={`h-10 w-full rounded-xl border px-3 text-[13px] font-black outline-none focus:border-[#813d50]
                                  ${Number(v.stock) === 0
                                                    ? "border-red-200 bg-red-50 text-red-500"
                                                    : Number(v.stock) <= Number(v.lowStockThreshold)
@@ -1208,7 +1208,7 @@ export default function NewProduct() {
                                           onChange={e => setVariantField(v.id, "lowStockThreshold", e.target.value)}
                                           min={0}
                                           className="h-10 w-full rounded-xl border border-zinc-200 bg-zinc-50/50 px-3 text-[12px] font-medium
-                                       text-zinc-500 outline-none focus:border-[#4f6f52] focus:bg-white"
+                                       text-zinc-500 outline-none focus:border-[#813d50] focus:bg-white"
                                        />
                                        <button
                                           type="button"
@@ -1265,28 +1265,28 @@ export default function NewProduct() {
                                  onDrop={handleDrop}
                                  className={`relative flex w-full flex-col items-center justify-center gap-3 rounded-2xl border-2 border-dashed py-10 transition-all
                                     ${isDraggingFile
-                                       ? "border-[#4f6f52] bg-[#4f6f52]/10 scale-[1.02] shadow-xl shadow-[#4f6f52]/10"
-                                       : "border-[#4f6f52]/20 bg-[#4f6f52]/5 hover:bg-[#4f6f52]/10 hover:border-[#4f6f52]/40"
+                                       ? "border-[#813d50] bg-[#813d50]/10 scale-[1.02] shadow-xl shadow-[#813d50]/10"
+                                       : "border-[#813d50]/20 bg-[#813d50]/5 hover:bg-[#813d50]/10 hover:border-[#813d50]/40"
                                     }`}
                               >
                                  <motion.div
                                     animate={isDraggingFile ? { y: [0, -10, 0] } : {}}
                                     transition={{ repeat: Infinity, duration: 1.5 }}
-                                    className={`flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-lg text-[#4f6f52] mb-2
-                                       ${isDraggingFile ? "ring-4 ring-[#4f6f52]/20" : ""}`}
+                                    className={`flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-lg text-[#813d50] mb-2
+                                       ${isDraggingFile ? "ring-4 ring-[#813d50]/20" : ""}`}
                                  >
                                     <FaPlus className="h-6 w-6" />
                                  </motion.div>
                                     <div className="text-center">
-                                       <p className={`text-[14px] font-bold ${isDraggingFile ? "text-[#4f6f52]" : "text-[#4f6f52]/80"}`}>
+                                       <p className={`text-[14px] font-bold ${isDraggingFile ? "text-[#813d50]" : "text-[#813d50]/80"}`}>
                                           {isDraggingFile ? "BURAYA BIRAKIN" : "GÖRSELLERİ BURAYA SÜRÜKLEYİN"}
                                        </p>
                                        <p className="mt-1 text-[11px] text-zinc-400 font-medium">PNG, JPG, WEBP (Max 5MB)</p>
                                     </div>
                                     {isUploading && (
                                        <div className="absolute inset-0 bg-white/80 backdrop-blur-sm rounded-2xl flex flex-col items-center justify-center gap-2">
-                                          <div className="w-8 h-8 border-4 border-[#4f6f52] border-t-transparent rounded-full animate-spin"></div>
-                                          <p className="text-[11px] font-bold text-[#4f6f52] animate-pulse">YÜKLENİYOR...</p>
+                                          <div className="w-8 h-8 border-4 border-[#813d50] border-t-transparent rounded-full animate-spin"></div>
+                                          <p className="text-[11px] font-bold text-[#813d50] animate-pulse">YÜKLENİYOR...</p>
                                        </div>
                                     )}
                               </button>
@@ -1312,15 +1312,15 @@ export default function NewProduct() {
                                  <button
                                     type="button"
                                     onClick={addImage}
-                                    className="absolute right-1.5 top-1.5 flex h-8 w-8 items-center justify-center rounded-lg bg-[#4f6f52]
+                                    className="absolute right-1.5 top-1.5 flex h-8 w-8 items-center justify-center rounded-lg bg-[#813d50]
                                     text-white shadow-lg transition-all hover:scale-110 active:scale-95"
                                  >
                                     <FaPlus className="h-3 w-3" />
                                  </button>
                               </div>
 
-                              <div className="rounded-xl bg-[#4f6f52]/5 p-4 border border-[#4f6f52]/10">
-                                 <p className="text-[11px] text-[#4f6f52] font-bold leading-relaxed">
+                              <div className="rounded-xl bg-[#813d50]/5 p-4 border border-[#813d50]/10">
+                                 <p className="text-[11px] text-[#813d50] font-bold leading-relaxed">
                                     Tip: Görselleri sürükleyerek sıralamasını değiştirebilirsiniz. En üstteki görsel vitrin görseli olur.
                                  </p>
                               </div>
@@ -1350,7 +1350,7 @@ export default function NewProduct() {
                                     ))
                                  ) : (
                                     <div className="flex h-48 flex-col items-center justify-center rounded-2xl border-2
-                                          border-dashed border-zinc-200 bg-zinc-50/50 text-zinc-400 group hover:bg-white hover:border-[#4f6f52]/30 transition-all">
+                                          border-dashed border-zinc-200 bg-zinc-50/50 text-zinc-400 group hover:bg-white hover:border-[#813d50]/30 transition-all">
                                        <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-zinc-200 transition-transform group-hover:scale-110">
                                           <FaImage className="h-5 w-5" />
                                        </div>
@@ -1371,7 +1371,7 @@ export default function NewProduct() {
                            <div className="space-y-5">
                               <Field label="Standart Satış Fiyatı" required tooltip="Herhangi bir varyant fiyatı girilmediğinde kullanılacak varsayılan fiyat.">
                                  <div className="relative">
-                                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-lg font-bold text-zinc-300 transition-colors group-focus-within:text-[#4f6f52]">₺</span>
+                                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-lg font-bold text-zinc-300 transition-colors group-focus-within:text-[#813d50]">₺</span>
                                     <input
                                        required
                                        type="number"
@@ -1382,7 +1382,7 @@ export default function NewProduct() {
                                        min="0"
                                        className="h-14 w-full rounded-xl border border-zinc-200 bg-zinc-50/30 pl-10 pr-4
                                      text-xl font-black text-zinc-800 outline-none transition-all
-                                     focus:border-[#4f6f52] focus:bg-white focus:ring-4 focus:ring-[#4f6f52]/5"
+                                     focus:border-[#813d50] focus:bg-white focus:ring-4 focus:ring-[#813d50]/5"
                                     />
                                  </div>
                               </Field>
@@ -1399,7 +1399,7 @@ export default function NewProduct() {
                                        min="0"
                                        className="h-14 w-full rounded-xl border border-zinc-200 bg-zinc-50/30 pl-10 pr-4
                                      text-xl font-black text-zinc-800 outline-none transition-all
-                                     focus:border-[#4f6f52] focus:bg-white focus:ring-4 focus:ring-[#4f6f52]/5"
+                                     focus:border-[#813d50] focus:bg-white focus:ring-4 focus:ring-[#813d50]/5"
                                     />
                                  </div>
                               </Field>
@@ -1426,7 +1426,7 @@ export default function NewProduct() {
                               <div className="rounded-xl bg-zinc-50 p-4 space-y-3">
                                  <div className="flex justify-between items-center text-[12px]">
                                     <span className="text-zinc-500 font-medium italic">Seçilen Fiyat Stratejisi:</span>
-                                    <span className="font-bold text-[#4f6f52]">
+                                    <span className="font-bold text-[#813d50]">
                                        {form.isTaxIncluded ? "Vergi Dahil" : "Vergi Hariç (+KDV)"}
                                     </span>
                                  </div>
@@ -1458,7 +1458,7 @@ export default function NewProduct() {
                                  <div className="h-px bg-zinc-200/50" />
                                  <div className="flex justify-between items-center text-[14px]">
                                     <span className="text-zinc-800 font-black">Müşteri Ödeyecek</span>
-                                    <span className="font-black text-[#4f6f52]">
+                                    <span className="font-black text-[#813d50]">
                                        ₺{(() => {
                                           const price = Number(hasDiscount ? form.compareAtPrice : form.basePrice)
                                           const rate = Number(form.taxRate) / 100
@@ -1589,9 +1589,9 @@ export default function NewProduct() {
                               </Field>
 
                               <Field label="Kalıcı Bağlantı (URL Slug)" tooltip="Ürünün tarayıcı adres çubuğundaki adı. Otomatik oluşturulur ama düzenlenebilir.">
-                                 <div className="flex items-center overflow-hidden rounded-xl border border-zinc-200 bg-white ring-offset-2 focus-within:ring-4 focus-within:ring-[#4f6f52]/5 focus-within:border-[#4f6f52] transition-all">
+                                 <div className="flex items-center overflow-hidden rounded-xl border border-zinc-200 bg-white ring-offset-2 focus-within:ring-4 focus-within:ring-[#813d50]/5 focus-within:border-[#813d50] transition-all">
                                     <div className="flex h-12 items-center bg-zinc-50 px-4 text-[13px] font-bold text-zinc-400 border-r border-zinc-200 whitespace-nowrap">
-                                       littlemoms.com/p/
+                                       seymacollection.com/p/
                                     </div>
                                     <input
                                        type="text"
@@ -1614,11 +1614,11 @@ export default function NewProduct() {
                               <div className="flex flex-col gap-1">
                                  <div className="flex items-center gap-2">
                                     <div className="flex h-6 w-6 items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-zinc-200">
-                                       <span className="text-[10px] font-black text-zinc-400">LM</span>
+                                       <span className="text-[10px] font-black text-zinc-400">ŞC</span>
                                     </div>
                                     <div className="flex flex-col">
-                                       <span className="text-[12px] font-medium text-zinc-800">Little Mom's Store</span>
-                                       <span className="text-[10px] text-zinc-400">https://littlemoms.com › products › {form.slug || 'urun-adi'}</span>
+                                       <span className="text-[12px] font-medium text-zinc-800">Şeyma Collection</span>
+                                       <span className="text-[10px] text-zinc-400">https://seymacollection.com › products › {form.slug || 'urun-adi'}</span>
                                     </div>
                                  </div>
                                  <h3 className="mt-2 text-[18px] font-bold text-[#1a0dab] hover:underline cursor-pointer leading-tight">
@@ -1658,7 +1658,7 @@ export default function NewProduct() {
                                              description.length > 300,
                                              Boolean(form.categoryId)
                                           ].filter(Boolean).length / 6))}
-                                          className="text-[#4f6f52] transition-all duration-1000 ease-out"
+                                          className="text-[#813d50] transition-all duration-1000 ease-out"
                                        />
                                     </svg>
                                     <div className="absolute flex flex-col items-center">
@@ -1703,7 +1703,7 @@ export default function NewProduct() {
                            <p className="mt-3 text-[12px] leading-relaxed text-zinc-300 opacity-80">
                               Arama Motoru Optimizasyonu (SEO), ürününüzün Google aramalarında daha üst sıralarda yer almasını sağlar. Doğru yapılandırılmış bir SEO, reklam bütçesi harcamadan binlerce müşteriye ulaşmanızı sağlayabilir.
                            </p>
-                           <button type="button" className="mt-4 flex items-center gap-2 text-[11px] font-black text-[#4f6f52] hover:text-[#3d5a3f] transition-colors">
+                           <button type="button" className="mt-4 flex items-center gap-2 text-[11px] font-black text-[#813d50] hover:text-[#673040] transition-colors">
                               Eğitim Videosunu İzle <FaArrowRight className="h-2 w-2" />
                            </button>
                         </div>
@@ -1767,7 +1767,7 @@ export default function NewProduct() {
                            {/* SAĞ: Ürün Bilgileri */}
                            <div className="p-8 lg:p-12">
                               <div className="mb-2 flex items-center gap-2">
-                                 <span className="rounded-full bg-[#4f6f52]/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[#4f6f52]">
+                                 <span className="rounded-full bg-[#813d50]/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[#813d50]">
                                     {categories.find(c => c.id === form.categoryId)?.name || "Kategori Seçilmedi"}
                                  </span>
                                  {form.isFeatured && (
@@ -1784,7 +1784,7 @@ export default function NewProduct() {
                               </p>
 
                               <div className="mt-8 flex items-baseline gap-4">
-                                 <span className="text-4xl font-black text-[#4f6f52]">
+                                 <span className="text-4xl font-black text-[#813d50]">
                                     ₺{Number(hasDiscount ? form.compareAtPrice : form.basePrice).toLocaleString("tr-TR")}
                                  </span>
                                  {hasDiscount && (
@@ -1809,7 +1809,7 @@ export default function NewProduct() {
                                              key={v.id}
                                              type="button"
                                              className={`rounded-xl border-2 px-4 py-2 text-[13px] font-bold transition-all
-                                                ${i === 0 ? "border-[#4f6f52] bg-[#4f6f52]/5 text-[#4f6f52]" : "border-zinc-100 text-zinc-400"}`}
+                                                ${i === 0 ? "border-[#813d50] bg-[#813d50]/5 text-[#813d50]" : "border-zinc-100 text-zinc-400"}`}
                                           >
                                              {v.name || "Standart"}
                                           </button>
@@ -1827,7 +1827,7 @@ export default function NewProduct() {
 
                               <div className="mt-12">
                                  <div className="mb-4 flex border-b border-zinc-100 pb-2">
-                                    <span className="border-b-2 border-[#4f6f52] pb-2 text-[13px] font-bold text-[#4f6f52]">Ürün Detayları</span>
+                                    <span className="border-b-2 border-[#813d50] pb-2 text-[13px] font-bold text-[#813d50]">Ürün Detayları</span>
                                  </div>
                                  <div
                                     className="prose prose-zinc prose-sm max-w-none text-zinc-600 tiptap-preview"

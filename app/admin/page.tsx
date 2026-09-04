@@ -37,7 +37,7 @@ function StatusBadge({ status }: { status: string }) {
 }
 
 // ── Küçük SVG grafik ──────────────────────────────────────────────────────────
-function Sparkline({ data, color = "#4f6f52" }: { data: number[]; color?: string }) {
+function Sparkline({ data, color = "#813d50" }: { data: number[]; color?: string }) {
   if (data.length < 2) return null
   const max = Math.max(...data, 1)
   const min = Math.min(...data)
@@ -322,7 +322,7 @@ export default function AdminDashboard() {
     const items = [
       { label: "Hazırlanıyor", count: data.processingOrders || 0, color: "#f59e0b" },
       { label: "Kargoda", count: data.shippedOrders || 0, color: "#3b82f6" },
-      { label: "Tamamlanan", count: data.completedOrders || 0, color: "#4f6f52" },
+      { label: "Tamamlanan", count: data.completedOrders || 0, color: "#813d50" },
       { label: "İade Bekleyen", count: data.refundedOrders || 0, color: "#ef4444" },
     ]
     const total = items.reduce((s, x) => s + x.count, 0) || 1
@@ -334,7 +334,7 @@ export default function AdminDashboard() {
     return (
       <div className="flex h-[600px] items-center justify-center">
         <div className="flex flex-col items-center gap-3">
-          <div className="h-9 w-9 animate-spin rounded-full border-2 border-zinc-200 border-t-[#4f6f52]" />
+          <div className="h-9 w-9 animate-spin rounded-full border-2 border-zinc-200 border-t-[#813d50]" />
           <p className="text-[11px] font-medium text-zinc-400">Veriler yükleniyor...</p>
         </div>
       </div>
@@ -361,8 +361,8 @@ export default function AdminDashboard() {
           </div>
           <Link
             href="/admin/products/new"
-            className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-[#4f6f52] px-4 py-2 text-[12px] font-bold text-white
-                       transition hover:bg-[#3d5a3f] active:scale-[.98] sm:flex-none"
+            className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-[#813d50] px-4 py-2 text-[12px] font-bold text-white
+                       transition hover:bg-[#673040] active:scale-[.98] sm:flex-none"
           >
             <FaPlus className="h-2.5 w-2.5" /> Yeni Ürün
           </Link>
@@ -437,7 +437,7 @@ export default function AdminDashboard() {
             </div>
             <div className="flex items-center gap-4">
               <span className="flex items-center gap-1.5 text-[11px] text-zinc-400">
-                <span className="inline-block h-2.5 w-2.5 rounded-sm bg-[#4f6f52]" />
+                <span className="inline-block h-2.5 w-2.5 rounded-sm bg-[#813d50]" />
                 Günlük ciro
               </span>
               <button className="text-zinc-300 transition hover:text-zinc-600">
@@ -466,10 +466,10 @@ export default function AdminDashboard() {
                     stroke="#f4f4f5" strokeWidth="1" />
                 ))}
                 {/* Alan dolgusu */}
-                <polygon points={areaPts} fill="#4f6f52" fillOpacity="0.07" />
+                <polygon points={areaPts} fill="#813d50" fillOpacity="0.07" />
                 {/* Çizgi */}
                 <motion.polyline
-                  fill="none" stroke="#4f6f52" strokeWidth="2"
+                  fill="none" stroke="#813d50" strokeWidth="2"
                   strokeLinecap="round" strokeLinejoin="round"
                   points={linePts}
                   initial={{ pathLength: 0, opacity: 0 }}
@@ -484,7 +484,7 @@ export default function AdminDashboard() {
                     cy={toY(d.total).toFixed(1)}
                     r="3"
                     fill="white"
-                    stroke="#4f6f52"
+                    stroke="#813d50"
                     strokeWidth="1.5"
                   />
                 ))}
@@ -564,14 +564,14 @@ export default function AdminDashboard() {
                     if (!Number.isFinite(v)) return
                     setAddStockAmount(Math.min(99999, Math.max(1, v)))
                   }}
-                  className="w-16 rounded-md border border-zinc-200 bg-white px-2 py-1 text-center text-[12px] text-zinc-800 outline-none focus:border-[#4f6f52]"
+                  className="w-16 rounded-md border border-zinc-200 bg-white px-2 py-1 text-center text-[12px] text-zinc-800 outline-none focus:border-[#813d50]"
                 />
               </label>
               <button
                 type="button"
                 disabled={stockSaving || selectedVariants.size === 0}
                 onClick={increaseSelectedStock}
-                className="rounded-lg bg-[#4f6f52] px-3 py-1.5 text-[11px] font-medium text-white transition hover:bg-[#3d5a3f] disabled:cursor-not-allowed disabled:opacity-50"
+                className="rounded-lg bg-[#813d50] px-3 py-1.5 text-[11px] font-medium text-white transition hover:bg-[#673040] disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {stockSaving ? "Kaydediliyor…" : "Seçilenlerin stokunu artır"}
               </button>
@@ -592,7 +592,7 @@ export default function AdminDashboard() {
             </div>
             {stockBanner && (
               <p
-                className={`mb-2 text-[11px] ${stockBanner.error ? "text-red-600" : "text-[#4f6f52]"}`}
+                className={`mb-2 text-[11px] ${stockBanner.error ? "text-red-600" : "text-[#813d50]"}`}
               >
                 {stockBanner.text}
               </p>
@@ -608,7 +608,7 @@ export default function AdminDashboard() {
                       type="checkbox"
                       checked={selectedVariants.has(item.variantId)}
                       onChange={() => toggleVariant(item.variantId)}
-                      className="mt-1 h-3.5 w-3.5 shrink-0 rounded border-zinc-300 text-[#4f6f52] focus:ring-[#4f6f52]"
+                      className="mt-1 h-3.5 w-3.5 shrink-0 rounded border-zinc-300 text-[#813d50] focus:ring-[#813d50]"
                     />
                     <Link
                       href={`/admin/products/${item.productId}/edit`}
@@ -618,7 +618,7 @@ export default function AdminDashboard() {
                         <p className="wrap-break-word text-[12px] font-medium text-zinc-700">{item.name}</p>
                         <p className="text-[10.5px] text-red-500">Kalan: {item.stock} adet</p>
                       </div>
-                      <FaChevronRight className="ml-2 h-2.5 w-2.5 shrink-0 text-zinc-300 transition group-hover:text-[#4f6f52]" />
+                      <FaChevronRight className="ml-2 h-2.5 w-2.5 shrink-0 text-zinc-300 transition group-hover:text-[#813d50]" />
                     </Link>
                   </div>
                 ))}
@@ -637,7 +637,7 @@ export default function AdminDashboard() {
         <div className="mb-5 flex items-center justify-between">
           <p className="text-[13px] font-medium text-zinc-800">Son Siparişler</p>
           <Link href="/admin/orders"
-            className="text-[11.5px] font-medium text-[#4f6f52] hover:underline">
+            className="text-[11.5px] font-medium text-[#813d50] hover:underline">
             Tümünü gör →
           </Link>
         </div>

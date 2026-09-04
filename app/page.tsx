@@ -10,6 +10,25 @@ import { prisma } from "@/lib/prisma"
 
 export const dynamic = 'force-dynamic'
 
+// Yönetim panelinden slider eklenmediği sürece gösterilecek statik yedek banner.
+const STATIC_FALLBACK_SLIDE = {
+  title: null,
+  subtitle: null,
+  buttonText: null,
+  imageUrl: "/banner.png",
+  mobileImageUrl: "/mobilbanner.png",
+  linkUrl: null,
+  isActive: true,
+  createdAt: new Date(0).toISOString(),
+  updatedAt: new Date(0).toISOString(),
+}
+
+const STATIC_FALLBACK_SLIDES = [0, 1, 2].map((index) => ({
+  ...STATIC_FALLBACK_SLIDE,
+  id: -(index + 1),
+  sortOrder: index,
+}))
+
 export default async function HomePage() {
   // Verileri paralel olarak çek
   const [
@@ -55,7 +74,9 @@ export default async function HomePage() {
   ])
 
   // Client Component'lere gönderilecek verileri serialize et (Decimal ve Date objeleri düzleştirilmeli)
-  const sliders = slidersDb.map(s => ({ ...s, createdAt: s.createdAt.toISOString(), updatedAt: s.updatedAt.toISOString() }))
+  const sliders = slidersDb.length > 0
+    ? slidersDb.map(s => ({ ...s, createdAt: s.createdAt.toISOString(), updatedAt: s.updatedAt.toISOString() }))
+    : STATIC_FALLBACK_SLIDES
   const banners = bannersDb.map(b => ({ ...b, createdAt: b.createdAt.toISOString(), updatedAt: b.updatedAt.toISOString() }))
   const homeCategories = homeCategoriesDb.map(c => ({ ...c, createdAt: c.createdAt.toISOString(), updatedAt: c.updatedAt.toISOString() }))
 
@@ -147,7 +168,6 @@ export default async function HomePage() {
 
           {/* Hero Slider */}
           <HomeSlider slides={sliders} />
-          </div>
 
           {/* Öne Çıkan Ürünler (Statik Yeni Ürünler) */}
           <HomeProductsSection title="Yeni Ürünler" products={featuredProducts} />
@@ -177,6 +197,7 @@ export default async function HomePage() {
 
           {/* SSS */}
           <HomeFaqSection items={faqs} />
+        </div>
       </main>
       <HomeFooter />
     </>

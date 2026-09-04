@@ -31,7 +31,7 @@ export function HeaderCartCount() {
 
   return (
     <span
-      className="text-sm text-zinc-600 tabular-nums transition-colors hover:text-[#bcd2bf]"
+      className="text-sm text-zinc-600 tabular-nums transition-colors hover:text-[#ddb1bd]"
       aria-live="polite"
       aria-atomic="true"
       suppressHydrationWarning

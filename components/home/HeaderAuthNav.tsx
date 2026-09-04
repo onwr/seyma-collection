@@ -48,7 +48,7 @@ export function HeaderAuthNav() {
   if (user === undefined) {
     return (
       <div className="flex items-center gap-2 opacity-60">
-        <span className="flex h-11 w-11 items-center justify-center rounded-full border border-zinc-200 text-[#bcd2bf]">
+        <span className="flex h-11 w-11 items-center justify-center rounded-full border border-zinc-200 text-[#ddb1bd]">
           <FaUser />
         </span>
         <span className="text-xs font-bold text-zinc-400">YÜKLENİYOR...</span>
@@ -65,17 +65,17 @@ export function HeaderAuthNav() {
         >
           <div className="hidden sm:flex flex-col items-end">
              {user.role === "ADMIN" ? (
-               <span className="mb-1 rounded-full bg-zinc-900 px-2 py-0.5 text-[8px] font-black uppercase tracking-widest text-[#bcd2bf]">
+               <span className="mb-1 rounded-full bg-zinc-900 px-2 py-0.5 text-[8px] font-black uppercase tracking-widest text-[#ddb1bd]">
                  ADMIN
                </span>
              ) : (
                <span className="text-[10px] font-black text-zinc-400 uppercase tracking-widest leading-none mb-1">Hesabım</span>
              )}
-             <span className="text-sm font-black text-zinc-900 group-hover:text-[#6f8f73] transition-colors">
+             <span className="text-sm font-black text-zinc-900 group-hover:text-[#ad516b] transition-colors">
                 {user.name || user.email.split("@")[0]}
              </span>
           </div>
-          <div className="flex h-11 w-11 items-center justify-center rounded-full border-2 border-zinc-100 text-[#6f8f73] group-hover:border-[#6f8f73] transition-all bg-white overflow-hidden">
+          <div className="flex h-11 w-11 items-center justify-center rounded-full border-2 border-zinc-100 text-[#ad516b] group-hover:border-[#ad516b] transition-all bg-white overflow-hidden">
             <FaUser className="h-4 w-4" />
           </div>
           <FaChevronDown className={`h-3 w-3 text-zinc-400 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
@@ -89,15 +89,15 @@ export function HeaderAuthNav() {
               exit={{ opacity: 0, y: 10, scale: 0.95 }}
               className="absolute right-0 mt-4 w-64 overflow-hidden rounded-3xl border border-zinc-100 bg-white shadow-2xl z-100"
             >
-              <div className="bg-[#f4f7f4]/50 p-6 border-b border-zinc-100">
-                <p className="text-[10px] font-black text-[#6f8f73] uppercase tracking-widest mb-1">Hoş Geldiniz</p>
+              <div className="bg-[#f9f2f4]/50 p-6 border-b border-zinc-100">
+                <p className="text-[10px] font-black text-[#ad516b] uppercase tracking-widest mb-1">Hoş Geldiniz</p>
                 <p className="truncate text-sm font-black text-zinc-900">{user.email}</p>
               </div>
 
               <div className="p-2">
                 {user.role === "ADMIN" && (
                   <>
-                    <DropdownLink href="/admin" icon={<FaCog />} label="Yönetici Paneli" onClick={() => setIsOpen(false)} className="bg-[#6f8f73]/5 text-[#6f8f73] hover:bg-[#6f8f73] hover:text-white" />
+                    <DropdownLink href="/admin" icon={<FaCog />} label="Yönetici Paneli" onClick={() => setIsOpen(false)} className="bg-[#ad516b]/5 text-[#ad516b] hover:bg-[#ad516b] hover:text-white" />
                     <div className="my-2 border-t border-zinc-50" />
                   </>
                 )}
@@ -127,16 +127,16 @@ export function HeaderAuthNav() {
     <div className="flex items-center gap-3">
       <Link
         href="/login"
-        className="flex h-11 w-11 items-center justify-center rounded-full border-2 border-zinc-100 text-zinc-400 hover:border-[#6f8f73] hover:text-[#6f8f73] transition-all bg-white"
+        className="flex h-11 w-11 items-center justify-center rounded-full border-2 border-zinc-100 text-zinc-400 hover:border-[#ad516b] hover:text-[#ad516b] transition-all bg-white"
         aria-label="Üye girişi"
       >
         <FaUser className="h-4 w-4" />
       </Link>
       <div className="leading-tight hidden sm:block">
-        <Link href="/login" className="block text-[10px] font-black text-zinc-400 uppercase tracking-widest hover:text-[#6f8f73] transition-colors">
+        <Link href="/login" className="block text-[10px] font-black text-zinc-400 uppercase tracking-widest hover:text-[#ad516b] transition-colors">
           Giriş Yap
         </Link>
-        <Link href="/register" className="block text-sm font-black text-zinc-900 hover:text-[#6f8f73] transition-colors">
+        <Link href="/register" className="block text-sm font-black text-zinc-900 hover:text-[#ad516b] transition-colors">
           ÜYE OL
         </Link>
       </div>
@@ -149,9 +149,9 @@ function DropdownLink({ href, icon, label, onClick, className }: { href: string,
     <Link
       href={href}
       onClick={onClick}
-      className={`flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-bold transition-all group ${className || "text-zinc-600 hover:bg-zinc-50 hover:text-[#6f8f73]"}`}
+      className={`flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-bold transition-all group ${className || "text-zinc-600 hover:bg-zinc-50 hover:text-[#ad516b]"}`}
     >
-      <span className="text-zinc-400 group-hover:text-[#6f8f73] transition-colors">{icon}</span>
+      <span className="text-zinc-400 group-hover:text-[#ad516b] transition-colors">{icon}</span>
       <span>{label}</span>
     </Link>
   )

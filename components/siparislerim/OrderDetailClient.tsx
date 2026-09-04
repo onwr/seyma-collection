@@ -85,7 +85,7 @@ export function OrderDetailClient({ orderNo }: Props) {
     return (
       <div className="rounded-xl border border-rose-200 bg-rose-50/80 p-6 text-sm text-rose-800">
         {error ?? "Sipariş bulunamadı."}
-        <Link href="/siparislerim" className="mt-3 block font-medium text-[#6f8f73] hover:underline">
+        <Link href="/siparislerim" className="mt-3 block font-medium text-[#ad516b] hover:underline">
           Sipariş listesine dön
         </Link>
       </div>
@@ -182,7 +182,7 @@ export function OrderDetailClient({ orderNo }: Props) {
         </p>
       ) : null}
 
-      <Link href="/siparislerim" className="inline-block text-sm font-medium text-[#6f8f73] hover:underline">
+      <Link href="/siparislerim" className="inline-block text-sm font-medium text-[#ad516b] hover:underline">
         Tüm siparişler
       </Link>
     </div>

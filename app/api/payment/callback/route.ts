@@ -1,6 +1,7 @@
 import { after } from "next/server"
 import { prisma } from "@/lib/prisma"
 import { verifyPaytrCallback } from "@/lib/paytr"
+import { getPaytrConfig } from "@/lib/paytrSettings"
 import { OrderStatus, PaymentStatus } from "@/generated/prisma/client"
 import { orderPaymentConfirmedEmailContent } from "@/lib/emails/orderPaymentConfirmed"
 import { sendMail } from "@/lib/smtpSettings"
@@ -42,11 +43,14 @@ export async function POST(req: Request) {
       return new Response("PAYTR: missing params", { status: 400 })
     }
 
+    const paytrConfig = await getPaytrConfig(prisma)
     const isValid = verifyPaytrCallback({
       merchant_oid: params.merchant_oid,
       status: params.status,
       total_amount: params.total_amount,
       hash: params.hash,
+      merchantKey: paytrConfig.merchantKey,
+      merchantSalt: paytrConfig.merchantSalt,
     })
 
     if (!isValid) {
@@ -124,7 +128,7 @@ export async function POST(req: Request) {
 
       const to = order.user?.email?.trim() || order.guestEmail?.trim() || null
       const siteUrlBase =
-        process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://www.littlemomstore.com"
+        process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://www.seymacollection.com"
 
       if (to) {
         const no = order.orderNo

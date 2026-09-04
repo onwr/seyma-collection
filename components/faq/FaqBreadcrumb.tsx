@@ -14,7 +14,7 @@ export function FaqBreadcrumb({ linkCurrent = false }: Props) {
         <li>
           <Link
             href="/"
-            className="transition hover:text-[#6f8f73]"
+            className="transition hover:text-[#ad516b]"
           >
             Anasayfa
           </Link>
@@ -26,7 +26,7 @@ export function FaqBreadcrumb({ linkCurrent = false }: Props) {
           {linkCurrent ? (
             <Link
               href={FAQ_PATH}
-              className="font-medium text-[#6f8f73] underline-offset-4 hover:underline"
+              className="font-medium text-[#ad516b] underline-offset-4 hover:underline"
             >
               <abbr title="Sıkça Sorulan Sorular" className="no-underline">
                 SSS

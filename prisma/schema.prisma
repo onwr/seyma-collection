@@ -154,7 +154,7 @@ model Category {
   id          Int        @id @default(autoincrement())
   name        String
   slug        String     @unique
-  description String?
+  description String?    @db.Text
   imageUrl    String?    @db.VarChar(500)
   parentId    Int?
   showOnHome  Boolean    @default(false)
@@ -177,8 +177,8 @@ model Product {
   wooProductId      Int?             @unique
   name              String
   slug              String           @unique
-  description       String?
-  shortDescription  String?
+  description       String?          @db.Text
+  shortDescription  String?          @db.Text
   categoryId        Int?
   subCategoryId     Int?
   basePrice         Decimal          @db.Decimal(10, 2)

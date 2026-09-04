@@ -281,6 +281,9 @@ async function importOneProduct(
             compareAtPrice: v.compareAtPrice,
             stock: v.stock,
             isActive: v.isActive,
+            // Bu varyant Trendyol'dan geldi, yani zaten orada listeli — "yeni ürün gönder"
+            // taraması bunu tekrar "hiç gönderilmemiş" sanıp Trendyol'a geri göndermesin.
+            trendyolListedAt: existingVariant.trendyolListedAt ?? new Date(),
           },
         })
       } else if (existingVariant) {
@@ -308,6 +311,7 @@ async function importOneProduct(
             compareAtPrice: v.compareAtPrice,
             stock: v.stock,
             isActive: v.isActive,
+            trendyolListedAt: new Date(),
           },
         })
       }

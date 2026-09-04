@@ -200,9 +200,23 @@ async function importOneProduct(
   const basePrice = prices.length ? Math.min(...prices) : 0
 
   const variantsToCreate = usableRows.map((row) => {
+    // Aynı üründe aynı beden farklı renklerde de gelebiliyor (ör. Siyah S ve Yeşil S, ayrı
+    // barkod/görsellerle) — sadece bedene bakılırsa bunlar birbirinin AYNISI gibi görünür.
+    // Renk bilgisini de isme ekleyerek gerçekten farklı varyantları ayırt edilebilir kılıyoruz.
     const bedenAttr = row.attributes?.find((a) => a.attributeName === "Beden")
+    const renkAttr = row.attributes?.find((a) => a.attributeName === "Renk")
+    const beden = bedenAttr?.attributeValue?.trim()
+    const renk = renkAttr?.attributeValue?.trim()
     const name =
-      bedenAttr?.attributeValue ? `Beden: ${bedenAttr.attributeValue}` : usableRows.length > 1 ? `Varyant: ${row.barcode}` : "Standart"
+      beden && renk
+        ? `${renk} - Beden: ${beden}`
+        : beden
+          ? `Beden: ${beden}`
+          : renk
+            ? renk
+            : usableRows.length > 1
+              ? `Varyant: ${row.barcode}`
+              : "Standart"
     const sku = stockCodeOrBarcode(row)
     const price = Number(row.salePrice) || Number(row.listPrice) || 0
     const compareAtPrice = row.listPrice > price ? row.listPrice : null

@@ -2,7 +2,7 @@
 // Hem xlsx üreten route hem de indirmeden önceki "kontrol et" route'u bu dosyayı kullanır,
 // böylece ikisi arasında sütun eşlemesi/varsayılan değerler asla birbirinden sapmaz.
 
-export const BRAND_NAME = "Little Mom's Store"
+export const BRAND_NAME = "sira butik"
 
 // 1-indexli sütun numaraları — şablondaki sütun sırasıyla birebir eşleşmeli.
 export const COL = {
@@ -244,6 +244,7 @@ export const EXPORT_PRODUCT_SELECT = {
   trendyolProductMainId: true,
   compareAtPrice: true,
   taxRate: true,
+  category: { select: { trendyolCategoryId: true } },
   images: { orderBy: { sortOrder: "asc" as const }, select: { url: true } },
   variants: {
     where: { isActive: true },
@@ -269,6 +270,7 @@ export type ExportProduct = {
   trendyolProductMainId: string | null
   compareAtPrice: unknown
   taxRate: number
+  category: { trendyolCategoryId: number | null } | null
   images: { url: string }[]
   variants: {
     id: number

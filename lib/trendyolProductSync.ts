@@ -8,8 +8,9 @@ import { createOrUpdateProducts, getProductByBarcode, TrendyolProductItem } from
 import { EXPORT_PRODUCT_SELECT, ExportProduct, buildRow, COLOR_FALLBACK, generateBarcode } from "@/lib/trendyolExport"
 import {
   BRAND_ID,
-  CATEGORY_ID,
+  FALLBACK_CATEGORY_ID,
   FIXED_ATTRIBUTES,
+  CATEGORY_ATTRIBUTE_EXCLUSIONS,
   BEDEN_ATTR_ID,
   WEB_COLOR_ATTR_ID,
   RENK_ATTR_ID,
@@ -56,13 +57,18 @@ async function buildProductItem(
 ): Promise<{ built: BuiltItem } | { skip: SkippedItem }> {
   const row = buildRow(p, v, multiplier)
 
-  const bedenValueId = await getBedenValueId(prisma, row.beden)
+  // Ürünün GERÇEK Trendyol kategorisi — yerel kategoriye eşlenmemişse (ör. Trendyol dışı,
+  // elle eklenmiş bir ürün) "Elbise"ye düşer, ama bu durumda gönderim muhtemelen kategoriye
+  // özgü zorunlu alan eksikliğinden reddedilecektir; sessizce yanlış kategoriye yazmaz.
+  const categoryId = p.category?.trendyolCategoryId ?? FALLBACK_CATEGORY_ID
+
+  const bedenValueId = await getBedenValueId(prisma, categoryId, row.beden)
   if (!bedenValueId) {
     return { skip: { productId: p.id, variantSku: row.variantSku, field: `Beden ("${row.beden}")` } }
   }
 
   const webColorCanonical = row.webColor || COLOR_FALLBACK
-  const webColorValueId = await getWebColorValueId(prisma, webColorCanonical)
+  const webColorValueId = await getWebColorValueId(prisma, categoryId, webColorCanonical)
   if (!webColorValueId) {
     return {
       skip: { productId: p.id, variantSku: row.variantSku, field: `Web Color ("${webColorCanonical}")` },
@@ -70,6 +76,8 @@ async function buildProductItem(
   }
 
   const barcode = v.barcode || generateBarcode(v.id)
+  const excluded = new Set(CATEGORY_ATTRIBUTE_EXCLUSIONS[categoryId] ?? [])
+  const fixedAttributesForCategory = FIXED_ATTRIBUTES.filter((a) => !excluded.has(a.attributeId))
 
   return {
     built: {
@@ -79,7 +87,7 @@ async function buildProductItem(
         title: row.urunAdi.slice(0, 100),
         productMainId: row.modelKodu,
         brandId: BRAND_ID,
-        categoryId: CATEGORY_ID,
+        categoryId,
         quantity: row.stokAdedi,
         stockCode: row.stokKodu,
         description: row.aciklama.slice(0, 30000),
@@ -88,7 +96,7 @@ async function buildProductItem(
         vatRate: row.kdv,
         images: row.images.slice(0, 8).map((url) => ({ url })),
         attributes: [
-          ...FIXED_ATTRIBUTES,
+          ...fixedAttributesForCategory,
           { attributeId: BEDEN_ATTR_ID, attributeValueId: bedenValueId },
           { attributeId: WEB_COLOR_ATTR_ID, attributeValueId: webColorValueId },
           { attributeId: RENK_ATTR_ID, customAttributeValue: row.renk },

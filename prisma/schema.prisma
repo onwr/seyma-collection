@@ -156,6 +156,10 @@ model Category {
   slug        String     @unique
   description String?    @db.Text
   imageUrl    String?    @db.VarChar(500)
+  /// Bu kategorinin Trendyol'daki gerçek categoryId'si (pimCategoryId) — ürün oluşturma/
+  /// güncelleme API'sine gönderilirken ve kategoriye özel özellik (Beden/Web Rengi) ID'lerini
+  /// çözerken kullanılır. Trendyol'dan içeri aktarılmayan kategorilerde null kalır.
+  trendyolCategoryId Int?
   parentId    Int?
   showOnHome  Boolean    @default(false)
   sortOrder   Int        @default(0)

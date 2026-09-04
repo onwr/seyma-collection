@@ -40,7 +40,9 @@ type TyProductRow = {
   title: string
   description: string
   brand: string
+  brandId: number
   categoryName: string
+  pimCategoryId: number
   images: TyImage[]
   listPrice: number
   salePrice: number
@@ -147,7 +149,11 @@ async function resolveProductSlug(
 // Kategori adı -> yerel Category.id
 const categoryCache = new Map<string, number>()
 
-async function resolveCategory(prisma: PrismaClient | null, categoryName: string): Promise<number | null> {
+async function resolveCategory(
+  prisma: PrismaClient | null,
+  categoryName: string,
+  trendyolCategoryId: number | null
+): Promise<number | null> {
   const name = categoryName?.trim()
   if (!name) return null
   if (categoryCache.has(name)) return categoryCache.get(name)!
@@ -155,8 +161,8 @@ async function resolveCategory(prisma: PrismaClient | null, categoryName: string
   const slug = slugify(name, { lower: true, strict: true }) || `kategori-${categoryCache.size + 1}`
   const row = await prisma.category.upsert({
     where: { slug },
-    create: { name, slug },
-    update: { name },
+    create: { name, slug, trendyolCategoryId },
+    update: { name, ...(trendyolCategoryId ? { trendyolCategoryId } : {}) },
   })
   categoryCache.set(name, row.id)
   return row.id
@@ -177,7 +183,7 @@ async function importOneProduct(
 
   const first = usableRows[0]
   const title = first.title
-  const categoryId = await resolveCategory(prisma, first.categoryName)
+  const categoryId = await resolveCategory(prisma, first.categoryName, first.pimCategoryId ?? null)
 
   const description = cleanDescription(first.description)
   const shortDescription = null

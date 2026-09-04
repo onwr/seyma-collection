@@ -188,13 +188,25 @@ async function importOneProduct(
   const description = cleanDescription(first.description)
   const shortDescription = null
 
-  const imagesSource = usableRows.reduce(
-    (best, r) => (r.images?.length > best.images.length ? r : best),
-    usableRows[0]
-  ).images
-  const imageInputs = (imagesSource ?? [])
-    .filter((img) => img?.url)
-    .map((img, i) => ({ url: img.url, alt: title, sortOrder: i, isCover: i === 0 }))
+  // Aynı üründe farklı renkler farklı görsellere sahip olabiliyor (bkz. Renk özniteliği) —
+  // tek bir rengi seçip diğerlerini atmak yerine, tüm renklerin görsellerini tekilleştirerek
+  // (aynı URL tekrar etmesin) galeriye topluyoruz; müşteri hangi rengi seçerse seçsin ürünün
+  // tüm hâllerini görebilsin.
+  const seenUrls = new Set<string>()
+  const imageInputs: { url: string; alt: string; sortOrder: number; isCover: boolean }[] = []
+  for (const row of usableRows) {
+    const renk = row.attributes?.find((a) => a.attributeName === "Renk")?.attributeValue?.trim()
+    for (const img of row.images ?? []) {
+      if (!img?.url || seenUrls.has(img.url)) continue
+      seenUrls.add(img.url)
+      imageInputs.push({
+        url: img.url,
+        alt: renk ? `${title} - ${renk}` : title,
+        sortOrder: imageInputs.length,
+        isCover: imageInputs.length === 0,
+      })
+    }
+  }
 
   const prices = usableRows.map((r) => Number(r.salePrice) || Number(r.listPrice) || 0).filter((p) => p > 0)
   const basePrice = prices.length ? Math.min(...prices) : 0
